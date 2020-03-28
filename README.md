@@ -53,6 +53,7 @@ Here is Bob's tsconfig.json:
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
     "lib": [
       "esnext"
     ],
