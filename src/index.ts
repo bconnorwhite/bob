@@ -25,7 +25,7 @@ const tsc = (watch: boolean) => ({
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "lib": "esnext",
+    "lib": "dom,esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,

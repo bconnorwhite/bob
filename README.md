@@ -55,6 +55,7 @@ Here is Bob's tsconfig.json:
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "lib": [
+      "dom",
       "esnext"
     ],
     "module": "esnext",
