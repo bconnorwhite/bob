@@ -1,6 +1,6 @@
 {
   "name": "@bconnorwhite/bob",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bob builds and watches typescript projects. He'll even clean up your build directory when you delete or move files.",
   "author": "Connor White",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "@bconnorwhite/exec": "../exec",
+    "@bconnorwhite/exec": "^1.0.2",
     "chokidar": "^3.3.1",
     "commander": "^5.0.0",
     "typescript": "^3.8.3"

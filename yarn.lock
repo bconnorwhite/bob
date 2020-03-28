@@ -882,8 +882,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bconnorwhite/exec@../exec":
-  version "1.0.0"
+"@bconnorwhite/exec@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-1.0.2.tgz#ff7d68011bd63c5c45a316aca5bbdfcc074560fc"
+  integrity sha512-px764uZGCJtm54yMmPhUfQG8oZc6lXPArnDyImJ/nvtV6LiaK7ECSjv7UqULYqHiDCyvwKezN/RIjzRZfKzO4w==
 
 "@types/node@^13.9.5":
   version "13.9.5"
