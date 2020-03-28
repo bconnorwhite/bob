@@ -9,7 +9,7 @@ const babel = (watch: boolean) => ({
   command: "babel ./src",
   flags: {
     "out-dir": "./build",
-    "config-file": resolve(__dirname, "babel.config.json"),
+    "config-file": resolve(__dirname, "config-babel.json"),
     "extensions": ".ts,.tsx",
     "delete-dir-on-start": true,
     "copy-files": true,
@@ -20,7 +20,7 @@ const babel = (watch: boolean) => ({
 const tsc = (watch: boolean) => ({
   command: "tsc",
   flags: {
-    "project": resolve(__dirname, "tsconfig.json"),
+    "project": resolve(__dirname, "config-tsc.json"),
     "watch": watch
   }
 });
