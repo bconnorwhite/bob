@@ -18,7 +18,7 @@ Bob is also highly opinionated.
 
 ### Commands
 
-```bash
+```
 Usage: bob [options] [command]
 
 Options:
