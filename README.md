@@ -13,11 +13,12 @@ yarn add @bconnorwhite/bob
 Bob is also highly opinionated.
 - Your source directory must be `./src`
 - Your build directory must be `./build`
-- Bob only builds `.ts` and `.tsx` files, but he will copy over any other types.
+- Bob only builds `.ts` and `.tsx` files, but he will copy over any other file types.
 
 
 ### Commands
 
+###### bob
 ```
 Usage: bob [options] [command]
 
@@ -26,9 +27,35 @@ Options:
 
 Commands:
   build [options]
-  watch
+  watch [options]
   clean
   help [command]   display help for command
+```
+###### bob build
+```
+Usage: bob build [options]
+
+Options:
+  -b --build        Only output build files
+  -d --declaration  Only output declaration files
+  -w --watch        Watch files
+  -h, --help        display help for command
+```
+###### bob watch
+```
+Usage: bob watch [options]
+
+Options:
+  -b --build        Only output build files
+  -d --declaration  Only output declaration files
+  -h, --help        display help for command
+```
+###### bob clean
+```
+Usage: bob clean [options]
+
+Options:
+  -h, --help  display help for command
 ```
 
 Here is Bob's babel.config.json:

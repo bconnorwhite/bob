@@ -5,7 +5,7 @@ import { program } from "commander";
 import chokidar from "chokidar";
 import exec, { execAll, Command } from "@bconnorwhite/exec";
 
-const babel = (watch: boolean) => ({
+const babel = (watch: boolean): Command => ({
   command: "babel ./src",
   flags: {
     "out-dir": "./build",
@@ -17,7 +17,7 @@ const babel = (watch: boolean) => ({
   }
 });
 
-const tsc = (watch: boolean) => ({
+const tsc = (watch: boolean): Command => ({
   command: "tsc src/*.ts*",
   flags: {
     "declaration": true,
@@ -41,26 +41,34 @@ const tsc = (watch: boolean) => ({
   }
 });
 
-const clean = (watch: boolean) => watch ? [{ command: "bob clean" }] : [];
+const clean = (): Command => ({
+  command: "bob clean"
+});
 
 program
   .command("build")
+  .option("-b --build", "Only output build files")
+  .option("-d --declaration", "Only output declaration files")
   .option("-w --watch", "Watch files")
-  .action(({ watch }) => {
-    execAll(([
-      babel(watch),
-      tsc(watch)
-    ] as Command[]).concat(
-      clean(watch)
-    ), {
+  .action(({ build, declaration, watch }) => {
+    const commands = [
+      (build === declaration || build) && babel(watch),
+      (build === declaration || declaration) && tsc(watch),
+      watch && clean()
+    ].filter((command) => command);
+    execAll(commands, {
       parallel: watch
     });
   });
 
 program
   .command("watch")
-  .action(() => {
+  .option("-b --build", "Only output build files")
+  .option("-d --declaration", "Only output declaration files")
+  .action(({ build, declaration }) => {
     exec("bob build", {
+      build,
+      declaration,
       watch: true
     });
   });
