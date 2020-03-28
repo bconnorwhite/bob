@@ -18,9 +18,24 @@ const babel = (watch: boolean) => ({
 });
 
 const tsc = (watch: boolean) => ({
-  command: "tsc",
+  command: "tsc src/*.ts*",
   flags: {
-    "project": resolve(__dirname, "config-tsc.json"),
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./build",
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
     "watch": watch
   }
 });

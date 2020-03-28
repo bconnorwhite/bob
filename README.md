@@ -49,24 +49,19 @@ Here is Bob's tsconfig.json:
 ```json
 {
   "compilerOptions": {
-    "allowJs": false,
-    "alwaysStrict": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
     "lib": [
-      "dom",
       "esnext"
     ],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "../../../../build",
+    "outDir": "./build",
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -74,8 +69,7 @@ Here is Bob's tsconfig.json:
     "target": "esnext"
   },
   "include": [
-    "../../../../src/**/*.ts",
-    "../../../../src/**/*.tsx"
+    "./src/*.ts*"
   ]
 }
 ```
