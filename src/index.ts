@@ -4,6 +4,7 @@ import { existsSync, unlinkSync, rmdirSync } from "fs";
 import { program } from "commander";
 import chokidar from "chokidar";
 import exec, { execAll, Command } from "@bconnorwhite/exec";
+import { version } from "../package.json";
 
 const babel = (watch: boolean): Command => ({
   command: "babel ./src",
@@ -45,11 +46,13 @@ const clean = (): Command => ({
   command: "bob clean"
 });
 
+program.version(version);
+
 program
   .command("build")
   .option("-b --build", "Only output build files")
   .option("-d --declaration", "Only output declaration files")
-  .option("-w --watch", "Watch files")
+  .option("-w --watch", "Watch files for changes")
   .action(({ build, declaration, watch }) => {
     const commands = [
       (build === declaration || build) && babel(watch),

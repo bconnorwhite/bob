@@ -23,6 +23,7 @@ Bob is also highly opinionated.
 Usage: bob [options] [command]
 
 Options:
+  -V, --version    output the version number
   -h, --help       display help for command
 
 Commands:
@@ -38,7 +39,7 @@ Usage: bob build [options]
 Options:
   -b --build        Only output build files
   -d --declaration  Only output declaration files
-  -w --watch        Watch files
+  -w --watch        Watch files for changes
   -h, --help        display help for command
 ```
 ###### bob watch
