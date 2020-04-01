@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { resolve } from "path";
-import { existsSync, unlinkSync, rmdirSync } from "fs";
+import { existsSync, unlinkSync, rmdirSync, readFileSync } from "fs";
 import { program } from "commander";
 import chokidar from "chokidar";
 import exec, { execAll, Command } from "@bconnorwhite/exec";
-import { version } from "../package.json";
+
+const pkg = JSON.parse(readFileSync(resolve(__dirname, "../package.json"), "utf8"));
 
 const babel = (watch: boolean): Command => ({
   command: "babel ./src",
@@ -19,7 +20,7 @@ const babel = (watch: boolean): Command => ({
 });
 
 const tsc = (watch: boolean): Command => ({
-  command: "tsc src/*.ts*",
+  command: "find ./src \\( -name '*.ts' -o -name '*.tsx' \\) -type f | xargs tsc",
   flags: {
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -45,8 +46,6 @@ const tsc = (watch: boolean): Command => ({
 const clean = (): Command => ({
   command: "bob clean"
 });
-
-program.version(version);
 
 program
   .command("build")
@@ -100,5 +99,7 @@ program
       }
     });
   });
+
+program.version(pkg.version);
 
 program.parse(process.argv);

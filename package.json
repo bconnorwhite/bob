@@ -1,6 +1,6 @@
 {
   "name": "@bconnorwhite/bob",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Bob builds and watches typescript projects. He'll even clean up your build directory when you delete or move files.",
   "author": "Connor White",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "bob": "./build/index.js"
   },
   "scripts": {
-    "build": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
+    "build": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files && yarn test build",
     "prepublishOnly": "yarn build",
     "test": "node ./build/index.js"
   },
