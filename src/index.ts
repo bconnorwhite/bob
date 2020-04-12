@@ -5,8 +5,6 @@ import { program } from "commander";
 import chokidar from "chokidar";
 import exec, { execAll, Command } from "@bconnorwhite/exec";
 
-const pkg = JSON.parse(readFileSync(resolve(__dirname, "../package.json"), "utf8"));
-
 const babel = (watch: boolean): Command => ({
   command: "babel ./src",
   flags: {
@@ -100,6 +98,17 @@ program
     });
   });
 
-program.version(pkg.version);
+let pkg: {
+  version?: string;
+} = {};
+if(existsSync(resolve(__dirname, "../package.json"))) {
+  pkg = JSON.parse(readFileSync(resolve(__dirname, "../package.json"), "utf8"));
+} else if(existsSync(resolve(__dirname, "../@bconnorwhite/bob/package.json"))) {
+  pkg = JSON.parse(readFileSync(resolve(__dirname, "../@bconnorwhite/bob/package.json"), "utf8"));
+}
+
+if(pkg.version) {
+  program.version(pkg.version);
+}
 
 program.parse(process.argv);
