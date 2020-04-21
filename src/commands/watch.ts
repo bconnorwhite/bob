@@ -1,0 +1,18 @@
+import { program } from "commander";
+import { build as runBuild } from "./build";
+
+export function watch({ build, declaration }: { build: boolean; declaration: boolean }) {
+  runBuild({
+    build,
+    declaration,
+    watch: true
+  });
+}
+
+export default () => {
+  program
+    .command("watch")
+    .option("-b --build", "Only output build files")
+    .option("-d --declaration", "Only output declaration files")
+    .action(watch);
+}

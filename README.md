@@ -103,3 +103,19 @@ Here is Bob's tsconfig.json:
   ]
 }
 ```
+
+### API
+
+```js
+import { program } from "commander";
+import { build, watch, clean } from "@bconnorwhite/bob";
+
+// These can be used as commander commands
+
+build(); // program.command("build")...
+watch(); // program.command("watch")...
+clean(); // program.command("clean")...
+
+program.parse(process.argv);
+
+```
