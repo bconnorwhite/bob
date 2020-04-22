@@ -1,10 +1,10 @@
 import { resolve } from "path";
 import { existsSync, unlinkSync, rmdirSync } from "fs";
 import { program } from "commander";
-import chokidar from "chokidar";
+import { watch } from "chokidar";
 
 export function clean() {
-  chokidar.watch("src").on("unlink", (path) => {
+  watch("src").on("unlink", (path) => {
     const match = path.match(/^src\/(.*)\.tsx?$/);
     if(match) {
       path = resolve("./build", match[1]);

@@ -1,6 +1,6 @@
-import { build } from "./commands/build";
-import { watch } from "./commands/watch";
-import { clean } from "./commands/clean";
+import build from "./commands/build";
+import watch from "./commands/watch";
+import clean from "./commands/clean";
 
 export {
   build,

@@ -24,4 +24,6 @@ if(pkg.version) {
   program.version(pkg.version);
 }
 
+program.name("bob");
+
 program.parse(process.argv);
