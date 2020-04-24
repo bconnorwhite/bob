@@ -12,6 +12,7 @@ export function watch({ build, declaration }: { build: boolean; declaration: boo
 export default () => {
   program
     .command("watch")
+    .description("watch code to build after changes")
     .option("-b --build", "Only output build files")
     .option("-d --declaration", "Only output declaration files")
     .action(watch);

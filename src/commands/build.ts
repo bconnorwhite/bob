@@ -56,6 +56,7 @@ export function build({ build, declaration, watch }: { build: boolean; declarati
 export default () => {
   program
     .command("build")
+    .description("build and output type declaration files")
     .option("-b --build", "Only output build files")
     .option("-d --declaration", "Only output declaration files")
     .option("-w --watch", "Watch files for changes")

@@ -29,5 +29,6 @@ export function clean() {
 export default () => {
   program
     .command("clean")
+    .description("watch to clean up after files or directories are moved or removed")
     .action(clean);
 }
