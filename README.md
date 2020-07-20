@@ -119,3 +119,26 @@ clean(); // program.command("clean")...
 program.parse(process.argv);
 
 ```
+You can also run the actions, rather than adding to a commander program:
+```js
+import { buildAction, watchAction, cleanAction } from "@bconnorwhite/bob";
+
+// These can be used as commander commands
+
+// equivalent of `bob build`
+buildAction({
+  build: true,
+  declaration: true,
+  watch: false
+});
+
+// equivalent of `bob watch`
+watchAction({
+  build: true,
+  declaration: true
+});
+
+// equivalent of `bob clean`
+cleanAction();
+
+```

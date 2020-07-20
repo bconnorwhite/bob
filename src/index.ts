@@ -1,7 +1,10 @@
-import { build, clean, watch } from "./commands";
+import { build, clean, watch, buildAction, cleanAction, watchAction } from "./commands";
 
 export {
   build,
   watch,
-  clean
+  clean,
+  buildAction,
+  cleanAction,
+  watchAction
 }

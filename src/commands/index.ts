@@ -1,9 +1,12 @@
-import build from "./build";
-import clean from "./clean";
-import watch from "./watch";
+import build, { build as buildAction } from "./build";
+import clean, { clean as cleanAction } from "./clean";
+import watch, { watch as watchAction } from "./watch";
 
 export {
   build,
   clean,
-  watch
+  watch,
+  buildAction,
+  cleanAction,
+  watchAction
 }
