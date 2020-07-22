@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { program } from "commander";
+import commander from "commander";
 import { execAll, Command } from "@bconnorwhite/exec";
 
 const babel = (watch: boolean): Command => ({
@@ -53,7 +53,7 @@ export function build({ build, declaration, watch }: { build: boolean; declarati
   });
 }
 
-export default () => {
+export default (program: commander.Command) => {
   program
     .command("build")
     .description("build and output type declaration files")

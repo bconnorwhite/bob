@@ -4,9 +4,9 @@ import { existsSync, readFileSync } from "fs";
 import { program } from "commander";
 import { build, clean, watch } from "../commands";
 
-build();
-watch();
-clean();
+build(program);
+watch(program);
+clean(program);
 
 let pkg: {
   version?: string;

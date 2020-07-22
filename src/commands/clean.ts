@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { existsSync, unlinkSync, rmdirSync } from "fs";
-import { program } from "commander";
+import commander from "commander";
 import { watch } from "chokidar";
 
 export function clean() {
@@ -26,7 +26,7 @@ export function clean() {
   });
 }
 
-export default () => {
+export default (program: commander.Command) => {
   program
     .command("clean")
     .description("watch to clean up after files or directories are moved or removed")

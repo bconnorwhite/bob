@@ -1,4 +1,4 @@
-import { program } from "commander";
+import commander from "commander";
 import { build as runBuild } from "./build";
 
 export function watch({ build, declaration }: { build: boolean; declaration: boolean }) {
@@ -9,7 +9,7 @@ export function watch({ build, declaration }: { build: boolean; declaration: boo
   });
 }
 
-export default () => {
+export default (program: commander.Command) => {
   program
     .command("watch")
     .description("watch code to build after changes")
