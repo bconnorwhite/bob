@@ -24,8 +24,7 @@
     "build": "yarn build:b && yarn build:d",
     "build:b": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build:d": "yarn tsc ./src/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
-    "prepublishOnly": "yarn build",
-    "test": "node ./build/bin/index.js"
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
