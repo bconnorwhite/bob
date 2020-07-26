@@ -989,15 +989,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bconnorwhite/exec@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-1.1.0.tgz#36c80ba268ba010f9082f3fdecc62042ff6683cc"
-  integrity sha512-0DOzbNCULoKQ+cumNLbLL0q1VDzgXwBk69RZ6YzBvOYYJAMDfg0QLq+dsQ2rmzGGbJLjT3jZR2DDc+0YqIjRCQ==
+"@bconnorwhite/exec@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-1.1.2.tgz#c166b760692bed5561052a58309deea69496b386"
+  integrity sha512-CBmbW5uUNHhygwvwbudqIfB4mB8BVb5zcjemDmQ4AtK4Mv26M5qhWG6TQhhcx6DKxoeEozwhoXQmsz30HQJvTQ==
 
-"@types/node@^14.0.24":
-  version "14.0.24"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.24.tgz#b0f86f58564fa02a28b68f8b55d4cdec42e3b9d6"
-  integrity sha512-btt/oNOiDWcSuI721MdL8VQGnjsKjlTMdrKyTcLCKeQp/n4AAMFJ961wMbp+09y8WuGPClDEv07RIItdXKIXAA==
+"@types/node@^14.0.26":
+  version "14.0.26"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.26.tgz#22a3b8a46510da8944b67bfc27df02c34a35331c"
+  integrity sha512-W+fpe5s91FBGE0pEa0lnqGLL4USgpLgs4nokw16SrBBco/gQxuua7KnArSEOd5iaMqbbSHV10vUDkJYJJqpXKA==
 
 ansi-styles@^3.2.1:
   version "3.2.1"
