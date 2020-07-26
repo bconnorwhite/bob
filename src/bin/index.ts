@@ -8,9 +8,8 @@ build(program);
 watch(program);
 clean(program);
 
-let pkg: {
-  version?: string;
-} = {};
+let pkg: { version?: string; } = {};
+
 if(existsSync(resolve(__dirname, "../package.json"))) {
   pkg = JSON.parse(readFileSync(resolve(__dirname, "../package.json"), "utf8"));
 } else if(existsSync(resolve(__dirname, "../@bconnorwhite/bob/package.json"))) {
