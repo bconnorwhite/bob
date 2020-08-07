@@ -4,7 +4,7 @@
 ![typescript](https://img.shields.io/github/languages/top/bconnorwhite/bob)
 ![npm](https://img.shields.io/npm/v/@bconnorwhite/bob)
 
-Bob builds and watches typescript projects. He'll even clean up your build directory when you delete or move files.
+Bob builds, watches, and runs typescript projects. He'll even clean up your build directory when you delete or move files.
 
 ```
 yarn add @bconnorwhite/bob
@@ -14,6 +14,7 @@ Bob is also highly opinionated.
 - Your source directory must be `./src`
 - Your build directory must be `./build`
 - Bob only builds `.ts` and `.tsx` files, but he will copy over any other file types.
+- Bob will start 'main' as defined in your package.json.
 
 
 ### Commands
@@ -58,8 +59,23 @@ Usage: bob clean [options]
 Options:
   -h, --help  display help for command
 ```
+###### bob start
+```
+Usage: bob start [options]
 
-Here is Bob's babel.config.json:
+Options:
+  -d --dev    set NODE_ENV to 'development' and watch for changes
+  -h, --help  display help for command
+```
+###### bob dev
+```
+Usage: bob dev [options]
+
+Options:
+  -h, --help  display help for command
+```
+
+Here is the eqivalent of Bob's babel.config.json:
 ```json
 {
   "presets": [
@@ -73,7 +89,7 @@ Here is Bob's babel.config.json:
 }
 ```
 
-Here is Bob's tsconfig.json:
+Here is the equivalent of Bob's tsconfig.json:
 ```json
 {
   "compilerOptions": {
@@ -108,20 +124,22 @@ Here is Bob's tsconfig.json:
 
 ```js
 import { program } from "commander";
-import { build, watch, clean } from "@bconnorwhite/bob";
+import { build, watch, clean, start, dev } from "@bconnorwhite/bob";
 
 // These can be used as commander commands
 
-build(program); // program.command("build")...
-watch(program); // program.command("watch")...
-clean(program); // program.command("clean")...
+build(program); // Add build command to program
+watch(program); // Add watch command to program
+clean(program); // Add clean command to program
+start(program); // Add start command to program
+dev(program); // Add dev command to program
 
 program.parse(process.argv);
 
 ```
 You can also run the actions, rather than adding to a commander program:
 ```js
-import { buildAction, watchAction, cleanAction } from "@bconnorwhite/bob";
+import { buildAction, watchAction, cleanAction, startAction, devAction } from "@bconnorwhite/bob";
 
 // These can be used as commander commands
 
@@ -140,5 +158,13 @@ watchAction({
 
 // equivalent of `bob clean`
 cleanAction();
+
+// equivalent of `bob start`
+startAction({
+  dev: false
+});
+
+// equivalent of `bob dev`
+devAction();
 
 ```

@@ -35,11 +35,14 @@
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.10.5",
     "@bconnorwhite/exec": "^1.1.2",
+    "@bconnorwhite/package": "^2.0.2",
     "chokidar": "^3.4.1",
     "commander": "^6.0.0",
+    "nodemon": "^2.0.4",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "@types/node": "^14.0.26"
+    "@types/node": "^14.0.26",
+    "@types/nodemon": "^1.19.0"
   }
 }

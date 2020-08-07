@@ -2,6 +2,12 @@ import { resolve } from "path";
 import commander from "commander";
 import { execAll, Command } from "@bconnorwhite/exec";
 
+export type BuildArgs = {
+  build: boolean;
+  declaration: boolean;
+  watch: boolean;
+}
+
 const babel = (watch: boolean): Command => ({
   command: "babel ./src",
   flags: {
@@ -42,7 +48,7 @@ const clean = (): Command => ({
   command: "bob clean"
 });
 
-export function build({ build, declaration, watch }: { build: boolean; declaration: boolean; watch: boolean }) {
+export function build({ build, declaration, watch }: BuildArgs) {
   const commands = [
     (build === declaration || build) && babel(watch),
     (build === declaration || declaration) && tsc(watch),

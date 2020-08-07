@@ -1,7 +1,9 @@
 import commander from "commander";
-import { build as runBuild } from "./build";
+import { build as runBuild, BuildArgs } from "./build";
 
-export function watch({ build, declaration }: { build: boolean; declaration: boolean }) {
+export type WatchArgs = Pick<BuildArgs, "build"> & Pick<BuildArgs, "declaration">;
+
+export function watch({ build, declaration }: WatchArgs) {
   runBuild({
     build,
     declaration,
