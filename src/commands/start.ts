@@ -35,6 +35,10 @@ export function start({ dev }: StartArgs) {
               NODE_ENV: "development"
             },
             stdout: false
+          }).on("stdout", (stdout) => {
+            console.log(stdout.toString());
+          }).on("stderr", (stderr) => {
+            console.error(stderr.toString());
           }).on("quit", () => {
             process.exit();
           });
