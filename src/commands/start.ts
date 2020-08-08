@@ -7,9 +7,10 @@ import { watch as runWatch } from "./watch";
 
 export type StartArgs = {
   dev: boolean;
+  ignore?: string[];
 };
 
-export function start({ dev }: StartArgs) {
+export function start({ dev, ignore = [] }: StartArgs) {
   const main = getMainDir();
   if(main) {
     if(dev === false) {
@@ -30,6 +31,7 @@ export function start({ dev }: StartArgs) {
           nodemon({
             script: main.relative,
             watch: ["build"],
+            ignore,
             ext: "js json",
             env: {
               NODE_ENV: "development"
@@ -55,5 +57,6 @@ export default (program: commander.Command) => {
     .command("start")
     .description("start the script defined in the main field of package.json")
     .option("-d --dev", "set NODE_ENV to 'development' and watch for changes")
+    .option("-i --ignore [ignore...]", "files or directories to ignore for restart")
     .action(start);
 }

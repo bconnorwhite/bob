@@ -64,15 +64,17 @@ Options:
 Usage: bob start [options]
 
 Options:
-  -d --dev    set NODE_ENV to 'development' and watch for changes
-  -h, --help  display help for command
+  -d --dev                 set NODE_ENV to 'development' and watch for changes
+  -i --ignore [ignore...]  files or directories to ignore for restart
+  -h, --help               display help for command
 ```
 ###### bob dev
 ```
 Usage: bob dev [options]
 
 Options:
-  -h, --help  display help for command
+  -i --ignore [ignore...]  files or directories to ignore for restart
+  -h, --help               display help for command
 ```
 
 Here is the eqivalent of Bob's babel.config.json:
