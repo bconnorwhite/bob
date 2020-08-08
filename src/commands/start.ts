@@ -1,5 +1,6 @@
 import commander from "commander";
 import nodemon from "nodemon";
+import waitOn from "wait-on";
 import { getMainDir } from "@bconnorwhite/package";
 import exec from "@bconnorwhite/exec";
 import { watch as runWatch } from "./watch";
@@ -18,12 +19,26 @@ export function start({ dev }: StartArgs) {
         build: true,
         declaration: true
       });
-      nodemon({
-        script: main.relative,
-        ext: "js json",
-        env: {
-          NODE_ENV: "development"
-        }
+      waitOn({ // wait for babel to remove main
+        resources: [main.relative],
+        interval: 10,
+        reverse: true
+      }).then(() => { // wait for babel to create main
+        waitOn({
+          resources: [main.relative]
+        }).then(() => {
+          nodemon({
+            script: main.relative,
+            watch: ["build"],
+            ext: "js json",
+            env: {
+              NODE_ENV: "development"
+            },
+            stdout: false
+          }).on("quit", () => {
+            process.exit();
+          });
+        });
       });
     }
   } else {
