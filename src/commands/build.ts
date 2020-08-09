@@ -1,6 +1,7 @@
 import { resolve } from "path";
 import commander from "commander";
 import { execAll, Command } from "@bconnorwhite/exec";
+import { getFiles } from "./list";
 
 export type BuildArgs = {
   build: boolean;
@@ -9,7 +10,8 @@ export type BuildArgs = {
 }
 
 const babel = (watch: boolean): Command => ({
-  command: "babel ./src",
+  command: "babel",
+  args: "./src",
   flags: {
     "out-dir": "./build",
     "config-file": resolve(__dirname, "../config-babel.json"),
@@ -20,32 +22,36 @@ const babel = (watch: boolean): Command => ({
   }
 });
 
-const tsc = (watch: boolean): Command => ({
-  command: "find ./src \\( -name '*.ts' -o -name '*.tsx' \\) -type f | xargs tsc",
-  flags: {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "lib": "dom,esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "./build",
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext",
-    "watch": watch
-  }
-});
+const tsc = async (watch: boolean): Promise<Command> => {
+  return getFiles().then((files) => ({
+    command: "tsc",
+    args: files,
+    flags: {
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "jsx": "preserve",
+      "lib": "dom,esnext",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noFallthroughCasesInSwitch": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "outDir": "./build",
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "esnext",
+      "watch": watch
+    }
+  }));
+};
 
 const clean = (): Command => ({
-  command: "bob clean"
+  command: "bob",
+  args: "clean"
 });
 
 export function build({ build, declaration, watch }: BuildArgs) {

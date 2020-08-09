@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
-import { build, clean, watch, start, dev } from "../commands";
+import { build, clean, watch, start, dev, list } from "../commands";
 import { getVersion } from "@bconnorwhite/package";
 
 build(program);
@@ -8,6 +8,7 @@ watch(program);
 clean(program);
 start(program);
 dev(program);
+list(program);
 
 const version = getVersion();
 

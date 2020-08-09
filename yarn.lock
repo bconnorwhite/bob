@@ -989,10 +989,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bconnorwhite/exec@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-1.1.2.tgz#c166b760692bed5561052a58309deea69496b386"
-  integrity sha512-CBmbW5uUNHhygwvwbudqIfB4mB8BVb5zcjemDmQ4AtK4Mv26M5qhWG6TQhhcx6DKxoeEozwhoXQmsz30HQJvTQ==
+"@bconnorwhite/exec@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-2.1.0.tgz#30b38662c98fb3152f377a3376e5e6d2b7c4e414"
+  integrity sha512-456gZGA+KorcuTQvxf82FUUi12WH4gJQoZw1165D7qWMolOjbRNBYlorJrfmtdnZAN/mBcGhIQCIfK2Xg8wqpg==
 
 "@bconnorwhite/package@^2.0.2":
   version "2.0.2"
@@ -1055,6 +1055,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+
+"@types/find@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@types/find/-/find-0.2.1.tgz#e8d0d7a952be2d90768d6f8dd7f2e6630bb260f8"
+  integrity sha512-qUrCBlWoo9ij6ZEMx8G2WEjkdpofFks37/eZSDce7e0BY8lCYS2u7dVAoBy6AKRGX8z/ukllrUAyQ8h+/zlW9w==
 
 "@types/node@*":
   version "14.0.27"
@@ -1723,6 +1728,13 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
+
+find@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/find/-/find-0.3.0.tgz#4082e8fc8d8320f1a382b5e4f521b9bc50775cb8"
+  integrity sha512-iSd+O4OEYV/I36Zl8MdYJO0xD82wH528SaCieTVHhclgiYNe9y+yPKSwK+A7/WsmHL1EZ+pYUJBXWTL5qofksw==
+  dependencies:
+    traverse-chain "~0.1.0"
 
 follow-redirects@1.5.10:
   version "1.5.10"
@@ -2954,6 +2966,11 @@ touch@^3.1.0:
   integrity sha512-WBx8Uy5TLtOSRtIq+M03/sKDrXCLHxwDcquSP2c43Le03/9serjQBIztjRz6FkJez9D/hleyAXTBGLwwZUw9lA==
   dependencies:
     nopt "~1.0.10"
+
+traverse-chain@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/traverse-chain/-/traverse-chain-0.1.0.tgz#61dbc2d53b69ff6091a12a168fd7d433107e40f1"
+  integrity sha1-YdvC1Ttp/2CRoSoWj9fUMxB+QPE=
 
 tslib@^1.9.0:
   version "1.13.0"

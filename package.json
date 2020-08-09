@@ -34,16 +34,18 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.10.5",
-    "@bconnorwhite/exec": "^1.1.2",
+    "@bconnorwhite/exec": "^2.1.0",
     "@bconnorwhite/package": "^2.0.2",
     "chokidar": "^3.4.1",
     "commander": "^6.0.0",
     "dotenv": "^8.2.0",
+    "find": "^0.3.0",
     "nodemon": "^2.0.4",
     "typescript": "^3.9.7",
     "wait-on": "^5.1.0"
   },
   "devDependencies": {
+    "@types/find": "^0.2.1",
     "@types/node": "^14.0.26",
     "@types/nodemon": "^1.19.0",
     "@types/wait-on": "^4.0.0"
