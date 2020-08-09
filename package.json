@@ -38,6 +38,7 @@
     "@bconnorwhite/package": "^2.0.2",
     "chokidar": "^3.4.1",
     "commander": "^6.0.0",
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4",
     "typescript": "^3.9.7",
     "wait-on": "^5.1.0"

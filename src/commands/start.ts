@@ -1,6 +1,7 @@
 import commander from "commander";
 import nodemon from "nodemon";
 import waitOn from "wait-on";
+import dotenv from "dotenv";
 import { getMainDir } from "@bconnorwhite/package";
 import exec from "@bconnorwhite/exec";
 import { watch as runWatch } from "./watch";
@@ -13,29 +14,25 @@ export type StartArgs = {
 export function start({ dev, ignore = [] }: StartArgs) {
   const main = getMainDir();
   if(main) {
-    if(dev === false) {
-      exec(`NODE_ENV=production node ${main.relative}`);
-    } else {
+    if(dev) {
       runWatch({
         build: true,
         declaration: true
       });
       waitOn({ // wait for babel to remove main
-        resources: [main.relative],
+        resources: [main.path],
         interval: 10,
         reverse: true
       }).then(() => { // wait for babel to create main
         waitOn({
-          resources: [main.relative]
+          resources: [main.path]
         }).then(() => {
           nodemon({
-            script: main.relative,
+            script: main.path,
             watch: ["build"],
             ignore,
             ext: "js json",
-            env: {
-              NODE_ENV: "development"
-            },
+            env: dotenv.config().parsed,
             stdout: false
           }).on("stdout", (stdout) => {
             console.log(stdout.toString());
@@ -46,6 +43,8 @@ export function start({ dev, ignore = [] }: StartArgs) {
           });
         });
       });
+    } else {
+      exec(`node -r dotenv/config ${main.path}`);
     }
   } else {
     throw Error("Missing 'main' in package.json");
@@ -55,7 +54,7 @@ export function start({ dev, ignore = [] }: StartArgs) {
 export default (program: commander.Command) => {
   program
     .command("start")
-    .description("start the script defined in the main field of package.json")
+    .description("start the script defined in the main field of package.json akjl")
     .option("-d --dev", "set NODE_ENV to 'development' and watch for changes")
     .option("-i --ignore [ignore...]", "files or directories to ignore for restart")
     .action(start);
