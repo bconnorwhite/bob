@@ -1003,15 +1003,15 @@
     path-exists "^4.0.0"
     which-pm "^2.0.0"
 
-"@bconnorwhite/run-env@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.1.tgz#46ee980f94bf5a8eabaf03fd31f0499aaeb96781"
-  integrity sha512-vZO3oC8oXOTGBTYCTf1XlVEUg/LksV4tKpInD8ZGMMbWPIhhEp6L5y4f+UAaOt7LU7uGqNcBHIexF7ErF/P+7w==
+"@bconnorwhite/run-env@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.2.tgz#79d72353b20ba2d8535a1e27aa9c7f9598d7bd2a"
+  integrity sha512-dlLFMtuhE7kmOYUIKfV8o9PLf+tq1GGkGa5bQy22eiJygOfD+78L/2NfZwE3y5B4mSHWVR1YD2HVU1lLVUpPRA==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
     "@bconnorwhite/package" "^2.2.0"
     dotenv "^8.2.0"
-    package-run "^1.1.1"
+    package-run "^1.1.2"
 
 "@hapi/address@^4.0.1":
   version "4.1.0"
@@ -2581,10 +2581,10 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
-package-run@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.1.tgz#fda29192cc8eddee39ea310fe7d64b01a0133205"
-  integrity sha512-ykRpgBgyaiRBVdMwEfDt6jfoa2jx0lzj+BmVOiuQpOPprPDI5i0/fbMNn7S+WgogU3Gc66p6VC99Ei5C2WfqaQ==
+package-run@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.2.tgz#a7169ddc61ebe85725dea09484222b9c76187788"
+  integrity sha512-2vbx1M6vTyCm5srzYDAflXaqgbECjIA58u8FV7UCSF2IPYH6/vmErls0ze3e1G8mzBy4yesq8FsOMrWQxnamgA==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
     "@bconnorwhite/package" "^2.2.0"
