@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bconnorwhite/bob.git"
   },
   "bin": {
-    "babel": "./build/bin/index.js"
+    "bob": "./build/bin/index.js"
   },
   "main": "./build/index.js",
   "scripts": {
