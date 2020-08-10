@@ -994,23 +994,24 @@
   resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-3.0.3.tgz#c4fbb4f247876e43cebe1916cfbd063ef68cde79"
   integrity sha512-NNFS2CcHX82P9jEAoj48Gsv93LaQr9iXcirymygXfQV/KEwSDWkdLZw7OE4cndzcunselYzjTEqa9S3FucdRRg==
 
-"@bconnorwhite/package@^2.1.1", "@bconnorwhite/package@^2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.1.2.tgz#ee93b757645e469f1cab96a73595c695d5ceea92"
-  integrity sha512-57bcGeeDYJOPYgvCls4Dl5dUh39F4AgEYwNmNK6XJy+KRJ78IxVbmPqFUdO9EX3uNlcoz1prdoVSuwYXrsNNCA==
+"@bconnorwhite/package@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.2.0.tgz#d08da21c95f35801a34ac3a97ae22c57f84262d6"
+  integrity sha512-R5XpI3dw9QP6j8Awy0RX1dpyfvEgV4hrg0V3C6Xd5Hhyd9gQ4IsnxZdCG92W+hl6tJXHY+6mUcjzC6n/P/MlAg==
   dependencies:
+    find-workspace-root "^1.0.1"
     path-exists "^4.0.0"
     which-pm "^2.0.0"
 
-"@bconnorwhite/run-env@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.0.tgz#53a83a86afd4ad1806a9783b6aeb1d62387839f1"
-  integrity sha512-TSrltdwUIhBEhU3QKGDuXhtF8R7LPd9DKoon80PUkfDScma0Fe9C6vf/HlsM7Ww/qEmtUni7hHnEK6D2ICgaiw==
+"@bconnorwhite/run-env@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.1.tgz#46ee980f94bf5a8eabaf03fd31f0499aaeb96781"
+  integrity sha512-vZO3oC8oXOTGBTYCTf1XlVEUg/LksV4tKpInD8ZGMMbWPIhhEp6L5y4f+UAaOt7LU7uGqNcBHIexF7ErF/P+7w==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
-    "@bconnorwhite/package" "^2.1.1"
+    "@bconnorwhite/package" "^2.2.0"
     dotenv "^8.2.0"
-    package-run "^1.1.0"
+    package-run "^1.1.1"
 
 "@hapi/address@^4.0.1":
   version "4.1.0"
@@ -1186,6 +1187,11 @@ async-each@^1.0.1:
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.3.tgz#b727dbf87d7651602f06f4d4ac387f47d91b0cbf"
   integrity sha512-z/WhQ5FPySLdvREByI2vZiTWwCnF0moMJ1hK9YQwDTHKh6I7/uSckMetoRGb5UBZPC1z0jlw+n/XCgjeH7y1AQ==
 
+at-least-node@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
+  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
+
 atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
@@ -1278,7 +1284,7 @@ braces@^2.3.1, braces@^2.3.2:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-braces@~3.0.2:
+braces@^3.0.1, braces@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
@@ -1754,6 +1760,14 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
+find-workspace-root@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/find-workspace-root/-/find-workspace-root-1.0.1.tgz#b6ee5068a560dee5c0fd9f75445108f19ce414b7"
+  integrity sha512-QNIn8vEdwfWMRXaArqsZSICBFYmcvoPJWQrqMJ5GKpyifeNyGNAzb4Vq3VeqmtYOY+McUGWftwdb/Fgx7U2ACg==
+  dependencies:
+    fs-extra "^9.0.1"
+    micromatch "^4.0.2"
+
 find@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/find/-/find-0.3.0.tgz#4082e8fc8d8320f1a382b5e4f521b9bc50775cb8"
@@ -1779,6 +1793,16 @@ fragment-cache@^0.2.1:
   integrity sha1-QpD60n8T6Jvn8zeZxrxaCr//DRk=
   dependencies:
     map-cache "^0.2.2"
+
+fs-extra@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
+  integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
 
 fs-readdir-recursive@^1.1.0:
   version "1.1.0"
@@ -1893,7 +1917,7 @@ graceful-fs@^4.1.11:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.5:
+graceful-fs@^4.1.2, graceful-fs@^4.1.5, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
@@ -2216,6 +2240,15 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+jsonfile@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.0.1.tgz#98966cba214378c8c84b82e085907b40bf614179"
+  integrity sha512-jR2b5v7d2vIOust+w3wtFKZIfpC2pnRmFAhAC/BuweZFQR8qZzxH1OyrQ10HmdVYiXWkYUqPVsz91cG7EL2FBg==
+  dependencies:
+    universalify "^1.0.0"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
@@ -2351,6 +2384,14 @@ micromatch@^3.1.10, micromatch@^3.1.4:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
+
+micromatch@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
+  integrity sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==
+  dependencies:
+    braces "^3.0.1"
+    picomatch "^2.0.5"
 
 mimic-response@^1.0.0, mimic-response@^1.0.1:
   version "1.0.1"
@@ -2540,13 +2581,13 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
-package-run@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.0.tgz#982b548041394a9d19cca6b6c1d241c76cfc6f64"
-  integrity sha512-FpYBoKnv7S8xHtm1NIBGfjWBCkesXcrYZK/hdrg8nRzqoKdpGjSFZAu0VRNRVH3rlbUaQe5Ni7/q0tQ/BHWzqg==
+package-run@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.1.tgz#fda29192cc8eddee39ea310fe7d64b01a0133205"
+  integrity sha512-ykRpgBgyaiRBVdMwEfDt6jfoa2jx0lzj+BmVOiuQpOPprPDI5i0/fbMNn7S+WgogU3Gc66p6VC99Ei5C2WfqaQ==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
-    "@bconnorwhite/package" "^2.1.1"
+    "@bconnorwhite/package" "^2.2.0"
 
 pascalcase@^0.1.1:
   version "0.1.1"
@@ -2578,7 +2619,7 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
 
-picomatch@^2.0.4, picomatch@^2.2.1:
+picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
   integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
@@ -3106,6 +3147,11 @@ unique-string@^2.0.0:
   integrity sha512-uNaeirEPvpZWSgzwsPGtU2zVSTrn/8L5q/IexZmH0eH6SA73CmAA5U4GwORTxQAZs95TAXLNqeLoPPNO5gZfWg==
   dependencies:
     crypto-random-string "^2.0.0"
+
+universalify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-1.0.0.tgz#b61a1da173e8435b2fe3c67d29b9adf8594bd16d"
+  integrity sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
 
 unset-value@^1.0.0:
   version "1.0.0"
