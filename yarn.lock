@@ -989,22 +989,12 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@bconnorwhite/exec@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-3.0.0.tgz#72a304af6c427b318b233e57a4ebe2c451de4d19"
-  integrity sha512-IA2mCSa8U+Pggr7b2ha19EexkrESUgTwJi9x41FbuSQBNcJfQmu5g9QDwY6FLJOV2PmNVgV70ciQWYq4P0Sj3A==
-
 "@bconnorwhite/exec@^3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-3.0.3.tgz#c4fbb4f247876e43cebe1916cfbd063ef68cde79"
   integrity sha512-NNFS2CcHX82P9jEAoj48Gsv93LaQr9iXcirymygXfQV/KEwSDWkdLZw7OE4cndzcunselYzjTEqa9S3FucdRRg==
 
-"@bconnorwhite/package@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.0.2.tgz#fb7c6a01c965d7b8a87b81dc794a11169d958942"
-  integrity sha512-ipRu/Z879cMsIWKvUctXBa4+emLVocVp946/0i/gYBLxKmpxgdC60tk5adafuIrFqn6i4MUlD5wM1JEHiETOAw==
-
-"@bconnorwhite/package@^2.1.1":
+"@bconnorwhite/package@^2.1.1", "@bconnorwhite/package@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.1.2.tgz#ee93b757645e469f1cab96a73595c695d5ceea92"
   integrity sha512-57bcGeeDYJOPYgvCls4Dl5dUh39F4AgEYwNmNK6XJy+KRJ78IxVbmPqFUdO9EX3uNlcoz1prdoVSuwYXrsNNCA==
@@ -1012,14 +1002,15 @@
     path-exists "^4.0.0"
     which-pm "^2.0.0"
 
-"@bconnorwhite/run-env@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.0.0.tgz#1aa0ef9a373bb28b82e9a7c81e65464eb93bc758"
-  integrity sha512-5SaSu72ZvzVESi6Fi85xyYsH5+uyDZAs/BL/R2c+bxW0p2FEdPvkSfwYZGp1EEkgGjhMaOYhBbQspc+Az4xTRg==
+"@bconnorwhite/run-env@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/run-env/-/run-env-1.1.0.tgz#53a83a86afd4ad1806a9783b6aeb1d62387839f1"
+  integrity sha512-TSrltdwUIhBEhU3QKGDuXhtF8R7LPd9DKoon80PUkfDScma0Fe9C6vf/HlsM7Ww/qEmtUni7hHnEK6D2ICgaiw==
   dependencies:
+    "@bconnorwhite/exec" "^3.0.3"
     "@bconnorwhite/package" "^2.1.1"
     dotenv "^8.2.0"
-    package-run "^1.0.1"
+    package-run "^1.1.0"
 
 "@hapi/address@^4.0.1":
   version "4.1.0"
@@ -2549,10 +2540,10 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.2.0"
 
-package-run@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.0.2.tgz#0f86dd339f2b111edb07e894a4e2aa479fbae86f"
-  integrity sha512-m6vQO5haTsNdhsDEieOaa1sZpa58rBE/jKPk5NSSnIhvZMcZzoXVyeELEuGBPcWJWUeEq0dktscPnp7sUhh94g==
+package-run@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/package-run/-/package-run-1.1.0.tgz#982b548041394a9d19cca6b6c1d241c76cfc6f64"
+  integrity sha512-FpYBoKnv7S8xHtm1NIBGfjWBCkesXcrYZK/hdrg8nRzqoKdpGjSFZAu0VRNRVH3rlbUaQe5Ni7/q0tQ/BHWzqg==
   dependencies:
     "@bconnorwhite/exec" "^3.0.3"
     "@bconnorwhite/package" "^2.1.1"

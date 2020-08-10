@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import commander from "commander";
+import { getCommand } from "package-run";
 import { execAll, Command } from "@bconnorwhite/exec";
 import { getFiles } from "./list";
 
@@ -9,7 +10,7 @@ export type BuildArgs = {
   watch: boolean;
 }
 
-const babel = (watch: boolean): Command => ({
+const babel = (watch: boolean) => getCommand({
   command: "babel",
   args: "./src",
   flags: {
@@ -22,8 +23,8 @@ const babel = (watch: boolean): Command => ({
   }
 });
 
-const tsc = async (watch: boolean): Promise<Command> => {
-  return getFiles().then((files) => ({
+const tsc = async (watch: boolean) => {
+  return getFiles().then((files) => getCommand({
     command: "tsc",
     args: files,
     flags: {
@@ -49,7 +50,7 @@ const tsc = async (watch: boolean): Promise<Command> => {
   }));
 };
 
-const clean = (): Command => ({
+const clean = () => getCommand({
   command: "bob",
   args: "clean"
 });
@@ -59,7 +60,7 @@ export function build({ build, declaration, watch }: BuildArgs) {
     (build === declaration || build) && babel(watch),
     (build === declaration || declaration) && tsc(watch),
     watch && clean()
-  ].filter((command) => command) as Command[];
+  ].filter((command) => command) as Promise<Command>[];
   execAll(commands, {
     parallel: watch
   });
