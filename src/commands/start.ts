@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { getMainDir } from "@bconnorwhite/package";
 import exec from "@bconnorwhite/exec";
 import { watch as runWatch } from "./watch";
+import { getEnv } from "../utils";
 
 export type StartArgs = {
   dev: boolean;
@@ -44,7 +45,11 @@ export function start({ dev, ignore = [] }: StartArgs) {
         });
       });
     } else {
-      exec(`node -r dotenv/config ${main.path}`);
+      exec({
+        command: "node",
+        args: main.path,
+        env: getEnv()
+      });
     }
   } else {
     throw Error("Missing 'main' in package.json");
@@ -54,7 +59,7 @@ export function start({ dev, ignore = [] }: StartArgs) {
 export default (program: commander.Command) => {
   program
     .command("start")
-    .description("start the script defined in the main field of package.json akjl")
+    .description("start the script defined in the main field of package.json")
     .option("-d --dev", "set NODE_ENV to 'development' and watch for changes")
     .option("-i --ignore [ignore...]", "files or directories to ignore for restart")
     .action(start);

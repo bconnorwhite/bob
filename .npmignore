@@ -1,5 +1,3 @@
 src
 .gitignore
 babel.config.json
-tsconfig.json
-yarn.lock

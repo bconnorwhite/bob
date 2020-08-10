@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 import { program } from "commander";
-import { build, clean, watch, start, dev, list } from "../commands";
-import { getVersion } from "@bconnorwhite/package";
+import { build, clean, watch, start, dev, list, dockerize, dockerBuild } from "../commands";
+import pkg from "../../package.json";
 
 build(program);
 watch(program);
-clean(program);
 start(program);
 dev(program);
+dockerize(program);
+dockerBuild(program);
+clean(program);
 list(program);
 
-const version = getVersion();
-
-if(version) {
-  program.version(version);
+if(pkg.version) {
+  program.version(pkg.version);
 }
 
 program.name("bob");

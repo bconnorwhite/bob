@@ -4,6 +4,8 @@ import watch, { watch as watchAction } from "./watch";
 import start, { start as startAction } from "./start";
 import dev, { dev as devAction } from "./dev";
 import list, { list as listAction } from "./list";
+import dockerize, { dockerize as dockerizeAction } from "./dockerize";
+import dockerBuild, { dockerBuild as dockerBuildAction } from "./docker-build";
 
 export {
   build,
@@ -12,10 +14,14 @@ export {
   start,
   dev,
   list,
+  dockerize,
+  dockerBuild,
   buildAction,
   cleanAction,
   watchAction,
   startAction,
   devAction,
-  listAction
+  listAction,
+  dockerizeAction,
+  dockerBuildAction
 }
