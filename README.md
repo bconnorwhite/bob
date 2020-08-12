@@ -139,13 +139,18 @@ Here is the eqivalent of Bob's babel.config.json:
 {
   "presets": [
     "@babel/preset-typescript",
-    "@babel/preset-env",
+    [
+      "@babel/preset-env", {
+        "loose": true
+      }
+    ],
     "@babel/preset-react"
   ],
   "plugins": [
     "@babel/plugin-transform-runtime"
   ]
 }
+
 ```
 
 Here is the equivalent of Bob's tsconfig.json:

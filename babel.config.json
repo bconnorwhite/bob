@@ -3,9 +3,6 @@
     "@babel/preset-typescript",
     [
       "@babel/preset-env", {
-        "targets": [
-          "maintained node versions"
-        ],
         "loose": true
       }
     ]
