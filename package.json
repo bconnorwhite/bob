@@ -34,7 +34,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@babel/runtime": "^7.10.5",
-    "@bconnorwhite/exec": "^3.0.3",
+    "@bconnorwhite/exec": "^4.0.0",
     "@bconnorwhite/package": "^2.2.2",
     "@bconnorwhite/run-env": "^1.1.4",
     "chokidar": "^3.4.1",

@@ -128,7 +128,16 @@ Options:
 ```
 Usage: bob list [options]
 
-list files to build
+list files included in build
+
+Options:
+  -h, --help  display help for command
+```
+###### bob count
+```
+Usage: bob count [options]
+
+count lines across source files
 
 Options:
   -h, --help  display help for command

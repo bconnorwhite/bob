@@ -994,6 +994,11 @@
   resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-3.0.3.tgz#c4fbb4f247876e43cebe1916cfbd063ef68cde79"
   integrity sha512-NNFS2CcHX82P9jEAoj48Gsv93LaQr9iXcirymygXfQV/KEwSDWkdLZw7OE4cndzcunselYzjTEqa9S3FucdRRg==
 
+"@bconnorwhite/exec@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-4.0.0.tgz#c9b714f06ce22b3d95cb4869e2b2de28cfa1afec"
+  integrity sha512-yxbJmSiKFPZqlrbwnFzx7dN6Cd5AhMuoApia/6MbDHPVB8ePAS5HJZA9UoQkvOpwuBkbDWjQlu9Fs4alV7a4cg==
+
 "@bconnorwhite/package@^2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-2.2.2.tgz#55ee34ac396c13670e8cef97aa0951a6c9871e33"
