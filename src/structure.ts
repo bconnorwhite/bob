@@ -1,6 +1,6 @@
-import { structure as packageStructure, defineFrom, Directory, File } from "@bconnorwhite/package";
+import { define as defineAs, defineFrom, Directory, File } from "@bconnorwhite/package";
 
-const structure = defineFrom(packageStructure, {
+const structure = defineAs({
   source: {
     name: "src",
     files: {}
@@ -35,6 +35,8 @@ export function getBuildDir() {
 export function getDockerDir(env: string) {
   return (structure.files().docker as Directory).files(env)[env] as Directory;
 }
+
+export const define = defineFrom(structure);
 
 export {
   defineFrom,
