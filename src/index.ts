@@ -15,6 +15,7 @@ import structure, {
   getSourceDir,
   getBuildDir,
   getDockerDir,
+  define,
   defineFrom,
   Directory,
   File
