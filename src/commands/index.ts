@@ -24,6 +24,7 @@ export {
   startAction,
   devAction,
   listAction,
+  countAction,
   dockerizeAction,
   dockerBuildAction
 }

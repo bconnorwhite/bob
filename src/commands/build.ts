@@ -3,18 +3,19 @@ import commander from "commander";
 import { getCommand } from "package-run";
 import { execAll, Command } from "@bconnorwhite/exec";
 import { getFiles } from "./list";
+import { getSourceDir, getBuildDir } from "../structure";
 
 export type BuildArgs = {
   build: boolean;
   declaration: boolean;
   watch: boolean;
-}
+};
 
 const babel = (watch: boolean) => getCommand({
   command: "babel",
-  args: "./src",
+  args: getSourceDir().relative,
   flags: {
-    "out-dir": "./build",
+    "out-dir": getBuildDir().relative,
     "config-file": resolve(__dirname, "../config-babel.json"),
     "extensions": ".ts,.tsx",
     "delete-dir-on-start": true,
@@ -39,7 +40,7 @@ const tsc = async (watch: boolean) => {
       "noFallthroughCasesInSwitch": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "outDir": "./build",
+      "outDir": getBuildDir().relative,
       "removeComments": true,
       "resolveJsonModule": true,
       "skipLibCheck": true,

@@ -11,6 +11,15 @@ import {
   devAction
 } from "./commands";
 
+import structure, {
+  getSourceDir,
+  getBuildDir,
+  getDockerDir,
+  defineFrom,
+  Directory,
+  File
+} from "./structure";
+
 export {
   build,
   watch,
@@ -21,5 +30,12 @@ export {
   cleanAction,
   watchAction,
   startAction,
-  devAction
+  devAction,
+  structure,
+  getSourceDir,
+  getBuildDir,
+  getDockerDir,
+  defineFrom,
+  Directory,
+  File
 }

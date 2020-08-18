@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { program } from "commander";
+import { version, getVersion } from "@bconnorwhite/module";
 import { build, clean, watch, start, dev, list, count, dockerize, dockerBuild } from "../commands";
-import pkg from "../../package.json";
 
 build(program);
 watch(program);
@@ -12,10 +12,7 @@ dockerBuild(program);
 clean(program);
 list(program);
 count(program);
-
-if(pkg.version) {
-  program.version(pkg.version);
-}
+version(program, __dirname);
 
 program.name("bob");
 

@@ -1,10 +1,10 @@
 import find from "find";
 import commander from "commander";
-import { getRootDir } from "@bconnorwhite/package";
+import { getSourceDir } from "../structure";
 
 export function getFiles() {
   return new Promise<string[]>((resolve) => {
-    find.file(/\.tsx?$/, getRootDir("src").relative, (files) => {
+    find.file(/\.tsx?$/, getSourceDir().relative, (files) => {
       resolve(files);
     });
   });

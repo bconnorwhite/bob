@@ -2,8 +2,9 @@ import commander from "commander";
 import nodemon from "nodemon";
 import waitOn from "wait-on";
 import dotenv from "dotenv";
-import { getMainDir } from "@bconnorwhite/package";
+import { getMain } from "@bconnorwhite/package";
 import exec from "@bconnorwhite/exec";
+import { getBuildDir } from "../structure";
 import { watch as runWatch } from "./watch";
 import { getEnv } from "../utils";
 
@@ -13,46 +14,42 @@ export type StartArgs = {
 };
 
 export function start({ dev, ignore = [] }: StartArgs) {
-  const main = getMainDir();
-  if(main) {
-    if(dev) {
-      runWatch({
-        build: true,
-        declaration: true
-      });
-      waitOn({ // wait for babel to remove main
-        resources: [main.path],
-        interval: 10,
-        reverse: true
-      }).then(() => { // wait for babel to create main
-        waitOn({
-          resources: [main.path]
-        }).then(() => {
-          nodemon({
-            script: main.path,
-            watch: ["build"],
-            ignore,
-            ext: "js json",
-            env: dotenv.config().parsed,
-            stdout: false
-          }).on("stdout", (stdout) => {
-            console.log(stdout.toString());
-          }).on("stderr", (stderr) => {
-            console.error(stderr.toString());
-          }).on("quit", () => {
-            process.exit();
-          });
+  const main = getMain();
+  if(dev) {
+    runWatch({
+      build: true,
+      declaration: true
+    });
+    waitOn({ // wait for babel to remove main
+      resources: [main.path],
+      interval: 10,
+      reverse: true
+    }).then(() => { // wait for babel to create main
+      waitOn({
+        resources: [main.path]
+      }).then(() => {
+        nodemon({
+          script: main.path,
+          watch: [getBuildDir().relative],
+          ignore,
+          ext: "js json",
+          env: dotenv.config().parsed,
+          stdout: false
+        }).on("stdout", (stdout) => {
+          console.log(stdout.toString());
+        }).on("stderr", (stderr) => {
+          console.error(stderr.toString());
+        }).on("quit", () => {
+          process.exit();
         });
       });
-    } else {
-      exec({
-        command: "node",
-        args: main.path,
-        env: getEnv()
-      });
-    }
+    });
   } else {
-    throw Error("Missing 'main' in package.json");
+    exec({
+      command: "node",
+      args: main.path,
+      env: getEnv()
+    });
   }
 }
 

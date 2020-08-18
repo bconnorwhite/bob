@@ -1,9 +1,9 @@
 import commander from "commander";
 import { access, constants } from "fs";
-import { join } from "path";
 import exec from "@bconnorwhite/exec";
-import { getVersion, getRootDir } from "@bconnorwhite/package";
-import { getEnv, defaultDockerDir } from "../utils";
+import { pkg } from "@bconnorwhite/package";
+import { getEnv } from "../utils";
+import { getDockerDir } from "../structure";
 
 export type DockerBuildArgs = {
   context: string;
@@ -13,35 +13,35 @@ export type DockerBuildArgs = {
   environment?: string;
 }
 
-export const defaultDockerfile = "Dockerfile";
-
 export function dockerBuild({ context, tag, ver = false, latest = false, environment }: DockerBuildArgs) {
   const env = getEnv();
   const NODE_ENV = environment ?? env.NODE_ENV;
-  let tags: string[] = [];
-  if(tag) {
-    if(ver && !tag.includes(":")) {
-      tags.push(`${tag}:${getVersion()}`);
+  if(NODE_ENV) {
+    const file = getDockerDir(NODE_ENV).files().dockerfile;
+    let tags: string[] = [];
+    if(tag) {
+      if(ver && !tag.includes(":") && pkg.version) {
+        tags.push(`${tag}:${pkg.version}`);
+      }
+      if(latest) {
+        tags.push(`${tag.split(":")[0]}:latest`);
+      }
     }
-    if(latest) {
-      tags.push(`${tag.split(":")[0]}:latest`);
-    }
-  }
-  const file = join(getRootDir().path, `${defaultDockerDir}/${NODE_ENV}/${defaultDockerfile}`);
-  access(file, constants.R_OK, (err) => {
-    exec({
-      command: "docker",
-      args: [
-        "build",
-        context
-      ],
-      flags: {
-        file: err ? undefined : file,
-        tag: tags
-      },
-      env
+    access(file.path, constants.R_OK, (err) => {
+      exec({
+        command: "docker",
+        args: [
+          "build",
+          context
+        ],
+        flags: {
+          file: err ? undefined : file.path,
+          tag: tags
+        },
+        env
+      });
     });
-  })
+  }
 };
 
 export default (program: commander.Command) => {

@@ -1,9 +1,8 @@
 import commander from "commander";
 import { access, constants } from "fs";
-import { join } from "path";
 import exec from "@bconnorwhite/exec";
-import { getRootDir } from "@bconnorwhite/package";
-import { getEnv, defaultDockerDir } from "../utils";
+import { getDockerDir } from "../structure";
+import { getEnv } from "../utils";
 
 export type DockerizeArgs = {
   detach?: boolean;
@@ -15,18 +14,20 @@ export const defaultDockerComposeFile = "docker-compose.yml";
 export function dockerize({ detach = false, environment }: DockerizeArgs) {
   const env = getEnv();
   const NODE_ENV = environment ?? env.NODE_ENV;
-  const file = join(getRootDir().path, `${defaultDockerDir}/${NODE_ENV}/${defaultDockerComposeFile}`);
-  access(file, constants.R_OK, (err) => {
-    exec({
-      command: "docker-compose",
-      args: "up",
-      flags: {
-        detach,
-        file: err ? undefined : file
-      },
-      env
+  if(NODE_ENV) {
+    const file = getDockerDir(NODE_ENV).files().compose;
+    access(file.path, constants.R_OK, (err) => {
+      exec({
+        command: "docker-compose",
+        args: "up",
+        flags: {
+          detach,
+          file: err ? undefined : file.path
+        },
+        env
+      });
     });
-  });
+  }
 }
 
 export default (program: commander.Command) => {
