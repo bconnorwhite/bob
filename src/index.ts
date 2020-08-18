@@ -36,6 +36,7 @@ export {
   getSourceDir,
   getBuildDir,
   getDockerDir,
+  define,
   defineFrom,
   Directory,
   File
