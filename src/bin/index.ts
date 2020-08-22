@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from "commander";
-import { version, getVersion } from "@bconnorwhite/module";
+import { version } from "@bconnorwhite/module";
 import { build, clean, watch, start, dev, list, count, dockerize, dockerBuild } from "../commands";
 
 build(program);
