@@ -994,6 +994,13 @@
   resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-4.0.0.tgz#c9b714f06ce22b3d95cb4869e2b2de28cfa1afec"
   integrity sha512-yxbJmSiKFPZqlrbwnFzx7dN6Cd5AhMuoApia/6MbDHPVB8ePAS5HJZA9UoQkvOpwuBkbDWjQlu9Fs4alV7a4cg==
 
+"@bconnorwhite/exec@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/exec/-/exec-5.1.0.tgz#9649c610ce277de09f3c76afe1b27504a9d9046e"
+  integrity sha512-5tD8gDrDAcR//i0BZXwQ9ON2KSnAYR/dnTQju1u63sSwvzBr8DEi5uzlCwGLMi4fErTLOq1MbMoOqU6SikoYhg==
+  dependencies:
+    parse-json-object "^1.0.0"
+
 "@bconnorwhite/module@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/module/-/module-1.0.4.tgz#faec96a895b3f85d4f344734007cbf63573e4b1b"
@@ -1014,11 +1021,12 @@
     read-json-safe "^1.0.1"
     recursive-readdir "^2.2.2"
 
-"@bconnorwhite/package@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-3.0.2.tgz#9b945700ad48a1632892c7cf83a6d34832c37545"
-  integrity sha512-qMbcg3cBW8TswkP7fkzQ+VdUYKgDaeO3J5rn+l25u9+o3vQkS/ZfRQYKOJQOcoNHt8oYJr8lBSaJdfXJCAJ4bw==
+"@bconnorwhite/package@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-3.1.0.tgz#27307b2781e8b26d19311056e3ed2a25cf9b36e8"
+  integrity sha512-btZon84fUC3LwyRqE5R7lCLSG1aizqMR9f0e5BEug29hmbOwXA/AF2eBu8qLQDlB8GgTJetp7cTK3vcF82bWMg==
   dependencies:
+    "@bconnorwhite/exec" "^5.1.0"
     find-workspace-root "^1.0.1"
     path-exists "^4.0.0"
     read-file-safe "^1.0.1"
@@ -1102,10 +1110,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.27.tgz#a151873af5a5e851b51b3b065c9e63390a9e0eb1"
   integrity sha512-kVrqXhbclHNHGu9ztnAwSncIgJv/FaxmzXJvGXNdcCpV1b8u1/Mi6z6m0vwy0LzKeXFTPLH0NzwmoJ3fNCIq0g==
 
-"@types/node@^14.0.26":
-  version "14.0.26"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.26.tgz#22a3b8a46510da8944b67bfc27df02c34a35331c"
-  integrity sha512-W+fpe5s91FBGE0pEa0lnqGLL4USgpLgs4nokw16SrBBco/gQxuua7KnArSEOd5iaMqbbSHV10vUDkJYJJqpXKA==
+"@types/node@^14.6.0":
+  version "14.6.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.6.0.tgz#7d4411bf5157339337d7cff864d9ff45f177b499"
+  integrity sha512-mikldZQitV94akrc4sCcSjtJfsTKt4p+e/s0AGscVA6XArQ9kFclP+ZiYUMnq987rc6QlYxXv/EivqlfSLxpKA==
 
 "@types/nodemon@^1.19.0":
   version "1.19.0"
