@@ -16,10 +16,6 @@ export type StartArgs = {
 export function start({ dev, ignore = [] }: StartArgs) {
   const main = getMain();
   if(dev) {
-    runWatch({
-      build: true,
-      declaration: true
-    });
     waitOn({ // wait for babel to remove main
       resources: [main.path],
       interval: 10,
@@ -40,9 +36,13 @@ export function start({ dev, ignore = [] }: StartArgs) {
         }).on("stderr", (stderr) => {
           console.error(stderr.toString());
         }).on("quit", () => {
-          process.exit();
+          process.kill(process.pid, "SIGKILL");
         });
       });
+    });
+    runWatch({
+      build: true,
+      declaration: true
     });
   } else {
     exec({
