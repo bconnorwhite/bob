@@ -3,7 +3,10 @@
     "@babel/preset-typescript",
     [
       "@babel/preset-env", {
-        "loose": true
+        "loose": true,
+        "exclude": [
+          "@babel/plugin-transform-regenerator"
+        ]
       }
     ]
   ]
