@@ -1,26 +1,48 @@
-import { define as defineAs, defineFrom, Directory, File } from "@bconnorwhite/package";
+import { define as defineAs, defineFrom, Directory, File, getPackageJSON } from "@bconnorwhite/package";
+
+const dockerDefinition = {
+  files: {
+    dockerfile: {
+      name: "Dockerfile"
+    },
+    compose: {
+      name: "docker-compose.yml"
+    }
+  }
+};
 
 const structure = defineAs({
   source: {
     name: "src",
-    files: {}
+    files: {
+      index: {
+        name: "index.ts"
+      }
+    }
   },
   build: {
-    files: {}
+    files: {
+      index: {
+        name: "index.js"
+      }
+    }
   },
   docker: {
-    files: (env: string) => ({
-      [env]: {
-        files: {
-          dockerfile: {
-            name: "Dockerfile"
-          },
-          compose: {
-            name: "docker-compose.yml"
-          }
+    files: (env?: string) => {
+      if(env) {
+        return {
+          [env]: dockerDefinition
         }
+      } else {
+        return dockerDefinition.files;
       }
-    })
+    }
+  },
+  gitignore: {
+    name: ".gitignore"
+  },
+  npmignore: {
+    name: ".npmignore"
   }
 });
 
@@ -28,12 +50,28 @@ export function getSourceDir() {
   return structure.files().source as Directory;
 }
 
+export function getSourceIndex() {
+  return getSourceDir().files().index as File<string>;
+}
+
 export function getBuildDir() {
   return structure.files().build as Directory;
 }
 
-export function getDockerDir(env: string) {
-  return (structure.files().docker as Directory).files(env)[env] as Directory;
+export function getBuildIndex() {
+  return getBuildDir().files().index as File<string>;
+}
+
+export function getDockerDir(env?: string) {
+  return (env ? (structure.files().docker as Directory).files(env)[env] : (structure.files().docker as Directory).files(env)) as Directory;
+}
+
+export function getGitIgnore() {
+  return structure.files().gitignore as File<string>;
+}
+
+export function getNPMIgnore() {
+  return structure.files().npmignore as File<string>;
 }
 
 export const define = defineFrom(structure);
@@ -41,7 +79,8 @@ export const define = defineFrom(structure);
 export {
   defineFrom,
   Directory,
-  File
+  File,
+  getPackageJSON
 }
 
 export default structure;

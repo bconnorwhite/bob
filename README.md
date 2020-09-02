@@ -1,6 +1,5 @@
 # @bconnorwhite/bob
 ![dependencies](https://img.shields.io/david/bconnorwhite/bob)
-![minzipped size](https://img.shields.io/bundlephobia/minzip/@bconnorwhite/bob)
 ![typescript](https://img.shields.io/github/languages/top/bconnorwhite/bob)
 ![npm](https://img.shields.io/npm/v/@bconnorwhite/bob)
 

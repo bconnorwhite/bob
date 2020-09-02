@@ -20,7 +20,7 @@ export function dockerBuild({ context, tag, ver = false, latest = false, environ
     const file = getDockerDir(NODE_ENV).files().dockerfile;
     let tags: string[] = [];
     if(tag) {
-      if(ver && !tag.includes(":") && pkg.version) {
+      if(ver && !tag.includes(":") && pkg?.version) {
         tags.push(`${tag}:${pkg.version}`);
       }
       if(latest) {

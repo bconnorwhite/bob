@@ -1,8 +1,8 @@
 {
   "name": "@bconnorwhite/bob",
   "version": "1.9.5",
-  "description": "Bob builds and watches typescript projects. He'll even clean up your build directory when you delete or move files.",
-  "author": "Connor White",
+  "description": "Bob is a toolkit for typescript projects.",
+  "author": "Connor White <connor.bcw@gmail.com>",
   "license": "MIT",
   "keywords": [
     "build",
@@ -21,22 +21,20 @@
   },
   "main": "./build/index.js",
   "scripts": {
-    "build": "yarn build:b && yarn build:d",
-    "build:b": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
-    "build:d": "yarn tsc ./src/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
+    "build": "yarn build:babel && yarn build:tsc",
+    "build:babel": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
+    "build:tsc": "yarn tsc ./src/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@babel/runtime": "^7.10.5",
     "@bconnorwhite/exec": "^5.1.0",
     "@bconnorwhite/module": "^1.0.4",
-    "@bconnorwhite/package": "^3.1.0",
+    "@bconnorwhite/package": "^4.1.1",
     "@bconnorwhite/run-env": "^1.1.6",
     "chokidar": "^3.4.1",
     "commander": "^6.0.0",
@@ -45,7 +43,8 @@
     "nodemon": "^2.0.4",
     "package-run": "^1.1.7",
     "typescript": "^3.9.7",
-    "wait-on": "^5.1.0"
+    "wait-on": "^5.1.0",
+    "which-pm-lockfile": "^1.1.0"
   },
   "devDependencies": {
     "@types/find": "^0.2.1",
