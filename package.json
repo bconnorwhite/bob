@@ -29,11 +29,9 @@
   "dependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
-    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@babel/runtime": "^7.10.5",
     "@bconnorwhite/exec": "^5.1.0",
     "@bconnorwhite/module": "^1.0.4",
     "@bconnorwhite/package": "^3.1.0",
