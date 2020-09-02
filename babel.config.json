@@ -6,8 +6,5 @@
         "loose": true
       }
     ]
-  ],
-  "plugins": [
-    "@babel/plugin-transform-runtime"
   ]
 }
