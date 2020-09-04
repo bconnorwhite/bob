@@ -1,7 +1,7 @@
 {
   "name": "@bconnorwhite/bob",
   "version": "1.9.7",
-  "description": "Bob builds and watches typescript projects. He'll even clean up your build directory when you delete or move files.",
+  "description": "Bob is a toolkit for typescript projects",
   "author": "Connor White",
   "license": "MIT",
   "keywords": [
