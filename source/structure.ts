@@ -13,7 +13,7 @@ const dockerDefinition = {
 
 const structure = defineAs({
   source: {
-    name: "src",
+    name: "source",
     files: {
       index: {
         name: "index.ts"
@@ -26,6 +26,9 @@ const structure = defineAs({
         name: "index.js"
       }
     }
+  },
+  test: {
+    files: {}
   },
   docker: {
     files: (env?: string) => {
@@ -58,6 +61,10 @@ export function getBuildDir() {
   return structure.files().build as Directory;
 }
 
+export function getTestDir() {
+  return structure.files().test as Directory;
+}
+
 export function getBuildIndex() {
   return getBuildDir().files().index as File<string>;
 }
@@ -66,7 +73,7 @@ export function getDockerDir(env?: string) {
   return (env ? (structure.files().docker as Directory).files(env)[env] : (structure.files().docker as Directory).files(env)) as Directory;
 }
 
-export function getGitIgnore() {
+export function getGitignore() {
   return structure.files().gitignore as File<string>;
 }
 

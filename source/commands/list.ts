@@ -1,10 +1,10 @@
 import { join } from "path";
 import find from "find";
-import commander from "commander";
+import { createCommand } from "commander";
 import { getWorkspacePackages, exists } from "@bconnorwhite/package";
 import { getSourceDir } from "../structure";
 
-export async function getFiles() {
+export async function list() {
   return getWorkspacePackages().then(async (packages) => {
     if(packages) {
       let promises: Promise<string[]>[] = [];
@@ -36,15 +36,12 @@ export async function getFiles() {
   });
 }
 
-export function list() {
-  getFiles().then((files) => {
+export function listAction() {
+  list().then((files) => {
     console.log(files);
   });
 }
 
-export default (program: commander.Command) => {
-  program
-    .command("list")
-    .description("list files included in build")
-    .action(list);
-}
+export default createCommand("list")
+  .description("list files included in build")
+  .action(listAction);

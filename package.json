@@ -1,59 +1,79 @@
 {
   "name": "@bconnorwhite/bob",
   "version": "1.9.7",
-  "description": "Bob is a toolkit for typescript projects",
-  "author": "Connor White",
+  "description": "Bob is a toolkit for TypeScript projects",
   "license": "MIT",
+  "author": {
+    "name": "Connor White",
+    "email": "connor.bcw@gmail.com",
+    "url": "https://connorwhite.org"
+  },
+  "homepage": "https://connorwhite.org/github/bob",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bconnorwhite/bob.git"
+  },
   "files": [
     "build"
   ],
   "keywords": [
+    "bob",
     "build",
     "typescript",
     "watch",
     "clean",
     "react",
-    "babel"
+    "babel",
+    "node",
+    "docker",
+    "line",
+    "count",
+    "tool",
+    "tools",
+    "toolkit"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bconnorwhite/bob.git"
-  },
+  "main": "./build/index.js",
   "bin": {
     "bob": "./build/bin/index.js"
   },
-  "main": "./build/index.js",
   "scripts": {
-    "build": "yarn build:babel && yarn build:tsc",
-    "build:babel": "babel ./src --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
-    "build:tsc": "yarn tsc ./src/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
-    "prepublishOnly": "yarn build",
-    "postversion": "git push"
+    "build": "yarn build-source && yarn build-types",
+    "build-source": "babel ./source --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
+    "build-types": "yarn tsc ./source/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
+    "lint": "yarn npmPkgJsonLint .",
+    "postversion": "git push",
+    "prepublishOnly": "yarn build && yarn lint",
+    "start": "node ./build/bin/index.js",
+    "test": "yarn jest"
   },
   "dependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@bconnorwhite/exec": "^5.1.0",
-    "@bconnorwhite/module": "^1.0.4",
-    "@bconnorwhite/package": "^4.1.1",
+    "@bconnorwhite/exec": "^5.3.0",
+    "@bconnorwhite/package": "^4.1.6",
     "@bconnorwhite/run-env": "^1.1.6",
-    "chokidar": "^3.4.1",
-    "commander": "^6.0.0",
+    "chokidar": "^3.4.2",
+    "commander": "^6.1.0",
     "dotenv": "^8.2.0",
     "find": "^0.3.0",
+    "inquirer": "^7.3.3",
     "nodemon": "^2.0.4",
-    "package-run": "^1.1.7",
-    "typescript": "^3.9.7",
-    "wait-on": "^5.1.0",
+    "ora": "^5.1.0",
+    "package-run": "^1.4.1",
+    "typescript": "^4.0.2",
+    "wait-on": "^5.2.0",
     "which-pm-lockfile": "^1.1.0"
   },
   "devDependencies": {
     "@types/find": "^0.2.1",
+    "@types/inquirer": "^7.3.1",
     "@types/node": "^14.6.0",
     "@types/nodemon": "^1.19.0",
-    "@types/wait-on": "^4.0.0"
+    "@types/wait-on": "^4.0.0",
+    "jest": "^26.4.2",
+    "npm-package-json-lint": "^5.1.0"
   }
 }

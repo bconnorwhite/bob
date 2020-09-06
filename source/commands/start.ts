@@ -1,11 +1,11 @@
-import commander from "commander";
+import { createCommand } from "commander";
 import nodemon from "nodemon";
 import waitOn from "wait-on";
 import dotenv from "dotenv";
 import { getMain } from "@bconnorwhite/package";
 import exec from "@bconnorwhite/exec";
 import { getBuildDir } from "../structure";
-import { watch as runWatch } from "./watch";
+import { watch } from "./watch";
 import { getEnv } from "../utils";
 
 export type StartArgs = {
@@ -15,8 +15,9 @@ export type StartArgs = {
 
 export function start({ dev, ignore = [] }: StartArgs) {
   const main = getMain();
+  const promises: Promise<any>[] = [];
   if(dev) {
-    waitOn({ // wait for babel to remove main
+    promises.push(waitOn({ // wait for babel to remove main
       resources: [main.path],
       interval: 10,
       reverse: true
@@ -39,25 +40,26 @@ export function start({ dev, ignore = [] }: StartArgs) {
           process.kill(process.pid, "SIGKILL");
         });
       });
-    });
-    runWatch({
-      build: true,
-      declaration: true
-    });
+    }));
+    const { source, types } = watch();
+    promises.push(source);
+    promises.push(types);
   } else {
-    exec({
+    promises.push(exec({
       command: "node",
       args: main.path,
       env: getEnv()
-    });
+    }));
   }
+  return Promise.all(promises);
 }
 
-export default (program: commander.Command) => {
-  program
-    .command("start")
-    .description("start the script defined in the main field of package.json")
-    .option("-d --dev", "set NODE_ENV to 'development' and watch for changes")
-    .option("-i --ignore [ignore...]", "files or directories to ignore for restart")
-    .action(start);
+export function startAction(args: StartArgs) {
+  start(args);
 }
+
+export default createCommand("start")
+  .description("start the script defined in the main field of package.json")
+  .option("-d --dev", "set NODE_ENV to 'development' and watch for changes")
+  .option("-i --ignore [ignore...]", "files or directories to ignore for restart")
+  .action(startAction);
