@@ -1,0 +1,121 @@
+import { prompt } from "inquirer";
+import { createCommand } from "commander";
+import { getString } from "package-run";
+import { getPackageJSON, getBuildDir, getBuildIndex } from "../../structure";
+import { PackageJSON } from "@bconnorwhite/package";
+
+function except(a: PackageJSON = {}, b: PackageJSON = {}) {
+  return Object.keys(a).reduce((retval, key) => {
+    if(!Object.keys(b).includes(key)) {
+      return {
+        ...retval,
+        [key]: a[key]
+      }
+    } else {
+      return retval;
+    }
+  }, {} as PackageJSON);
+}
+
+export async function initPackageJSONAction() {
+  return getPackageJSON().read().then((pkgJSON) => {
+    const questions = [];
+    if(pkgJSON?.name === undefined) {
+      questions.push({
+        type: "input",
+        name: "name"
+      });
+    }
+    if(pkgJSON?.description === undefined) {
+      questions.push({
+        type: "input",
+        name: "description"
+      });
+    }
+    if(pkgJSON?.author === undefined || typeof pkgJSON.author === "object" && pkgJSON.author.name === undefined) {
+      questions.push({
+        type: "input",
+        name: "author.name",
+        message: "author name:"
+      });
+    }
+    if(pkgJSON?.author === undefined || typeof pkgJSON.author === "object" && pkgJSON.author.email === undefined) {
+      questions.push({
+        type: "input",
+        name: "author.email",
+        message: "author email:"
+      });
+    }
+    if(pkgJSON?.author === undefined || typeof pkgJSON?.author === "object" && pkgJSON?.author.url === undefined) {
+      questions.push({
+        type: "input",
+        name: "author.url",
+        message: "author url:"
+      });
+    }
+    if(pkgJSON?.homepage === undefined) {
+      questions.push({
+        type: "input",
+        name: "homepage"
+      });
+    }
+    if(pkgJSON?.repository === undefined) {
+      questions.push({
+        type: "input",
+        name: "githubUsername",
+        message: "GitHub username:"
+      });
+    }
+    if(pkgJSON?.license === undefined) {
+      questions.push({
+        type: "input",
+        name: "license"
+      });
+    }
+    prompt(questions).then(async (answers) => {
+      const name = answers.name ?? pkgJSON?.name;
+      const repositoryURL = name && answers.githubUsername
+        ? `https://github.com/${answers.githubUsername}/${name}`
+        : typeof pkgJSON?.repository === "object" ? pkgJSON?.repository?.url : undefined;
+      const ordered = {
+        name: answers.name ?? pkgJSON?.name,
+        version: pkgJSON?.version ?? "1.0.0",
+        description: answers.description ?? pkgJSON?.description,
+        license: pkgJSON?.license ?? answers.license,
+        private: pkgJSON?.private,
+        author: typeof pkgJSON?.author === "string" ? pkgJSON.author : {
+          ...(pkgJSON?.author ?? {}),
+          ...(answers.author ?? {})
+        },
+        homepage: answers.homepage ?? pkgJSON?.homepage,
+        repository: repositoryURL ? {
+          type: "git",
+          url: `git+${repositoryURL}.git`
+        }: pkgJSON?.repository,
+        contributors: pkgJSON?.contributors,
+        keywords: pkgJSON?.keywords ?? [],
+        files: pkgJSON?.files ?? [
+          getBuildDir().relative
+        ],
+        main: pkgJSON?.main ?? getBuildIndex().relative,
+        bin: pkgJSON?.bin,
+        scripts: {
+          build: pkgJSON?.scripts?.build ?? "bob build",
+          postversion: pkgJSON?.scripts?.postversion ?? "git push",
+          prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? await getString({ command: "build" })
+        },
+        dependencies: pkgJSON?.dependencies,
+        devDependencies: pkgJSON?.devDependencies,
+        peerDependencies: pkgJSON?.peerDependencies
+      };
+      getPackageJSON().write({
+        ...ordered,
+        ...except(pkgJSON, ordered)
+      });
+    });
+  });
+}
+
+export default createCommand("package-json")
+  .description("initialize package.json")
+  .action(initPackageJSONAction);
