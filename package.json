@@ -4,6 +4,9 @@
   "description": "Bob is a toolkit for typescript projects",
   "author": "Connor White",
   "license": "MIT",
+  "files": [
+    "build"
+  ],
   "keywords": [
     "build",
     "typescript",
