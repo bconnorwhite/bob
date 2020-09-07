@@ -10,6 +10,7 @@ import buildTypesCommand, { buildTypesAction, buildTypes, buildTypesOutputHandle
 export type BuildArgs = {
   watch?: boolean;
   silent?: boolean;
+  debug?: boolean;
 };
 
 export type BuildResult = {
@@ -65,7 +66,8 @@ export function buildAction(args: BuildArgs) {
 
 export default createCommand("build")
   .description("build and output type declaration files")
-  .option("-w --watch", "Watch files for changes")
+  .option("-w --watch", "watch files for changes")
+  .option("-s --silent", "silent output")
   .addCommand(buildSourceCommand)
   .addCommand(buildTypesCommand)
   .action(buildAction);

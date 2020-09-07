@@ -105,7 +105,8 @@ Usage: bob build [options] [command]
 build and output type declaration files
 
 Options:
-  -w --watch        Watch files for changes
+  -w --watch        watch files for changes
+  -s --silent       silent output
   -h, --help        display help for command
 
 Commands:
@@ -114,14 +115,16 @@ Commands:
 ```
 ### bob watch
 ```
-Usage: bob watch [options]
+Usage: bob watch [options] [command]
 
-watch code to build after changes
+watch source files and build after changes
 
 Options:
-  -b --build        Only output build files
-  -d --declaration  Only output declaration files
-  -h, --help        display help for command
+  -h, --help  display help for command
+
+Commands:
+  source      build source files after changes
+  types       output type declarations after changes
 ```
 ### bob start
 ```

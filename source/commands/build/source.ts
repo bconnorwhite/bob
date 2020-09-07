@@ -1,15 +1,12 @@
 import { resolve } from "path";
 import { createCommand } from "commander";
 import ora from "ora";
-import run, { RunResult } from "package-run"
+import run, { getString, RunResult } from "package-run"
 import { getSourceDir, getBuildDir } from "../../structure";
 import { clean, BuildArgs } from "./";
 
-export function buildSource({ watch, silent = true }: BuildArgs) {
-  if(watch) {
-    clean(".js");
-  }
-  return run({
+function getCommand({ watch, silent = true }: BuildArgs) {
+  return {
     command: "babel",
     args: getSourceDir().relative,
     flags: {
@@ -21,7 +18,14 @@ export function buildSource({ watch, silent = true }: BuildArgs) {
       "watch": watch
     },
     silent
-  });
+  }
+}
+
+export function buildSource(args: BuildArgs) {
+  if(args.watch) {
+    clean(".js");
+  }
+  return run(getCommand(args));
 }
 
 export function buildSourceOutputHandler(promise: Promise<RunResult>) {
@@ -37,10 +41,16 @@ export function buildSourceOutputHandler(promise: Promise<RunResult>) {
 }
 
 export function buildSourceAction(args: BuildArgs) {
-  buildSourceOutputHandler(buildSource(args));
+  if(args.debug) {
+    getString(getCommand(args)).then((value) => console.log(value))
+  } else {
+    buildSourceOutputHandler(buildSource(args));
+  }
 }
 
 export default createCommand("source")
   .description("build source files")
-  .option("-w --watch", "Watch files for changes")
+  .option("-w --watch", "watch files for changes")
+  .option("-s --silent", "silent output")
+  .option("-d --debug", "output command")
   .action(buildSourceAction);
