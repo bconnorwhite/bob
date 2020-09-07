@@ -1,6 +1,6 @@
 import { createCommand } from "commander";
 import { hasYarn } from "which-pm-lockfile";
-import { getGitignore, getBuildDir } from "../../structure";
+import { getGitignore, getBuildDir } from "../../../structure";
 
 export async function initGitignore() {
   const buildRelative = getBuildDir().relative;

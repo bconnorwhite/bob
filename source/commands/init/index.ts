@@ -1,7 +1,7 @@
 import { createCommand } from "commander";
 import initSourceCommand, { initSource, initSourceAction, InitSourceArgs } from "./source";
 import initPackageJSONCommand, { initPackageJSONAction } from "./package-json";
-import initGitignoreCommand, { initGitignore, initGitignoreAction } from "./gitignore";
+import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -10,7 +10,7 @@ export async function init({ index }: InitArgs = {}) {
   return Promise.all([
     initSourceAction({ index }),
     initPackageJSONAction(),
-    initGitignoreAction()
+    initGitAction(),
   ]);
 }
 
@@ -22,7 +22,7 @@ export default createCommand("init")
   .description("initialize source directory and package.json")
   .addCommand(initSourceCommand)
   .addCommand(initPackageJSONCommand)
-  .addCommand(initGitignoreCommand)
+  .addCommand(initGitCommand)
   .action(initAction);
 
 export {
@@ -31,5 +31,11 @@ export {
   initSourceAction,
   InitSourceArgs,
   initPackageJSONCommand,
-  initPackageJSONAction
+  initPackageJSONAction,
+  initGitCommand,
+  initGitAction,
+  initGit,
+  initGitignore,
+  initGitignoreCommand,
+  initGitignoreAction,
 }
