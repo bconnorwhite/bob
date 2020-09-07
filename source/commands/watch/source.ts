@@ -1,5 +1,5 @@
 import { createCommand } from "commander";
-import { buildSource, buildSourceAction } from "../build/source";
+import { buildSource } from "../build/source";
 
 export function watchSource() {
   return buildSource({
