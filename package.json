@@ -42,7 +42,7 @@
     "build-types": "yarn tsc ./source/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
     "lint": "yarn npmPkgJsonLint .",
     "postversion": "git push",
-    "prepublishOnly": "yarn build && yarn lint",
+    "prepublishOnly": "yarn build && yarn lint && yarn test",
     "start": "node ./build/bin/index.js",
     "test": "yarn jest"
   },
