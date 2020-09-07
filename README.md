@@ -20,7 +20,7 @@
 
 Bob provides a set of tools for developing TypeScript projects for both Node and the browser (React) without having to think about `tsc` or `babel`.
 
-Bob works with zero configuration, and does not require `babel.config.json` or `tsconfig.json` files.
+Bob works with zero configuration, does not require `babel.config.json`, and will auto-generate the correct `tsconfig.json` file.
 
 ## Installation
 
@@ -88,7 +88,7 @@ Commands:
 ```
 Usage: bob init [options] [command]
 
-initialize source directory and package.json
+initialize source, package.json, .gitignore, and tsconfig.json
 
 Options:
   -h, --help    display help for command
@@ -96,7 +96,8 @@ Options:
 Commands:
   source        initialize source directory
   package-json  initialize package.json
-  gitignore     initialize .gitignore
+  gitignore     initialize git repo
+  tsconfig      initialize tsconfig.json
 ```
 ### bob build
 ```
