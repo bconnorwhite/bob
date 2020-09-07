@@ -17,6 +17,17 @@ function except(a: PackageJSON = {}, b: PackageJSON = {}) {
   }, {} as PackageJSON);
 }
 
+type Scripts = {
+  [scriptName: string]: string;
+}
+
+function sort(object: Scripts) {
+  return Object.keys(object).sort().reduce((retval, key) => {
+    retval[key] = object[key];
+    return retval;
+  }, {} as Scripts);
+}
+
 export async function initPackageJSONAction() {
   return getPackageJSON().read().then((pkgJSON) => {
     const questions = [];
@@ -75,7 +86,7 @@ export async function initPackageJSONAction() {
     prompt(questions).then(async (answers) => {
       const name = answers.name ?? pkgJSON?.name;
       const repositoryURL = name && answers.githubUsername
-        ? `https://github.com/${answers.githubUsername}/${name}`
+        ? `git+https://github.com/${answers.githubUsername}/${name}.git`
         : typeof pkgJSON?.repository === "object" ? pkgJSON?.repository?.url : undefined;
       const ordered = {
         name: answers.name ?? pkgJSON?.name,
@@ -90,7 +101,7 @@ export async function initPackageJSONAction() {
         homepage: answers.homepage ?? pkgJSON?.homepage,
         repository: repositoryURL ? {
           type: "git",
-          url: `git+${repositoryURL}.git`
+          url: repositoryURL
         }: pkgJSON?.repository,
         contributors: pkgJSON?.contributors,
         keywords: pkgJSON?.keywords ?? [],
@@ -99,15 +110,17 @@ export async function initPackageJSONAction() {
         ],
         main: pkgJSON?.main ?? getBuildIndex().relative,
         bin: pkgJSON?.bin,
-        scripts: {
+        scripts: sort({
+          ...(pkgJSON?.scripts ?? {}) as Scripts,
           build: pkgJSON?.scripts?.build ?? "bob build",
           postversion: pkgJSON?.scripts?.postversion ?? "git push",
           prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? await getString({ command: "build" })
-        },
+        }),
         dependencies: pkgJSON?.dependencies,
         devDependencies: pkgJSON?.devDependencies,
         peerDependencies: pkgJSON?.peerDependencies
       };
+      
       getPackageJSON().write({
         ...ordered,
         ...except(pkgJSON, ordered)
