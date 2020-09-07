@@ -161,20 +161,20 @@ Commands:
   up [options]               run docker-compose up on docker-compose.yml
   help [command]             display help for command
 ```
+### bob count
+```
+Usage: bob count [options]
+
+count lines across source files
+
+Options:
+  -h, --help  display help for command
+```
 ### bob list
 ```
 Usage: bob list [options]
 
 list files included in build
-
-Options:
-  -h, --help  display help for command
-```
-###### bob count
-```
-Usage: bob count [options]
-
-count lines across source files
 
 Options:
   -h, --help  display help for command
