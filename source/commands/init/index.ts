@@ -21,7 +21,7 @@ export function initAction() {
 }
 
 export default createCommand("init")
-  .description("initialize source directory and package.json")
+  .description("initialize source, package.json, .gitignore, and tsconfig.json")
   .addCommand(initSourceCommand)
   .addCommand(initPackageJSONCommand)
   .addCommand(initGitCommand)
