@@ -1143,10 +1143,10 @@
     read-json-safe "^1.0.1"
     recursive-readdir "^2.2.2"
 
-"@bconnorwhite/package@^4.1.6":
-  version "4.1.6"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-4.1.6.tgz#2bf8ba0fd26bd48b369aeaebe71a9acacbbbe19f"
-  integrity sha512-H/yToSJF0gsCBlYGCqPTn17xWw4VtDNc9RgzVVPaXb5SNPtjRWYPczJ4Qk+zqjOkat7zq+QpWQ2w27+NWo4f5g==
+"@bconnorwhite/package@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-4.2.0.tgz#ee721e6a19d1f508f48ca2bc846cf8260d0638f7"
+  integrity sha512-yGZC7wqF/4/by+tzQmoL6dZNARNCI4HWnd4rjw61yzsD3ixugpevRznBncKe/N/UAK0Ho7GGWTLZCDlP+YN4CA==
   dependencies:
     "@bconnorwhite/exec" "^5.1.0"
     "@bconnorwhite/json-types" "^1.0.5"
@@ -1156,9 +1156,11 @@
     path-exists "^4.0.0"
     read-file-safe "^1.0.1"
     read-json-safe "^1.0.1"
+    read-md-safe "^1.0.1"
     recursive-readdir "^2.2.2"
     write-file-safe "^1.0.2"
     write-json-safe "^1.0.0"
+    write-md-safe "^1.0.3"
 
 "@bconnorwhite/run-env@^1.1.6":
   version "1.1.6"
@@ -4172,6 +4174,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+marked@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-1.1.1.tgz#e5d61b69842210d5df57b05856e0c91572703e6a"
+  integrity sha512-mJzT8D2yPxoPh7h0UXkB+dBj4FykPJ2OIfxAWeIHrvoHDkFxukV/29QxoFQoPM6RLEwhIFdJpmKBlqVM3s2ZIw==
+
 meow@^6.1.0:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/meow/-/meow-6.1.1.tgz#1ad64c4b76b2a24dfb2f635fddcadf320d251467"
@@ -4841,6 +4848,13 @@ read-json-safe@^1.0.1:
   dependencies:
     parse-json-object "^1.0.0"
     read-file-safe "^1.0.1"
+
+read-md-safe@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/read-md-safe/-/read-md-safe-1.0.1.tgz#3b046ec7baad444dcde871390d40bf090d13e1a2"
+  integrity sha512-uNOkeHuFSqG8WT9mMrT1DLTtmeOgGa1AeHOHLNu7yP6EDbqxyX9l0ZvBUiLb3N5mH9xqO4Io5QjNr6u3brWvRA==
+  dependencies:
+    marked "^1.1.1"
 
 read-pkg-up@^7.0.1:
   version "7.0.1"
@@ -6018,6 +6032,11 @@ write-file-safe@^1.0.2:
   resolved "https://registry.yarnpkg.com/write-file-safe/-/write-file-safe-1.0.2.tgz#2c83c34f1c565725c67535771ff3d3237d12e15e"
   integrity sha512-KEaCVpDKWXchvy11YTS1hR1TAOCDLYfbWl4Z1hnu2Z6ztjkk2Qi2mADlnG3TW1H1Wr5CZVulCVLCdh46ca8yXQ==
 
+write-file-safe@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/write-file-safe/-/write-file-safe-1.0.3.tgz#6e259879617da395a641296d459e13d3ea36575f"
+  integrity sha512-bdAWuzoYTLhVmAvKU7MIy2tWUs6afawPrOaktl6YBGk28LRh5RphDLDAqoXXe2j9ZvLeh+fAblnhQ6wZ0hd+iQ==
+
 write-json-safe@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/write-json-safe/-/write-json-safe-1.0.0.tgz#f5cb003b59fe3ef31f86b8eea39a68f06dbe096d"
@@ -6025,6 +6044,14 @@ write-json-safe@^1.0.0:
   dependencies:
     stringify-json-object "^1.0.1"
     write-file-safe "^1.0.2"
+
+write-md-safe@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/write-md-safe/-/write-md-safe-1.0.3.tgz#553cec88508319c4a61008c8a526e0d24af750e0"
+  integrity sha512-xGlzacHcSF3v5M4reYPnqvACJSBGia2ami/ZquhhZAWfbxPIEvj5NYkVmuJ4KBKpPtLZSfqPzcnRkmTVeZkllg==
+  dependencies:
+    marked "^1.1.1"
+    write-file-safe "^1.0.3"
 
 ws@^7.2.3:
   version "7.3.1"

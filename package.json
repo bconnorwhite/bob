@@ -39,7 +39,7 @@
   "scripts": {
     "build": "yarn build-source && yarn build-types",
     "build-source": "babel ./source --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
-    "build-types": "yarn tsc ./source/*.ts --declaration --emitDeclarationOnly --esModuleInterop --forceConsistentCasingInFileNames --outDir ./build --removeComments --skipLibCheck --strict",
+    "build-types": "yarn tsc",
     "lint": "yarn npmPkgJsonLint .",
     "postversion": "git push",
     "prepublishOnly": "yarn build && yarn lint && yarn test",
@@ -53,7 +53,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@bconnorwhite/exec": "^5.3.0",
-    "@bconnorwhite/package": "^4.1.6",
+    "@bconnorwhite/package": "^4.2.0",
     "@bconnorwhite/run-env": "^1.1.6",
     "chokidar": "^3.4.2",
     "commander": "^6.1.0",

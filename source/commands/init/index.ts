@@ -2,6 +2,7 @@ import { createCommand } from "commander";
 import initSourceCommand, { initSource, initSourceAction, InitSourceArgs } from "./source";
 import initPackageJSONCommand, { initPackageJSONAction } from "./package-json";
 import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";
+import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs } from "./tsconfig";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -11,6 +12,7 @@ export async function init({ index }: InitArgs = {}) {
     initSourceAction({ index }),
     initPackageJSONAction(),
     initGitAction(),
+    initTSConfigAction()
   ]);
 }
 
@@ -23,6 +25,7 @@ export default createCommand("init")
   .addCommand(initSourceCommand)
   .addCommand(initPackageJSONCommand)
   .addCommand(initGitCommand)
+  .addCommand(initTSConfigCommand)
   .action(initAction);
 
 export {
@@ -38,4 +41,8 @@ export {
   initGitignore,
   initGitignoreCommand,
   initGitignoreAction,
+  initTSConfigCommand,
+  initTSConfigAction,
+  initTSConfig,
+  InitTSConfigArgs
 }

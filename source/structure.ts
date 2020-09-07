@@ -1,4 +1,4 @@
-import { define as defineAs, defineFrom, Directory, File, getPackageJSON } from "@bconnorwhite/package";
+import { define as defineAs, defineFrom, Directory, File, MarkdownTokens, getPackageJSON, JSONObject } from "@bconnorwhite/package";
 
 const dockerDefinition = {
   files: {
@@ -41,6 +41,14 @@ const structure = defineAs({
       }
     }
   },
+  tsconfig: {
+    name: "tsconfig.json",
+    type: "json"
+  },
+  readme: {
+    name: "README.md",
+    type: "md"
+  },
   gitignore: {
     name: ".gitignore"
   },
@@ -71,6 +79,14 @@ export function getBuildIndex() {
 
 export function getDockerDir(env?: string) {
   return (env ? (structure.files().docker as Directory).files(env)[env] : (structure.files().docker as Directory).files(env)) as Directory;
+}
+
+export function getReadme() {
+  return structure.files().readme as File<MarkdownTokens>;
+}
+
+export function getTSConfig() {
+  return structure.files().tsconfig as File<JSONObject>;
 }
 
 export function getGitignore() {

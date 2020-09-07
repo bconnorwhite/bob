@@ -238,8 +238,7 @@ The equivalent of Bob's tsconfig.json:
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "./build",
+    "outDir": "build",
     "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -247,7 +246,7 @@ The equivalent of Bob's tsconfig.json:
     "target": "esnext"
   },
   "include": [
-    "./src/*.ts*"
+    "source"
   ]
 }
 ```

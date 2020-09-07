@@ -2,35 +2,19 @@ import { createCommand } from "commander";
 import run, { getString, RunResult } from "package-run"
 import ora from "ora";
 import { getBuildDir } from "../../structure";
-import { list } from "../list";
 import { clean, BuildArgs } from "./";
 
 async function getCommand({ watch, silent = true }: BuildArgs) {
-  return list().then((files) => ({
+  return {
     command: "tsc",
-    args: files,
     flags: {
       "declaration": true,
       "emitDeclarationOnly": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "jsx": "preserve",
-      "lib": "dom,esnext",
-      "module": "esnext",
-      "moduleResolution": "node",
-      "noFallthroughCasesInSwitch": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
       "outDir": getBuildDir().relative,
-      "removeComments": true,
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "target": "esnext",
       "watch": watch
     },
     silent
-  }));
+  };
 }
 
 export async function buildTypes(args: BuildArgs) {
