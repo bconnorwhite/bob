@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build": "yarn build-source && yarn build-types",
-    "build-source": "babel ./source --out-dir ./build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
+    "build-source": "babel source --out-dir build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build-types": "yarn tsc",
     "lint": "yarn npmPkgJsonLint .",
     "postversion": "git push",
