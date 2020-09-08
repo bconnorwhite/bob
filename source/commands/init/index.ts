@@ -1,19 +1,23 @@
 import { createCommand } from "commander";
 import initSourceCommand, { initSource, initSourceAction, InitSourceArgs } from "./source";
-import initPackageJSONCommand, { initPackageJSONAction } from "./package-json";
+import initPackageJSONCommand, { initPackageJSONAction, initPackageJSON } from "./package-json";
 import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";
 import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs } from "./tsconfig";
+import initReadmeCommand, { initReadmeAction } from "./readme";
 
 export type InitArgs =
   & InitSourceArgs;
 
 export async function init({ index }: InitArgs = {}) {
-  return Promise.all([
-    initSourceAction({ index }),
-    initPackageJSONAction(),
-    initGitAction(),
-    initTSConfigAction()
-  ]);
+  return initSource({ index }).then(async () => {
+    return initPackageJSON().then(async () => {
+      return initGit().then(async () => {
+        return initTSConfig().then(() => {
+          return initReadmeAction();
+        });
+      });
+    });
+  });
 }
 
 export function initAction() {
@@ -26,6 +30,7 @@ export default createCommand("init")
   .addCommand(initPackageJSONCommand)
   .addCommand(initGitCommand)
   .addCommand(initTSConfigCommand)
+  .addCommand(initReadmeCommand)
   .action(initAction);
 
 export {
@@ -44,5 +49,7 @@ export {
   initTSConfigCommand,
   initTSConfigAction,
   initTSConfig,
-  InitTSConfigArgs
+  InitTSConfigArgs,
+  initReadmeCommand,
+  initReadmeAction
 }

@@ -1,13 +1,16 @@
 import { createCommand } from "commander";
+import isGitRepo from "is-git-repository";
 import { exec } from "@bconnorwhite/exec";
 import initGitignoreCommand, { initGitignoreAction, initGitignore } from "./gitignore";
 
 export async function initGit() {
   return initGitignore().then(() => {
-    return exec({
-      command: "git",
-      args: "init"
-    });
+    if(!isGitRepo()) {
+      return exec({
+        command: "git",
+        args: "init"
+      });
+    }
   });
 }
 

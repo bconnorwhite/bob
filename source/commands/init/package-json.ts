@@ -28,7 +28,7 @@ function sort(object: Scripts) {
   }, {} as Scripts);
 }
 
-export async function initPackageJSONAction() {
+export async function initPackageJSON() {
   return getPackageJSON().read().then((pkgJSON) => {
     const questions = [];
     if(pkgJSON?.name === undefined) {
@@ -83,7 +83,7 @@ export async function initPackageJSONAction() {
         name: "license"
       });
     }
-    prompt(questions).then(async (answers) => {
+    return prompt(questions).then(async (answers) => {
       const name = answers.name ?? pkgJSON?.name;
       const repositoryURL = name && answers.githubUsername
         ? `git+https://github.com/${answers.githubUsername}/${name}.git`
@@ -120,13 +120,16 @@ export async function initPackageJSONAction() {
         devDependencies: pkgJSON?.devDependencies,
         peerDependencies: pkgJSON?.peerDependencies
       };
-      
-      getPackageJSON().write({
+      return getPackageJSON().write({
         ...ordered,
         ...except(pkgJSON, ordered)
       });
     });
   });
+}
+
+export function initPackageJSONAction() {
+  initPackageJSON();
 }
 
 export default createCommand("package-json")
