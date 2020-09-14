@@ -18,7 +18,7 @@ function npmVersion(packageName: string) {
 
 function gitHubLanguages(gitHubName: string) {
   return `  <a href="https://github.com/${gitHubName}">\n`
-  + `    <img alt="typescript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">\n`
+  + `    <img alt="typescript" src="https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg">\n`
   + "  </a>\n";
 }
 
