@@ -17,4 +17,4 @@ export async function countAction() {
 
 export default createCommand("count")
   .description("count lines across source files")
-  .action(count);
+  .action(countAction);
