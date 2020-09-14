@@ -349,7 +349,7 @@ listAction();
 - [@bconnorwhite/package](https://npmjs.com/package/@bconnorwhite/package): A utility for reading package.json of a project, and forming paths relative to it.
 - [@bconnorwhite/run-env](https://npmjs.com/package/@bconnorwhite/run-env): Run package.json scripts suffixed with NODE_ENV.
 - [chokidar](https://npmjs.com/package/chokidar): A neat wrapper around node.js fs.watch / fs.watchFile / fsevents.
-- [commander](https://npmjs.com/package/commander): The complete solution for node.js command-line programs
+- [commander-version](https://npmjs.com/package/commander-version): A wrapper for Commander that automatically sets the version based on your package.json
 - [dotenv](https://npmjs.com/package/dotenv): Loads environment variables from .env file
 - [find](https://npmjs.com/package/find): Find files or directories by name
 - [inquirer](https://npmjs.com/package/inquirer): A collection of common interactive command line user interfaces.
