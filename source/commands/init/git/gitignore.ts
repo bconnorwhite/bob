@@ -8,7 +8,7 @@ export async function initGitignore() {
   return gitignore.exists().then(async (exists) => {
     if(!exists) {
       return hasYarn().then((yarn) => {
-        return gitignore.write(`/${buildRelative}\nnode_modules\n${yarn ? "yarn-error.log" : ""}`);
+        return gitignore.write(`.DS_Store\n/${buildRelative}\nnode_modules\n${yarn ? "yarn-error.log" : ""}`);
       });
     }
   });
