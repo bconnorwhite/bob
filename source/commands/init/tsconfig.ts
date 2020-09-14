@@ -1,9 +1,9 @@
 import { createCommand } from "commander-version";
+import { TSConfigJSON } from "types-tsconfig";
 import { getTSConfig } from "../../structure";
-import { JSONObject } from "@bconnorwhite/package";
 
 export type InitTSConfigArgs = {
-  config: JSONObject;
+  config: TSConfigJSON;
 }
 
 const defaultConfig = {

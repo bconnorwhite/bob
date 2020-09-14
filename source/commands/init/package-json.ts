@@ -1,6 +1,7 @@
 import { prompt } from "inquirer";
 import { createCommand } from "commander-version";
 import { getString } from "package-run";
+import { Scripts } from "types-pkg-json";
 import { getPackageJSON, getBuildDir, getBuildIndex } from "../../structure";
 import { PackageJSON } from "@bconnorwhite/package";
 
@@ -15,10 +16,6 @@ function except(a: PackageJSON = {}, b: PackageJSON = {}) {
       return retval;
     }
   }, {} as PackageJSON);
-}
-
-type Scripts = {
-  [scriptName: string]: string;
 }
 
 function sort(object: Scripts) {
@@ -111,7 +108,7 @@ export async function initPackageJSON() {
         main: pkgJSON?.main ?? getBuildIndex().relative,
         bin: pkgJSON?.bin,
         scripts: sort({
-          ...(pkgJSON?.scripts ?? {}) as Scripts,
+          ...(pkgJSON?.scripts ?? {}),
           build: pkgJSON?.scripts?.build ?? "bob build",
           postversion: pkgJSON?.scripts?.postversion ?? "git push",
           prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? await getString({ command: "build" })

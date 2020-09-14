@@ -1,4 +1,5 @@
-import { define as defineAs, defineFrom, Directory, File, MarkdownTokens, getPackageJSON, JSONObject } from "@bconnorwhite/package";
+import { define as defineAs, defineFrom, Directory, File, MarkdownTokens, getPackageJSON } from "@bconnorwhite/package";
+import { TSConfigJSON } from "types-tsconfig";
 
 const dockerDefinition = {
   files: {
@@ -86,7 +87,7 @@ export function getReadme() {
 }
 
 export function getTSConfig() {
-  return structure.files().tsconfig as File<JSONObject>;
+  return structure.files().tsconfig as File<TSConfigJSON>;
 }
 
 export function getGitignore() {

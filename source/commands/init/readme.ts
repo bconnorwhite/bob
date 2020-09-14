@@ -1,5 +1,6 @@
 import { createCommand } from "commander-version";
 import { prompt } from "inquirer";
+import { Repository, Dependencies } from "types-pkg-json";
 import { pkg } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";
 import { getLicense } from "spdx-license";
@@ -63,11 +64,7 @@ function installation(packageName?: string) {
   }
 }
 
-type Packages = {
-  [name: string]: string;
-}
-
-async function packageList(packages: Packages) {
+async function packageList(packages: Dependencies) {
   return getDescriptions(Object.keys(packages)).then((descriptions) => {
     return Object.keys(packages).reduce((retval, name) => {
       return retval + `- [${name}](https://www.npmjs.com/package/${name}): ${descriptions[name]}\n`;
@@ -75,30 +72,30 @@ async function packageList(packages: Packages) {
   });
 }
 
-function dependencies(gitHubName?: string, packages?: Packages) {
+function dependencies(gitHubName?: string, packages?: Dependencies) {
   if(gitHubName && packages && Object.keys(packages).length > 0) {
     return packageList(packages).then((list) => {
-      return `<br />\n\n<h2>Dependencies<img align="right" alt="dependencies" src="https://img.shields.io/david/${gitHubName}.svg"></h2>\n\n${list}\n\n`;
+      return `<br />\n\n<h2>Dependencies<img align="right" alt="dependencies" src="https://img.shields.io/david/${gitHubName}.svg"></h2>\n\n${list}\n`;
     });
   } else {
     return "";
   }
 }
 
-function devDependencies(gitHubName?: string, packages?: Packages) {
+function devDependencies(gitHubName?: string, packages?: Dependencies) {
   if(gitHubName && packages && Object.keys(packages).length > 0) {
     return packageList(packages).then((list) => {
-      return `<br />\n\n<h2>Dev Dependencies<img align="right" alt="David" src="https://img.shields.io/david/dev/${gitHubName}.svg"></h2>\n\n${list}\n\n`
+      return `<br />\n\n<h2>Dev Dependencies<img align="right" alt="David" src="https://img.shields.io/david/dev/${gitHubName}.svg"></h2>\n\n${list}\n`
     });
   } else {
     return "";
   } 
 }
 
-function peerDependencies(gitHubName?: string, packages?: Packages) {
+function peerDependencies(gitHubName?: string, packages?: Dependencies) {
   if(gitHubName && packages && Object.keys(packages).length > 0) {
     return packageList(packages).then((list) => {
-      return `<br />\n\n<h2>Peer Dependencies<img align="right" alt="David" src="https://img.shields.io/david/peer/${gitHubName}.svg"></h2>\n\n${list}\n\n`;
+      return `<br />\n\n<h2>Peer Dependencies<img align="right" alt="David" src="https://img.shields.io/david/peer/${gitHubName}.svg"></h2>\n\n${list}\n`;
     });
   } else {
     return "";
@@ -120,13 +117,7 @@ function license(packageName?: string, licenseID?: string) {
   }
 }
 
-type Repo = string | {
-  type: string;
-  url: string;
-  directory?: string | undefined;
-} | undefined;
-
-function gitHubName(repo: Repo) {
+function gitHubName(repo: Repository) {
   let string = typeof repo === "string" ? repo : repo?.url;
   if(string !== undefined && string.startsWith("git+https://github.com/")) {
     return string.replace("git+https://github.com/", "").replace(".git", "");
