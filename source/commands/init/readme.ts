@@ -106,7 +106,7 @@ function license(packageName?: string, licenseID?: string) {
   if(packageName && licenseID) {
     return getLicense(licenseID).then((result) => {
       if(result !== undefined) {
-        return `<h2>License <img align="right" alt="license" src="https://img.shields.io/npm/l/${packageName}.svg"></h2>\n\n`
+        return `<br />\n\n<h2>License <img align="right" alt="license" src="https://img.shields.io/npm/l/${packageName}.svg"></h2>\n\n`
         + `[${licenseID}](${result.url})`;
       } else {
         return "";
