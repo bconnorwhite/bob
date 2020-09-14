@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { buildTypes } from "../build/types";
 
 export function watchTypes() {

@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import run, { getString, RunResult } from "package-run"
 import ora from "ora";
 import { getBuildDir } from "../../structure";

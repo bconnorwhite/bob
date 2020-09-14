@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { buildSource } from "../build/source";
 
 export function watchSource() {

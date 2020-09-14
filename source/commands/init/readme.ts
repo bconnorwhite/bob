@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { prompt } from "inquirer";
 import { pkg } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";

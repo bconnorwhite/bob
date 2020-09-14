@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import dockerBuildCommand, { dockerBuild, dockerBuildAction, DockerBuildArgs } from "./build";
 import dockerUpCommand, { dockerUp, dockerUpAction, DockerUpArgs } from "./up";
 

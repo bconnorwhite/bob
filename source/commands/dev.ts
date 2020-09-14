@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { start as runStart, StartArgs } from "./start";
 
 export type DevArgs = Pick<StartArgs, "ignore">;

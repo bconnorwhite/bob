@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { hasYarn } from "which-pm-lockfile";
 import { getGitignore, getBuildDir } from "../../../structure";
 

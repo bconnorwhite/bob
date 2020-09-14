@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { promises, constants } from "fs";
 import exec, { ExecResult } from "@bconnorwhite/exec";
 import { pkg } from "@bconnorwhite/package";

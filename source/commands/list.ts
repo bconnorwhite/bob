@@ -1,6 +1,6 @@
 import { join } from "path";
 import find from "find";
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { getWorkspacePackages, exists } from "@bconnorwhite/package";
 import { getSourceDir } from "../structure";
 

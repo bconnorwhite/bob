@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { program } from "commander";
-import { version } from "../../package.json";
+import program from "commander-version";
 import {
   initCommand,
   buildCommand,
@@ -12,7 +11,7 @@ import {
   dockerCommand
 } from "../commands";
 
-program
+program(__dirname)
   .name("bob")
   .addCommand(initCommand)
   .addCommand(buildCommand)
@@ -22,5 +21,4 @@ program
   .addCommand(dockerCommand)
   .addCommand(countCommand)
   .addCommand(listCommand)
-  .version(version, "-v --version")
   .parse();

@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { existsSync, unlinkSync, rmdirSync } from "fs";
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { watch, FSWatcher } from "chokidar";
 import { RunResult } from "package-run";
 import { getSourceDir, getBuildDir } from "../../structure";

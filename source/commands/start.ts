@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import nodemon from "nodemon";
 import waitOn from "wait-on";
 import dotenv from "dotenv";

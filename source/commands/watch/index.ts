@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { build } from "../build";
 import watchSourceCommand, { watchSourceAction, watchSource } from "./source";
 import watchTypesCommand, { watchTypesAction, watchTypes } from "./types";

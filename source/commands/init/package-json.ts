@@ -1,5 +1,5 @@
 import { prompt } from "inquirer";
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { getString } from "package-run";
 import { getPackageJSON, getBuildDir, getBuildIndex } from "../../structure";
 import { PackageJSON } from "@bconnorwhite/package";

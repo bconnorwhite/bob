@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import initSourceCommand, { initSource, initSourceAction, InitSourceArgs } from "./source";
 import initPackageJSONCommand, { initPackageJSONAction, initPackageJSON } from "./package-json";
 import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";

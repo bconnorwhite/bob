@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import exec, { flagsToArgs } from "@bconnorwhite/exec";
 import { list } from "./list";
 

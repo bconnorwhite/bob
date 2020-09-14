@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import isGitRepo from "is-git-repository";
 import { exec } from "@bconnorwhite/exec";
 import initGitignoreCommand, { initGitignoreAction, initGitignore } from "./gitignore";

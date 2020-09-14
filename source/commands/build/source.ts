@@ -1,5 +1,5 @@
 import { resolve } from "path";
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import ora from "ora";
 import run, { getString, RunResult } from "package-run"
 import { getSourceDir, getBuildDir } from "../../structure";

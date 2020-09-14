@@ -1132,6 +1132,15 @@
   resolved "https://registry.yarnpkg.com/@bconnorwhite/json-types/-/json-types-1.0.5.tgz#c638604ac07f326e74f0b082d34964e8baf6e75c"
   integrity sha512-GyVHRWM0Q+PmY7Hicd4l8J2fpsWtb/o1UxsVuzJ8M0SLfpiTuNkak3iA4zCCg66jLnxt6SFEba8oHVRa0CJbeg==
 
+"@bconnorwhite/module@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/module/-/module-2.0.2.tgz#557846110bb89412e9689ac778358bc2b1af0c4a"
+  integrity sha512-ck1me5WMgZKp06gnJrVKEkytpehTTQbvsAMbF1nGPeHri/AZNhj87++PSE2LOxmZqM0EtGMaqeLdx7Lw7SUnTA==
+  dependencies:
+    find-up "^5.0.0"
+    read-json-safe "^1.0.5"
+    types-pkg-json "^1.1.0"
+
 "@bconnorwhite/package@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-3.0.1.tgz#731244028a57d4fe789387a7d3ba9dc2dbb332b4"
@@ -1143,10 +1152,10 @@
     read-json-safe "^1.0.1"
     recursive-readdir "^2.2.2"
 
-"@bconnorwhite/package@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-4.2.0.tgz#ee721e6a19d1f508f48ca2bc846cf8260d0638f7"
-  integrity sha512-yGZC7wqF/4/by+tzQmoL6dZNARNCI4HWnd4rjw61yzsD3ixugpevRznBncKe/N/UAK0Ho7GGWTLZCDlP+YN4CA==
+"@bconnorwhite/package@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@bconnorwhite/package/-/package-4.2.1.tgz#c2f46908a4e1f7b7b23c2d8a0c778ef2a36e2cec"
+  integrity sha512-Nh88x/EhNY1WsumvdQFSFbkxtSJWdbD26h3248lnEwyy6wmjuO/fXsNnN7qjgDkqWn9eWRA0LpR2THVdnR8kug==
   dependencies:
     "@bconnorwhite/exec" "^5.1.0"
     "@bconnorwhite/json-types" "^1.0.5"
@@ -1158,6 +1167,7 @@
     read-json-safe "^1.0.1"
     read-md-safe "^1.0.1"
     recursive-readdir "^2.2.2"
+    types-pkg-json "^1.0.2"
     write-file-safe "^1.0.2"
     write-json-safe "^1.0.0"
     write-md-safe "^1.0.3"
@@ -2216,6 +2226,14 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
+commander-version@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/commander-version/-/commander-version-1.0.1.tgz#ba35a4d8d34b1869d45ce546d69a5add71d493f4"
+  integrity sha512-yBPpbcF+UzgZRUOONoOc/69Z/V0A2PVXAdmb331cpNBDzO2iKkb+66IkHvdTh4lLEUTCoWGev31LpaxzejFybw==
+  dependencies:
+    "@bconnorwhite/module" "^2.0.2"
+    commander "^6.1.0"
+
 commander@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
@@ -2810,6 +2828,14 @@ find-up@^4.0.0, find-up@^4.1.0:
   integrity sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
   dependencies:
     locate-path "^5.0.0"
+    path-exists "^4.0.0"
+
+find-up@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/find-up/-/find-up-5.0.0.tgz#4c92819ecb7083561e4f4a240a86be5198f536fc"
+  integrity sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==
+  dependencies:
+    locate-path "^6.0.0"
     path-exists "^4.0.0"
 
 find-workspace-root@^1.0.1:
@@ -4141,6 +4167,13 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+locate-path@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-6.0.0.tgz#55321eb309febbc59c4801d931a72452a681d286"
+  integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
+  dependencies:
+    p-locate "^5.0.0"
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -4634,6 +4667,13 @@ p-limit@^2.2.0:
   dependencies:
     p-try "^2.0.0"
 
+p-limit@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.0.2.tgz#1664e010af3cadc681baafd3e2a437be7b0fb5fe"
+  integrity sha512-iwqZSOoWIW+Ew4kAGUlN16J4M7OB3ysMLSZtnhmqx7njIHFPlxWBX8xo3lVTyFVq6mI/lL9qt2IsN1sHwaxJkg==
+  dependencies:
+    p-try "^2.0.0"
+
 p-locate@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-3.0.0.tgz#322d69a05c0264b25997d9f40cd8a891ab0064a4"
@@ -4647,6 +4687,13 @@ p-locate@^4.1.0:
   integrity sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==
   dependencies:
     p-limit "^2.2.0"
+
+p-locate@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/p-locate/-/p-locate-5.0.0.tgz#83c8315c6785005e3bd021839411c9e110e6d834"
+  integrity sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==
+  dependencies:
+    p-limit "^3.0.2"
 
 p-try@^2.0.0:
   version "2.2.0"
@@ -4692,7 +4739,7 @@ parse-json-object@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-json-object/-/parse-json-object-1.0.0.tgz#1b052a8a40818548f5a85488ae28974da64ee088"
   integrity sha512-VDfVXMT427t5CGZCeYfOk3j2JenRLLoylHvdPr6TRlIw/L3eA+z+a3kOkfWwnl8LNWdG5Xo0hDknQhy4FtL6Vg==
 
-parse-json-object@^1.1.0:
+parse-json-object@^1.0.5, parse-json-object@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/parse-json-object/-/parse-json-object-1.1.0.tgz#eef60211cec368259723d8586ecec7252f8fcdb2"
   integrity sha512-4w5s6uJY1tW9REY8UwUOyaZKSKsrbQrMEzlV/Le/g5t4iMWuuyK83pZZ0OZimSOL9iyv2ORvRSgz71Ekd7iD3g==
@@ -4905,6 +4952,11 @@ read-file-safe@^1.0.1:
   resolved "https://registry.yarnpkg.com/read-file-safe/-/read-file-safe-1.0.1.tgz#8ef837ea7b238d279399df9adf63de8d1468fee9"
   integrity sha512-EjDV+Xc+A4jUyvHRQKh8qxDUqpnBsvM7ZmLMVuc07+lH6qI+u1imRCm+z7fCczt1/kuib8i87FlCA7z0ftYM1A==
 
+read-file-safe@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/read-file-safe/-/read-file-safe-1.0.5.tgz#db13ff746cc79693c35825bcd518be91aacdfb92"
+  integrity sha512-0gfxwCbDDmvsXFZTB0fKL5pwYkOUhnXH+TSbbR8YkO1fSAIbMgBKv4xDGrVdW1D+yoJcCeabALfnJx7KjenTJg==
+
 read-json-safe@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/read-json-safe/-/read-json-safe-1.0.1.tgz#ec248be5ea9e50c7900a568834d2263c4e1ec3af"
@@ -4912,6 +4964,14 @@ read-json-safe@^1.0.1:
   dependencies:
     parse-json-object "^1.0.0"
     read-file-safe "^1.0.1"
+
+read-json-safe@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/read-json-safe/-/read-json-safe-1.0.5.tgz#c459443b8e6eb3a2672cf68ddc81d2f4ef95c8d7"
+  integrity sha512-SJyNY/U9+vW35FPus22Qvv1oilnR7PCfN2E70uKQEGaJS313A5/cz9Yhv7ZtWzZ+XIwrtEPxXf10BOyYemHehA==
+  dependencies:
+    parse-json-object "^1.0.5"
+    read-file-safe "^1.0.5"
 
 read-md-safe@^1.0.1:
   version "1.0.1"
@@ -5809,6 +5869,30 @@ types-json@^1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/types-json/-/types-json-1.0.7.tgz#d7e929c3dc88c6362c445526338ad1c3e641cb39"
   integrity sha512-BzDzAIjrSrViEYQtCCjOemr5yggoUQE0oJGiVkMUE3yy5FNSZmWZqlB2DDLSm3VeE0hsj8snXVIHJmWKX0PtUQ==
+
+types-json@^1.0.7:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/types-json/-/types-json-1.0.8.tgz#78214e3ebfebe9c81517da87f880c8805c150722"
+  integrity sha512-+Ibk4mB4fQxFJSSaEuhXmyHI+Y0qtJpR6iPa98hrTLz4Jv41N3pOhqjJwqCRYFIsZLZj2pEyGhVEHLlZrSxxGg==
+
+types-pkg-json@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/types-pkg-json/-/types-pkg-json-1.0.2.tgz#a2b7caa6b306a7a5eae2cacac72f60d9f922ad3e"
+  integrity sha512-5yJb8ztBwJY55+USxU50IUlm+G6PykqOgHbnJiGWHB4TwStUBbJDDy9JgfmFDFDKMnNX4a1uuqoip5x/ObWkNA==
+  dependencies:
+    types-json "^1.0.7"
+
+types-pkg-json@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/types-pkg-json/-/types-pkg-json-1.1.0.tgz#efac83c27dbd4839c68316a079439cc46b663b47"
+  integrity sha512-zpVh0lj7l3S+4vsjR+AJkNDT+m138ObznguCRJqK2vJYJV40u/YyCfYZ4lOM32BAHxzCy8mlXS3Bo7csdjWY2w==
+  dependencies:
+    types-json "^1.0.7"
+
+types-tsconfig@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/types-tsconfig/-/types-tsconfig-1.1.0.tgz#e3f56784251d67088677e85441e9a4570cc05c8d"
+  integrity sha512-Up853Kmtg4TJGLYNam8SyOqRcq5bC/+3PnwFi11JvGtaY3/vhIxydynVSZGABrUBUcTFUoIvayOGG9C+I66NLg==
 
 typescript@^4.0.2:
   version "4.0.2"

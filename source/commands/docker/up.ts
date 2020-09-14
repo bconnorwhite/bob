@@ -1,4 +1,4 @@
-import { createCommand } from "commander";
+import { createCommand } from "commander-version";
 import { access, constants } from "fs";
 import exec from "@bconnorwhite/exec";
 import { getDockerDir } from "../../structure";
