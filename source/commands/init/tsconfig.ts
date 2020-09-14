@@ -23,7 +23,7 @@ const defaultConfig = {
       noFallthroughCasesInSwitch: true,
       noUnusedLocals: true,
       outDir: "build",
-      removeComments: true,
+      removeComments: false,
       resolveJsonModule: true,
       skipLibCheck: true,
       strict: true,
