@@ -6,6 +6,7 @@ import {
   watchCommand,
   startCommand,
   devCommand,
+  lintCommand,
   listCommand,
   countCommand,
   dockerCommand
@@ -18,6 +19,7 @@ program(__dirname)
   .addCommand(watchCommand)
   .addCommand(startCommand)
   .addCommand(devCommand)
+  .addCommand(lintCommand)
   .addCommand(dockerCommand)
   .addCommand(countCommand)
   .addCommand(listCommand)

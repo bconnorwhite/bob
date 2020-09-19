@@ -70,18 +70,19 @@ For multiple environments, use:
 Usage: bob [options] [command]
 
 Options:
-  -V, --version    output the version number
+  -v --version     output the version number
   -h, --help       display help for command
 
 Commands:
-  init             initialize source directory and package.json
+  init             initialize source, package.json, .gitignore, and tsconfig.json
   build [options]  build and output type declaration files
   watch            watch source files and build after changes
   start [options]  start the script defined in the main field of package.json
   dev [options]    start with NODE_ENV set to 'development' and watch for changes
+  lint             lint package.json and source files
   docker           run docker commands
-  list             list files included in build
   count            count lines across source files
+  list             list files included in build
   help [command]   display help for command
 ```
 ### bob init
@@ -147,6 +148,19 @@ start with NODE_ENV set to 'development' and watch for changes
 Options:
   -i --ignore [ignore...]  files or directories to ignore for restart
   -h, --help               display help for command
+```
+### bob lint
+```
+Usage: bob lint [options] [command]
+
+lint package.json and source files
+
+Options:
+  -h, --help  display help for command
+
+Commands:
+  package     lint package.json
+  source      lint source files with ESLint
 ```
 ### bob docker
 ```

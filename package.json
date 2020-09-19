@@ -43,7 +43,7 @@
     "build-types": "yarn tsc --project tsconfig.bob.json",
     "lint": "yarn npmPkgJsonLint . && eslint source --ext .ts,.tsx",
     "postversion": "git push",
-    "prepublishOnly": "yarn build && yarn lint && yarn test",
+    "prepublishOnly": "yarn lint && yarn build && yarn test",
     "start": "node ./build/bin/index.js",
     "test": "yarn jest"
   },

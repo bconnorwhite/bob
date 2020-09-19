@@ -42,6 +42,16 @@ import watchCommand, {
 } from "./watch";
 import startCommand, { start, startAction, StartArgs } from "./start";
 import devCommand, { dev, devAction, DevArgs } from "./dev";
+import lintCommand, {
+  lint,
+  lintAction,
+  lintSourceCommand,
+  lintSource,
+  lintSourceAction,
+  lintPackageCommand,
+  lintPackage,
+  lintPackageAction
+} from "./lint";
 import listCommand, { list, listAction } from "./list";
 import countCommand, { count, countAction } from "./count";
 
@@ -92,6 +102,15 @@ export {
   devCommand,
   devAction,
   DevArgs,
+  lint,
+  lintCommand,
+  lintAction,
+  lintSourceCommand,
+  lintSource,
+  lintSourceAction,
+  lintPackageCommand,
+  lintPackage,
+  lintPackageAction,
   list,
   listCommand,
   listAction,

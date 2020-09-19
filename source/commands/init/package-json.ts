@@ -110,8 +110,9 @@ export async function initPackageJSON() {
         scripts: sort({
           ...(pkgJSON?.scripts ?? {}),
           build: pkgJSON?.scripts?.build ?? "bob build",
+          lint: pkgJSON?.scripts?.lint ?? "bob lint",
           postversion: pkgJSON?.scripts?.postversion ?? "git push",
-          prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? await getString({ command: "build" })
+          prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? `${await getString({ command: "lint" })} && ${await getString({ command: "build" })}`
         }),
         dependencies: pkgJSON?.dependencies,
         devDependencies: pkgJSON?.devDependencies,
