@@ -6,7 +6,7 @@ export type InitTSConfigArgs = {
   config: TSConfigJSON;
 }
 
-const defaultConfig = {
+const defaultConfig: InitTSConfigArgs = {
   config: {
     compilerOptions: {
       declaration: true,

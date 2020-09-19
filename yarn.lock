@@ -5875,6 +5875,11 @@ types-json@^1.0.7:
   resolved "https://registry.yarnpkg.com/types-json/-/types-json-1.0.8.tgz#78214e3ebfebe9c81517da87f880c8805c150722"
   integrity sha512-+Ibk4mB4fQxFJSSaEuhXmyHI+Y0qtJpR6iPa98hrTLz4Jv41N3pOhqjJwqCRYFIsZLZj2pEyGhVEHLlZrSxxGg==
 
+types-json@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/types-json/-/types-json-1.2.0.tgz#78323a7afa1d9e045999e36d57966d107931dfc4"
+  integrity sha512-lGcaoYhrVAHpP30kcz9BK9a+KOO++lq9hE9DQBn3OxjvF9/2vYwrdNZswKUsNiAZO2lEIUAZaHhf2QVEKF3eSg==
+
 types-pkg-json@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/types-pkg-json/-/types-pkg-json-1.0.2.tgz#a2b7caa6b306a7a5eae2cacac72f60d9f922ad3e"
@@ -5889,10 +5894,12 @@ types-pkg-json@^1.1.0:
   dependencies:
     types-json "^1.0.7"
 
-types-tsconfig@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/types-tsconfig/-/types-tsconfig-1.1.0.tgz#e3f56784251d67088677e85441e9a4570cc05c8d"
-  integrity sha512-Up853Kmtg4TJGLYNam8SyOqRcq5bC/+3PnwFi11JvGtaY3/vhIxydynVSZGABrUBUcTFUoIvayOGG9C+I66NLg==
+types-tsconfig@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/types-tsconfig/-/types-tsconfig-1.1.1.tgz#6e4e7927a54ff1f688191b9338e659bbe3154a07"
+  integrity sha512-1K6oEaJqAk2h6SaTn7VmVxVtV7lk6FdHw553TVqjQx6WG7QSytJYsMebebmEGCS61HDd0i2hZuHl5PJs0iAiDQ==
+  dependencies:
+    types-json "^1.2.0"
 
 typescript@^4.0.2:
   version "4.0.2"
