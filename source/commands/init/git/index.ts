@@ -10,6 +10,8 @@ export async function initGit() {
         command: "git",
         args: "init"
       });
+    } else {
+      return undefined;
     }
   });
 }

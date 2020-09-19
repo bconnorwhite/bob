@@ -33,7 +33,7 @@ export async function dockerBuild({ context, tag, ver = false, latest = false, e
   const NODE_ENV = environment ?? env.NODE_ENV;
   if(NODE_ENV) {
     const file = getDockerDir(NODE_ENV).files().dockerfile;
-    let tags: string[] = [];
+    const tags: string[] = [];
     if(tag) {
       if(ver && !tag.includes(":") && pkg?.version) {
         tags.push(`${tag}:${pkg.version}`);
@@ -54,7 +54,7 @@ export async function dockerBuild({ context, tag, ver = false, latest = false, e
 
 export function dockerBuildAction(args: DockerBuildArgs) {
   dockerBuild(args);
-};
+}
 
 export default createCommand("build")
   .description("run docker build on Dockerfile")

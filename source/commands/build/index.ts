@@ -22,14 +22,14 @@ let watcher: FSWatcher;
 const extensions: string[] = [];
 
 export function clean(extension: string) {
-  const src = getSourceDir();
-  const build = getBuildDir();
+  const sourceDir = getSourceDir();
+  const buildDir = getBuildDir();
   if(watcher === undefined) {
-    watcher = watch(src.relative);
+    watcher = watch(sourceDir.relative);
     watcher.on("unlinkDir", (path) => {
-      const match = path.match(new RegExp(`^${src.name}\/(.*)$`));
+      const match = path.match(new RegExp(`^${sourceDir.name}/(.*)$`));
       if(match) {
-        const dir = resolve(build.relative, match[1]);
+        const dir = resolve(buildDir.relative, match[1]);
         if(existsSync(dir)) {
           rmdirSync(dir, { recursive: true });
         }
@@ -38,9 +38,9 @@ export function clean(extension: string) {
     watcher.on("unlink", (path) => {
       const match = path.match(/^src\/(.*)\.tsx?$/);
       if(match) {
-        path = resolve(build.relative, match[1]);
+        const fileName = resolve(buildDir.relative, match[1]);
         extensions.forEach((ext) => {
-          const file = `${path}${ext}`;
+          const file = `${fileName}${ext}`;
           if(existsSync(file)) {
             unlinkSync(file);
           }
@@ -51,7 +51,7 @@ export function clean(extension: string) {
   extensions.push(extension);
 }
 
-export function build(args: BuildArgs): BuildResult { 
+export function build(args: BuildArgs): BuildResult {
   return {
     source: buildSource(args),
     types: buildTypes(args)

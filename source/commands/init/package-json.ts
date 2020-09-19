@@ -40,21 +40,21 @@ export async function initPackageJSON() {
         name: "description"
       });
     }
-    if(pkgJSON?.author === undefined || typeof pkgJSON.author === "object" && pkgJSON.author.name === undefined) {
+    if(pkgJSON?.author === undefined || (typeof pkgJSON.author === "object" && pkgJSON.author.name === undefined)) {
       questions.push({
         type: "input",
         name: "author.name",
         message: "author name:"
       });
     }
-    if(pkgJSON?.author === undefined || typeof pkgJSON.author === "object" && pkgJSON.author.email === undefined) {
+    if(pkgJSON?.author === undefined || (typeof pkgJSON.author === "object" && pkgJSON.author.email === undefined)) {
       questions.push({
         type: "input",
         name: "author.email",
         message: "author email:"
       });
     }
-    if(pkgJSON?.author === undefined || typeof pkgJSON?.author === "object" && pkgJSON?.author.url === undefined) {
+    if(pkgJSON?.author === undefined || (typeof pkgJSON?.author === "object" && pkgJSON?.author.url === undefined)) {
       questions.push({
         type: "input",
         name: "author.url",

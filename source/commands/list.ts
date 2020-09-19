@@ -7,7 +7,7 @@ import { getSourceDir } from "../structure";
 export async function list() {
   return getWorkspacePackages().then(async (packages) => {
     if(packages) {
-      let promises: Promise<string[]>[] = [];
+      const promises: Promise<string[]>[] = [];
       Object.keys(packages).forEach((name) => {
         const promise = new Promise<string[]>((resolve) => {
           const packageRelative = join(packages[name].location, getSourceDir().relative);
@@ -38,7 +38,7 @@ export async function list() {
 
 export function listAction() {
   list().then((files) => {
-    console.log(files);
+    console.info(files);
   });
 }
 

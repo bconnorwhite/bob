@@ -15,7 +15,7 @@ function getCommand({ watch, silent = true }: BuildArgs) {
       "extensions": ".ts,.tsx",
       "delete-dir-on-start": true,
       "copy-files": true,
-      "watch": watch
+      watch
     },
     silent
   }
@@ -33,7 +33,7 @@ export function buildSourceOutputHandler(promise: Promise<RunResult>) {
   promise.then((result) => {
     if(result.error) {
       sourceSpinner.fail(result.error);
-      console.log(result.colorRunOutput);
+      console.info(result.colorRunOutput);
     } else {
       sourceSpinner.succeed(result.runOutput.replace("with Babel ", ""));
     }
@@ -42,7 +42,7 @@ export function buildSourceOutputHandler(promise: Promise<RunResult>) {
 
 export function buildSourceAction(args: BuildArgs) {
   if(args.debug) {
-    getString(getCommand(args)).then((value) => console.log(value))
+    getString(getCommand(args)).then((value) => console.info(value))
   } else {
     buildSourceOutputHandler(buildSource(args));
   }

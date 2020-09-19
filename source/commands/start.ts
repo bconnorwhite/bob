@@ -13,7 +13,7 @@ export type StartArgs = {
   ignore?: string[];
 };
 
-export function start({ dev, ignore = [] }: StartArgs) {
+export function start({ dev, ignore = []}: StartArgs) {
   const main = getMain();
   const promises: Promise<any>[] = [];
   if(dev) {
@@ -33,7 +33,7 @@ export function start({ dev, ignore = [] }: StartArgs) {
           env: dotenv.config().parsed,
           stdout: false
         }).on("stdout", (stdout) => {
-          console.log(stdout.toString());
+          console.info(stdout.toString());
         }).on("stderr", (stderr) => {
           console.error(stderr.toString());
         }).on("quit", () => {

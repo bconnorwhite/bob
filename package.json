@@ -41,7 +41,7 @@
     "build": "yarn build-source && yarn build-types",
     "build-source": "babel source --out-dir build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build-types": "yarn tsc --project tsconfig.bob.json",
-    "lint": "yarn npmPkgJsonLint .",
+    "lint": "yarn npmPkgJsonLint . && eslint source --ext .ts,.tsx",
     "postversion": "git push",
     "prepublishOnly": "yarn build && yarn lint && yarn test",
     "start": "node ./build/bin/index.js",
@@ -59,11 +59,15 @@
     "chokidar": "^3.4.2",
     "commander-version": "^1.1.0",
     "dotenv": "^8.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-bob": "^1.0.0",
     "find": "^0.3.0",
     "inquirer": "^7.3.3",
     "is-git-repository": "^2.0.0",
     "nodemon": "^2.0.4",
     "npm-description": "^1.0.1",
+    "npm-package-json-lint": "^5.1.0",
+    "npm-package-json-lint-config-bob": "^1.0.1",
     "ora": "^5.1.0",
     "package-run": "^1.4.1",
     "spdx-license": "^1.0.1",
@@ -79,7 +83,6 @@
     "@types/node": "^14.6.0",
     "@types/nodemon": "^1.19.0",
     "@types/wait-on": "^4.0.0",
-    "jest": "^26.4.2",
-    "npm-package-json-lint": "^5.1.0"
+    "jest": "^26.4.2"
   }
 }

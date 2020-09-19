@@ -18,7 +18,7 @@ function npmVersion(packageName: string) {
 
 function gitHubLanguages(gitHubName: string) {
   return `  <a href="https://github.com/${gitHubName}">\n`
-  + `    <img alt="typescript" src="https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg">\n`
+  + "    <img alt=\"typescript\" src=\"https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg\">\n"
   + "  </a>\n";
 }
 
@@ -35,13 +35,13 @@ function twitter(twitterHandle: string) {
 }
 
 function header(packageName?: string, gitHubName?: string, twitterHandle?: string) {
-  return '<div align="center">\n'
-  + (packageName ? title(packageName) : "")
-  + (packageName ? npmVersion(packageName) : "")
-  + (gitHubName ? gitHubLanguages(gitHubName) : "")
-  + (gitHubName ? gitHubStars(gitHubName) : "")
-  + (twitterHandle ? twitter(twitterHandle) : "")
-  + "</div>\n\n<br />\n\n";
+  return `<div align="center">\n${
+    packageName ? title(packageName) : ""
+  }${packageName ? npmVersion(packageName) : ""
+  }${gitHubName ? gitHubLanguages(gitHubName) : ""
+  }${gitHubName ? gitHubStars(gitHubName) : ""
+  }${twitterHandle ? twitter(twitterHandle) : ""
+  }</div>\n\n<br />\n\n`;
 }
 
 function description(packageDescription?: string) {
@@ -61,13 +61,15 @@ function installation(packageName?: string) {
     + "```bash\n"
     + `npm install ${packageName}\n`
     + "```\n\n";
+  } else {
+    return undefined;
   }
 }
 
 async function packageList(packages: Dependencies) {
   return getDescriptions(Object.keys(packages)).then((descriptions) => {
     return Object.keys(packages).reduce((retval, name) => {
-      return retval + `- [${name}](https://www.npmjs.com/package/${name}): ${descriptions[name]}\n`;
+      return `${retval}- [${name}](https://www.npmjs.com/package/${name}): ${descriptions[name]}\n`;
     }, "");
   });
 }
@@ -89,7 +91,7 @@ function devDependencies(gitHubName?: string, packages?: Dependencies) {
     });
   } else {
     return "";
-  } 
+  }
 }
 
 function peerDependencies(gitHubName?: string, packages?: Dependencies) {
@@ -99,7 +101,7 @@ function peerDependencies(gitHubName?: string, packages?: Dependencies) {
     });
   } else {
     return "";
-  } 
+  }
 }
 
 function license(packageName?: string, licenseID?: string) {
@@ -117,8 +119,8 @@ function license(packageName?: string, licenseID?: string) {
   }
 }
 
-function gitHubName(repo?: Repository) {
-  let string = typeof repo === "string" ? repo : repo?.url;
+function getGitHubName(repo?: Repository) {
+  const string = typeof repo === "string" ? repo : repo?.url;
   if(string !== undefined && string.startsWith("git+https://github.com/")) {
     return string.replace("git+https://github.com/", "").replace(".git", "");
   } else {
@@ -151,7 +153,7 @@ export async function initReadmeAction() {
         name: "twitterHandle",
         message: "twitter handle:"
       }]).then(async ({ twitterHandle }: { twitterHandle: string }) => {
-        return readmeString(pkg?.name, pkg?.description, gitHubName(pkg?.repository), twitterHandle).then((text) => {
+        return readmeString(pkg?.name, pkg?.description, getGitHubName(pkg?.repository), twitterHandle).then((text) => {
           return readme.write(text);
         });
       })

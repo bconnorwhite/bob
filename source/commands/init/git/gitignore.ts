@@ -10,6 +10,8 @@ export async function initGitignore() {
       return hasYarn().then((yarn) => {
         return gitignore.write(`/${buildRelative}\nnode_modules\n.DS_Store\n${yarn ? "yarn-error.log" : ""}`);
       });
+    } else {
+      return undefined;
     }
   });
 }

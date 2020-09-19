@@ -31,7 +31,7 @@ export function dockerUp({ detach = true, environment }: DockerUpArgs) {
 export function dockerUpAction(args: DockerUpArgs) {
   dockerUp({
     ...args,
-    detach: args.detach ?? false,
+    detach: args.detach ?? false
   });
 }
 

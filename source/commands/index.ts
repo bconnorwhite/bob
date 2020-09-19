@@ -9,7 +9,7 @@ import buildCommand, {
   buildTypesAction,
   buildTypes
 } from "./build";
-import dockerCommand, {  
+import dockerCommand, {
   dockerBuildCommand,
   dockerBuildAction,
   dockerBuild,

@@ -12,6 +12,7 @@
     "module": "commonjs",
     "outDir": "build",
     "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "removeComments": false,
     "resolveJsonModule": true,
