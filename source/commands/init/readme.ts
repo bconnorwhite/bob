@@ -117,7 +117,7 @@ function license(packageName?: string, licenseID?: string) {
   }
 }
 
-function gitHubName(repo: Repository) {
+function gitHubName(repo?: Repository) {
   let string = typeof repo === "string" ? repo : repo?.url;
   if(string !== undefined && string.startsWith("git+https://github.com/")) {
     return string.replace("git+https://github.com/", "").replace(".git", "");
