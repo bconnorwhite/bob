@@ -2226,10 +2226,10 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander-version@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/commander-version/-/commander-version-1.0.1.tgz#ba35a4d8d34b1869d45ce546d69a5add71d493f4"
-  integrity sha512-yBPpbcF+UzgZRUOONoOc/69Z/V0A2PVXAdmb331cpNBDzO2iKkb+66IkHvdTh4lLEUTCoWGev31LpaxzejFybw==
+commander-version@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/commander-version/-/commander-version-1.1.0.tgz#fbfaea4632921a42f8f855f96bcaa3d9920a6296"
+  integrity sha512-9aNW4N6q6EPDUszLRH6k9IwO6OoGYh3HRgUF/fA7Zs+Mz1v1x5akSqT7QGB8JsGY7AG7qMA7oRRB/4yyn33FYA==
   dependencies:
     "@bconnorwhite/module" "^2.0.2"
     commander "^6.1.0"
