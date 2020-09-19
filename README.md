@@ -235,8 +235,7 @@ The equivalent of Bob's tsconfig.json:
       "dom",
       "esnext"
     ],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "commonjs",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "outDir": "build",

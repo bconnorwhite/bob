@@ -12,14 +12,10 @@
     "module": "commonjs",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "outDir": "build",
     "removeComments": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
-  },
-  "include": [
-    "source"
-  ]
+  }
 }

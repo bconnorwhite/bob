@@ -8,25 +8,9 @@ export type InitTSConfigArgs = {
 
 const defaultConfig: InitTSConfigArgs = {
   config: {
+    extends: "@bconnorwhite/bob",
     compilerOptions: {
-      declaration: true,
-      emitDeclarationOnly: true,
-      esModuleInterop: true,
-      forceConsistentCasingInFileNames: true,
-      jsx: "preserve",
-      lib: [
-        "dom",
-        "esnext"
-      ],
-      module: "commonjs",
-      noFallthroughCasesInSwitch: true,
-      noUnusedLocals: true,
-      outDir: getBuildDir().relative,
-      removeComments: false,
-      resolveJsonModule: true,
-      skipLibCheck: true,
-      strict: true,
-      target: "esnext"
+      outDir: getBuildDir().relative
     },
     include: [
       getSourceDir().relative
