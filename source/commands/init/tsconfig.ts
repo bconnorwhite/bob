@@ -1,6 +1,6 @@
 import { createCommand } from "commander-version";
 import { TSConfigJSON } from "types-tsconfig";
-import { getTSConfig } from "../../structure";
+import { getTSConfig, getBuildDir, getSourceDir } from "../../structure";
 
 export type InitTSConfigArgs = {
   config: TSConfigJSON;
@@ -18,11 +18,10 @@ const defaultConfig: InitTSConfigArgs = {
         "dom",
         "esnext"
       ],
-      module: "esnext",
-      moduleResolution: "node",
+      module: "commonjs",
       noFallthroughCasesInSwitch: true,
       noUnusedLocals: true,
-      outDir: "build",
+      outDir: getBuildDir().relative,
       removeComments: false,
       resolveJsonModule: true,
       skipLibCheck: true,
@@ -30,7 +29,7 @@ const defaultConfig: InitTSConfigArgs = {
       target: "esnext"
     },
     include: [
-      "source"
+      getSourceDir().relative
     ]
   }
 };
