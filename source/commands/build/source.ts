@@ -29,7 +29,7 @@ export function buildSource(args: BuildArgs) {
 }
 
 export function buildSourceOutputHandler(promise: Promise<RunResult>) {
-  const sourceSpinner = ora("Building...").start();
+  const sourceSpinner = ora(`Compiling from '${getSourceDir().relative}'...`).start();
   promise.then((result) => {
     if(result.error) {
       sourceSpinner.fail(result.error);

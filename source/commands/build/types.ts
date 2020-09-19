@@ -27,7 +27,7 @@ export async function buildTypes(args: BuildArgs) {
 }
 
 export function buildTypesOutputHandler(promise: Promise<RunResult>) {
-  const typesSpinner = ora("Building...").start();
+  const typesSpinner = ora(`Generating type declaration files...`).start();
   promise.then((result) => {
     if(result.error) {
       typesSpinner.fail(result.error.replace("error ", ""));
