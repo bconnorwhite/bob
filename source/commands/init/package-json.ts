@@ -26,7 +26,7 @@ function sort(object: Scripts) {
 }
 
 export async function initPackageJSON() {
-  return getPackageJSON().read().then((pkgJSON) => {
+  return getPackageJSON().read().then(async (pkgJSON) => {
     const questions = [];
     if(pkgJSON?.name === undefined) {
       questions.push({
