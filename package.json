@@ -60,7 +60,7 @@
     "commander-version": "^1.1.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
-    "eslint-config-bob": "^1.0.0",
+    "eslint-config-bob": "^1.0.1",
     "find": "^0.3.0",
     "inquirer": "^7.3.3",
     "is-git-repository": "^2.0.0",
@@ -71,8 +71,8 @@
     "ora": "^5.1.0",
     "package-run": "^1.4.1",
     "spdx-license": "^1.0.1",
-    "types-pkg-json": "^1.0.2",
-    "types-tsconfig": "^1.1.1",
+    "types-pkg-json": "^1.1.2",
+    "types-tsconfig": "^1.1.2",
     "typescript": "^4.0.2",
     "wait-on": "^5.2.0",
     "which-pm-lockfile": "^1.1.0"
@@ -84,5 +84,11 @@
     "@types/nodemon": "^1.19.0",
     "@types/wait-on": "^4.0.0",
     "jest": "^26.4.2"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-bob"
+  },
+  "npmpackagejsonlint": {
+    "extends": "npm-package-json-lint-config-bob"
   }
 }

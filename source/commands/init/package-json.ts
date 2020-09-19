@@ -85,7 +85,7 @@ export async function initPackageJSON() {
       const repositoryURL = name && answers.githubUsername
         ? `git+https://github.com/${answers.githubUsername}/${name}.git`
         : typeof pkgJSON?.repository === "object" ? pkgJSON?.repository?.url : undefined;
-      const ordered = {
+      const ordered: PackageJSON = {
         name: answers.name ?? pkgJSON?.name,
         version: pkgJSON?.version ?? "1.0.0",
         description: answers.description ?? pkgJSON?.description,
@@ -115,7 +115,13 @@ export async function initPackageJSON() {
         }),
         dependencies: pkgJSON?.dependencies,
         devDependencies: pkgJSON?.devDependencies,
-        peerDependencies: pkgJSON?.peerDependencies
+        peerDependencies: pkgJSON?.peerDependencies,
+        eslintConfig: pkgJSON?.eslintConfig ?? {
+          extends: "eslint-config-bob"
+        },
+        npmpackagejsonlint: pkgJSON?.npmpackagejsonlint ?? {
+          extends: "npm-package-json-lint-config-bob"
+        }
       };
       return getPackageJSON().write({
         ...ordered,

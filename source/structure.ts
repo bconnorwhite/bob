@@ -52,9 +52,6 @@ const structure = defineAs({
   },
   gitignore: {
     name: ".gitignore"
-  },
-  npmignore: {
-    name: ".npmignore"
   }
 });
 
@@ -92,10 +89,6 @@ export function getTSConfig() {
 
 export function getGitignore() {
   return structure.files().gitignore as File<string>;
-}
-
-export function getNPMIgnore() {
-  return structure.files().npmignore as File<string>;
 }
 
 export const define = defineFrom(structure);

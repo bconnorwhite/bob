@@ -2820,15 +2820,16 @@ escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-bob@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-bob/-/eslint-config-bob-1.0.0.tgz#602b4227001aa8f056997cce77be635357382139"
-  integrity sha512-JRBNfDgpXiNikVzLS1Q6HaCs/B7eWyZX7uRTYZE+hmKKOZ4eM5Kmn0uzbWjrbM5GGnSlcI+YNH+/732MWK5oSQ==
+eslint-config-bob@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-bob/-/eslint-config-bob-1.0.1.tgz#6c915e0a09083d687a70b619aff43df92bf47250"
+  integrity sha512-s/bZGSNfJdXKalFK330bvv/zUKncZl9IkDcAE4HmIXxuroA1KfmrmU7rPTMWchUozwPicYJXp+budXwnC6Q5tQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
     eslint-plugin-react "^7.20.6"
     eslint-plugin-react-hooks "^4.1.2"
+    types-eslintrc "^1.0.1"
 
 eslint-plugin-react-hooks@^4.1.2:
   version "4.1.2"
@@ -6489,6 +6490,13 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
+types-eslintrc@^1.0.0, types-eslintrc@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/types-eslintrc/-/types-eslintrc-1.0.1.tgz#6a804f539b3c7493a754629471703d7c4a2290e4"
+  integrity sha512-Xw061qag8zVVsk5m3njg2+dz5LucZ9IihGGg4UPxOjlb870XUgxeXi7CNHJ9lcZ7KHC434ezshnbcPp4n1F6WA==
+  dependencies:
+    types-json "^1.2.0"
+
 types-json@^1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/types-json/-/types-json-1.0.7.tgz#d7e929c3dc88c6362c445526338ad1c3e641cb39"
@@ -6518,10 +6526,18 @@ types-pkg-json@^1.1.0:
   dependencies:
     types-json "^1.0.7"
 
-types-tsconfig@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/types-tsconfig/-/types-tsconfig-1.1.1.tgz#6e4e7927a54ff1f688191b9338e659bbe3154a07"
-  integrity sha512-1K6oEaJqAk2h6SaTn7VmVxVtV7lk6FdHw553TVqjQx6WG7QSytJYsMebebmEGCS61HDd0i2hZuHl5PJs0iAiDQ==
+types-pkg-json@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/types-pkg-json/-/types-pkg-json-1.1.2.tgz#3adf92631a57fd764049e0ef5966706eae2a1100"
+  integrity sha512-TOmUUyAsECa7uI80FCyv0l1n93MOY12OLaTlnV81d3/gNydaTiAUlQZi+vSig5a15Lo7XY7EusVVo5Y9uTx13g==
+  dependencies:
+    types-eslintrc "^1.0.0"
+    types-json "^1.0.7"
+
+types-tsconfig@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/types-tsconfig/-/types-tsconfig-1.1.2.tgz#eb6b56b8428659b75a2f2bef2455895b9bf14340"
+  integrity sha512-5VS10KNQT+RgShNLr9kY0+zPBelM7gSvmyy12gKxAJpDmyxYYP99FSH/BJXSg1WkSAbshFxndvev1N2aAdTV0g==
   dependencies:
     types-json "^1.2.0"
 
