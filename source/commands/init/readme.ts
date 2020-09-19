@@ -129,8 +129,8 @@ function gitHubName(repo?: Repository) {
 async function readmeString(packageName?: string, packageDescription?: string, gitHubName?: string, twitterHandle?: string) {
   return Promise.all([
     Promise.resolve(dependencies(gitHubName, pkg?.dependencies)),
-    Promise.resolve(devDependencies(gitHubName, pkg?.devDependencies)),
     Promise.resolve(peerDependencies(gitHubName, pkg?.peerDependencies)),
+    Promise.resolve(devDependencies(gitHubName, pkg?.devDependencies)),
     Promise.resolve(license(packageName, pkg?.license))
   ]).then((footer) => {
     return header(packageName, gitHubName, twitterHandle)
