@@ -10,6 +10,7 @@
       "esnext"
     ],
     "module": "commonjs",
+    "outDir": "build",
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "removeComments": false,
