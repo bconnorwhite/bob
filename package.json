@@ -41,6 +41,7 @@
     "build": "yarn build-source && yarn build-types",
     "build-source": "babel source --out-dir build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build-types": "yarn tsc --project tsconfig.bob.json",
+    "commit": "cz",
     "lint": "yarn npmPkgJsonLint . && eslint source --ext .ts,.tsx",
     "postversion": "git push",
     "prepublishOnly": "yarn lint && yarn build && yarn test",
@@ -58,6 +59,8 @@
     "@bconnorwhite/run-env": "^1.1.6",
     "chokidar": "^3.4.2",
     "commander-version": "^1.1.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "eslint-config-bob": "^1.0.1",
@@ -90,5 +93,10 @@
   },
   "npmpackagejsonlint": {
     "extends": "npm-package-json-lint-config-bob"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
