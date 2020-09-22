@@ -1,3 +1,12 @@
+# [2.4.0](https://github.com/bconnorwhite/bob/compare/v2.3.1...v2.4.0) (2020-09-22)
+
+
+### Features
+
+* added commit command ([0990536](https://github.com/bconnorwhite/bob/commit/0990536c3dba4228e2e163e639f2559a3eeaf8b9))
+
+
+
 ## [2.3.1](https://github.com/bconnorwhite/bob/compare/v2.3.0...v2.3.1) (2020-09-20)
 
 
