@@ -8,7 +8,11 @@ export async function initGit() {
     if(!isGitRepo()) {
       return exec({
         command: "git",
-        args: "init"
+        args: [
+          "init", {
+            quiet: true
+          }
+        ]
       });
     } else {
       return undefined;

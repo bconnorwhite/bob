@@ -1,12 +1,12 @@
 import { createCommand } from "commander-version";
-import exec, { flagsToArgs } from "@bconnorwhite/exec";
+import { exec, Arg } from "@bconnorwhite/exec";
 import { list } from "./list";
 
 export async function count() {
   return list().then((files) => {
     exec({
       command: "wc",
-      args: flagsToArgs({ l: true }).concat(files)
+      args: [{ l: true } as Arg].concat(files)
     });
   });
 }

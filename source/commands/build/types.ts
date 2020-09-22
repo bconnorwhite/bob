@@ -1,13 +1,13 @@
-import { createCommand } from "commander-version";
-import run, { getString, RunResult } from "package-run"
 import ora from "ora";
+import { createCommand } from "commander-version";
+import run, { executableToString, ExecResult } from "package-run"
 import { getBuildDir } from "../../structure";
 import { clean, BuildArgs } from "./";
 
 async function getCommand({ watch, silent = true }: BuildArgs) {
   return {
     command: "tsc",
-    flags: {
+    args: {
       "declaration": true,
       "emitDeclarationOnly": true,
       "outDir": getBuildDir().relative,
@@ -22,16 +22,16 @@ export async function buildTypes(args: BuildArgs) {
     clean(".d.ts");
   }
   return getCommand(args).then((command) => {
-    return run(command);
+    return run(command, { silent: true });
   });
 }
 
-export function buildTypesOutputHandler(promise: Promise<RunResult>) {
+export async function buildTypesOutputHandler(promise: Promise<ExecResult>) {
   const typesSpinner = ora("Generating type declaration files...").start();
-  promise.then((result) => {
-    if(result.error) {
-      typesSpinner.fail(result.error.replace("error ", ""));
-      console.info(result.colorRunOutput);
+  return promise.then((result) => {
+    if(result.textError) {
+      typesSpinner.fail(result.textError.replace("error ", ""));
+      console.info(result.output);
     } else {
       typesSpinner.succeed("Successfully generated type declaration files.");
     }
@@ -41,8 +41,8 @@ export function buildTypesOutputHandler(promise: Promise<RunResult>) {
 export function buildTypesAction(args: BuildArgs) {
   if(args.debug) {
     getCommand(args).then((command) => {
-      getString(command).then((value) => console.info(value));
-    })
+      executableToString(command).then((value) => console.info(value));
+    });
   } else {
     buildTypesOutputHandler(buildTypes(args));
   }

@@ -1,6 +1,6 @@
 import { prompt } from "inquirer";
 import { createCommand } from "commander-version";
-import { getString } from "package-run";
+import { executableToString } from "package-run";
 import { Scripts } from "types-pkg-json";
 import { getPackageJSON, getBuildDir, getBuildIndex } from "../../structure";
 import { PackageJSON } from "@bconnorwhite/package";
@@ -111,8 +111,8 @@ export async function initPackageJSON() {
           ...(pkgJSON?.scripts ?? {}),
           build: pkgJSON?.scripts?.build ?? "bob build",
           lint: pkgJSON?.scripts?.lint ?? "bob lint",
-          postversion: pkgJSON?.scripts?.postversion ?? "git push",
-          prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? `${await getString({ command: "lint" })} && ${await getString({ command: "build" })}`
+          postversion: pkgJSON?.scripts?.postversion ?? "git push --follow-tags",
+          prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? `${await executableToString({ command: "lint" })} && ${await executableToString({ command: "build" })}`
         }),
         dependencies: pkgJSON?.dependencies,
         devDependencies: pkgJSON?.devDependencies,

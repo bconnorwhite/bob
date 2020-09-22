@@ -2,7 +2,7 @@ import { resolve } from "path";
 import { existsSync, unlinkSync, rmdirSync } from "fs";
 import { createCommand } from "commander-version";
 import { watch, FSWatcher } from "chokidar";
-import { RunResult } from "package-run";
+import { ExecResult } from "package-run";
 import { getSourceDir, getBuildDir } from "../../structure";
 import buildSourceCommand, { buildSourceAction, buildSource, buildSourceOutputHandler } from "./source";
 import buildTypesCommand, { buildTypesAction, buildTypes, buildTypesOutputHandler } from "./types";
@@ -14,8 +14,8 @@ export type BuildArgs = {
 };
 
 export type BuildResult = {
-  source: Promise<RunResult>;
-  types: Promise<RunResult>;
+  source: Promise<ExecResult>;
+  types: Promise<ExecResult>;
 }
 
 let watcher: FSWatcher;
@@ -60,8 +60,9 @@ export function build(args: BuildArgs): BuildResult {
 
 export function buildAction(args: BuildArgs) {
   const { source, types } = build(args);
-  buildSourceOutputHandler(source);
-  buildTypesOutputHandler(types);
+  buildSourceOutputHandler(source).then(() => {
+    buildTypesOutputHandler(types);
+  });
 }
 
 export default createCommand("build")

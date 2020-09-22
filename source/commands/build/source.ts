@@ -1,22 +1,23 @@
+import ora from "ora";
 import { resolve } from "path";
 import { createCommand } from "commander-version";
-import ora from "ora";
-import run, { getString, RunResult } from "package-run"
+import run, { executableToString, ExecResult } from "package-run"
 import { getSourceDir, getBuildDir } from "../../structure";
 import { clean, BuildArgs } from "./";
 
 function getCommand({ watch, silent = true }: BuildArgs) {
   return {
     command: "babel",
-    args: getSourceDir().relative,
-    flags: {
-      "out-dir": getBuildDir().relative,
-      "config-file": resolve(__dirname, "config-babel.json"),
-      "extensions": ".ts,.tsx",
-      "delete-dir-on-start": true,
-      "copy-files": true,
-      watch
-    },
+    args: [
+      getSourceDir().relative, {
+        "out-dir": getBuildDir().relative,
+        "config-file": resolve(__dirname, "config-babel.json"),
+        "extensions": ".ts,.tsx",
+        "delete-dir-on-start": true,
+        "copy-files": true,
+        watch
+      }
+    ],
     silent
   }
 }
@@ -25,24 +26,24 @@ export function buildSource(args: BuildArgs) {
   if(args.watch) {
     clean(".js");
   }
-  return run(getCommand(args));
+  return run(getCommand(args), { silent: true });
 }
 
-export function buildSourceOutputHandler(promise: Promise<RunResult>) {
+export async function buildSourceOutputHandler(promise: Promise<ExecResult>) {
   const sourceSpinner = ora(`Compiling from '${getSourceDir().relative}'...`).start();
-  promise.then((result) => {
-    if(result.error) {
-      sourceSpinner.fail(result.error);
-      console.info(result.colorRunOutput);
+  return promise.then((result) => {
+    if(result.textError) {
+      sourceSpinner.fail(result.textError);
+      console.info(result.output);
     } else {
-      sourceSpinner.succeed(result.runOutput.replace("with Babel ", ""));
+      sourceSpinner.succeed(result.textOutput.replace("with Babel ", ""));
     }
   });
 }
 
 export function buildSourceAction(args: BuildArgs) {
   if(args.debug) {
-    getString(getCommand(args)).then((value) => console.info(value))
+    executableToString(getCommand(args)).then((value) => console.info(value))
   } else {
     buildSourceOutputHandler(buildSource(args));
   }

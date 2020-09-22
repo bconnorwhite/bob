@@ -5,6 +5,8 @@ export async function lintPackage() {
   return run({
     command: "npmPkgJsonLint",
     args: "."
+  }, {
+    silent: true
   });
 }
 

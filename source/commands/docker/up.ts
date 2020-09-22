@@ -1,6 +1,6 @@
 import { createCommand } from "commander-version";
 import { access, constants } from "fs";
-import exec from "@bconnorwhite/exec";
+import { exec } from "@bconnorwhite/exec";
 import { getDockerDir } from "../../structure";
 import { getEnv } from "../../utils";
 
@@ -17,11 +17,12 @@ export function dockerUp({ detach = true, environment }: DockerUpArgs) {
     access(file.path, constants.R_OK, (err) => {
       exec({
         command: "docker-compose",
-        args: "up",
-        flags: {
-          detach,
-          file: err ? undefined : file.path
-        },
+        args: [
+          "up", {
+            detach,
+            file: err ? undefined : file.path
+          }
+        ],
         env
       });
     });

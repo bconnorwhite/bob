@@ -74,11 +74,12 @@ Options:
   -h, --help       display help for command
 
 Commands:
-  init             initialize source, package.json, .gitignore, and tsconfig.json
+  init             initialize source, package.json, .gitignore, tsconfig.json, README.md, .cz.json
   build [options]  build and output type declaration files
   watch            watch source files and build after changes
   start [options]  start the script defined in the main field of package.json
   dev [options]    start with NODE_ENV set to 'development' and watch for changes
+  commit           create a conventional commit
   lint             lint package.json and source files
   docker           run docker commands
   count            count lines across source files
@@ -148,6 +149,15 @@ start with NODE_ENV set to 'development' and watch for changes
 Options:
   -i --ignore [ignore...]  files or directories to ignore for restart
   -h, --help               display help for command
+```
+### bob commit
+```
+Usage: bob commit [options]
+
+create a conventional commit
+
+Options:
+  -h, --help  display help for command
 ```
 ### bob lint
 ```

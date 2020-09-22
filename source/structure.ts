@@ -1,4 +1,12 @@
-import { define as defineAs, defineFrom, Directory, File, MarkdownTokens, getPackageJSON } from "@bconnorwhite/package";
+import {
+  define as defineAs,
+  defineFrom,
+  Directory,
+  File,
+  MarkdownTokens,
+  getPackageJSON,
+  JSONObject
+} from "@bconnorwhite/package";
 import { TSConfigJSON } from "types-tsconfig";
 
 const dockerDefinition = {
@@ -52,6 +60,10 @@ const structure = defineAs({
   },
   gitignore: {
     name: ".gitignore"
+  },
+  commitizenConfig: {
+    name: ".cz.json",
+    type: "json"
   }
 });
 
@@ -89,6 +101,10 @@ export function getTSConfig() {
 
 export function getGitignore() {
   return structure.files().gitignore as File<string>;
+}
+
+export function getCommitizenConfig() {
+  return structure.files().commitizenConfig as File<JSONObject>;
 }
 
 export const define = defineFrom(structure);

@@ -1,5 +1,5 @@
-import { createCommand } from "commander-version";
 import { prompt } from "inquirer";
+import { createCommand } from "commander-version";
 import { Repository, Dependencies } from "types-pkg-json";
 import { pkg } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";

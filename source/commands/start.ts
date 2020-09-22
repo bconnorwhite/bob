@@ -1,9 +1,9 @@
-import { createCommand } from "commander-version";
 import nodemon from "nodemon";
 import waitOn from "wait-on";
 import dotenv from "dotenv";
+import { createCommand } from "commander-version";
 import { getMain } from "@bconnorwhite/package";
-import exec from "@bconnorwhite/exec";
+import { exec } from "@bconnorwhite/exec";
 import { getBuildDir } from "../structure";
 import { watch } from "./watch";
 import { getEnv } from "../utils";
@@ -13,7 +13,7 @@ export type StartArgs = {
   ignore?: string[];
 };
 
-export function start({ dev, ignore = []}: StartArgs) {
+export function start({ dev, ignore = [] }: StartArgs) {
   const main = getMain();
   const promises: Promise<any>[] = [];
   if(dev) {

@@ -1,6 +1,6 @@
 import { createCommand } from "commander-version";
 import { promises, constants } from "fs";
-import exec, { ExecResult } from "@bconnorwhite/exec";
+import { exec, ExecResult } from "@bconnorwhite/exec";
 import { pkg } from "@bconnorwhite/package";
 import { getEnv } from "../../utils";
 import { getDockerDir } from "../../structure";
@@ -18,12 +18,11 @@ function execBuild(context: string, tag: string[], file?: string, env?: NodeJS.P
     command: "docker",
     args: [
       "build",
-      context
+      context, {
+        file,
+        tag
+      }
     ],
-    flags: {
-      file,
-      tag
-    },
     env
   });
 }

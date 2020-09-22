@@ -41,9 +41,9 @@
     "build": "yarn build-source && yarn build-types",
     "build-source": "babel source --out-dir build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build-types": "yarn tsc --project tsconfig.bob.json",
-    "commit": "cz",
+    "commit": "yarn start commit",
     "lint": "yarn npmPkgJsonLint . && eslint source --ext .ts,.tsx",
-    "postversion": "git push",
+    "postversion": "git push --tags",
     "prepublishOnly": "yarn lint && yarn build && yarn test",
     "start": "node ./build/bin/index.js",
     "test": "yarn jest"
@@ -54,16 +54,17 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@bconnorwhite/exec": "^5.3.0",
+    "@bconnorwhite/exec": "^6.0.5",
     "@bconnorwhite/package": "^4.2.1",
     "@bconnorwhite/run-env": "^1.1.6",
     "chokidar": "^3.4.2",
     "commander-version": "^1.1.0",
     "commitizen": "^4.2.1",
+    "conventional-changelog-cli": "^2.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
-    "eslint-config-bob": "^1.0.1",
+    "eslint-config-bob": "^1.0.2",
     "find": "^0.3.0",
     "inquirer": "^7.3.3",
     "is-git-repository": "^2.0.0",
@@ -72,7 +73,7 @@
     "npm-package-json-lint": "^5.1.0",
     "npm-package-json-lint-config-bob": "^1.0.1",
     "ora": "^5.1.0",
-    "package-run": "^1.4.1",
+    "package-run": "^2.0.2",
     "spdx-license": "^1.0.1",
     "types-pkg-json": "^1.1.2",
     "types-tsconfig": "^1.1.2",
@@ -93,10 +94,5 @@
   },
   "npmpackagejsonlint": {
     "extends": "npm-package-json-lint-config-bob"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
