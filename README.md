@@ -79,8 +79,9 @@ Commands:
   watch            watch source files and build after changes
   start [options]  start the script defined in the main field of package.json
   dev [options]    start with NODE_ENV set to 'development' and watch for changes
-  commit           create a conventional commit
   lint             lint package.json and source files
+  test             run tests
+  commit           create a conventional commit
   docker           run docker commands
   count            count lines across source files
   list             list files included in build
@@ -171,6 +172,15 @@ Options:
 Commands:
   package     lint package.json
   source      lint source files with ESLint
+```
+### bob test
+```
+Usage: bob test [options]
+
+run tests
+
+Options:
+  -h, --help  display help for command
 ```
 ### bob docker
 ```
