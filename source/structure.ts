@@ -21,14 +21,6 @@ const dockerDefinition = {
 };
 
 const structure = defineAs({
-  source: {
-    name: "source",
-    files: {
-      index: {
-        name: "index.ts"
-      }
-    }
-  },
   build: {
     files: {
       index: {
@@ -36,8 +28,13 @@ const structure = defineAs({
       }
     }
   },
-  test: {
-    files: {}
+  coverage: {
+    name: "coverage",
+    files: {
+      lcov: {
+        name: "lcov.info"
+      }
+    }
   },
   docker: {
     files: (env?: string) => {
@@ -50,22 +47,60 @@ const structure = defineAs({
       }
     }
   },
-  tsconfig: {
-    name: "tsconfig.json",
+  source: {
+    name: "source",
+    files: {
+      index: {
+        name: "index.ts"
+      }
+    }
+  },
+  test: {
+    files: {}
+  },
+  commitizenConfig: {
+    name: ".cz.json",
     type: "json"
+  },
+  env: {
+    name: ".env"
+  },
+  gitignore: {
+    name: ".gitignore"
+  },
+  changelog: {
+    name: "CHANGELOG.md",
+    type: "md"
   },
   readme: {
     name: "README.md",
     type: "md"
   },
-  gitignore: {
-    name: ".gitignore"
-  },
-  commitizenConfig: {
-    name: ".cz.json",
+  tsconfig: {
+    name: "tsconfig.json",
     type: "json"
   }
 });
+
+export function getBuildDir() {
+  return structure.files().build as Directory;
+}
+
+export function getBuildIndex() {
+  return getBuildDir().files().index as File<string>;
+}
+
+export function getCoverageDir() {
+  return structure.files().coverage as Directory;
+}
+
+export function getCoverageLCOV() {
+  return getCoverageDir().files().lcov as File<string>;
+}
+
+export function getDockerDir(env?: string) {
+  return (env ? (structure.files().docker as Directory).files(env)[env] : (structure.files().docker as Directory).files(env)) as Directory;
+}
 
 export function getSourceDir() {
   return structure.files().source as Directory;
@@ -75,20 +110,20 @@ export function getSourceIndex() {
   return getSourceDir().files().index as File<string>;
 }
 
-export function getBuildDir() {
-  return structure.files().build as Directory;
-}
-
 export function getTestDir() {
   return structure.files().test as Directory;
 }
 
-export function getBuildIndex() {
-  return getBuildDir().files().index as File<string>;
+export function getCommitizenConfig() {
+  return structure.files().commitizenConfig as File<JSONObject>;
 }
 
-export function getDockerDir(env?: string) {
-  return (env ? (structure.files().docker as Directory).files(env)[env] : (structure.files().docker as Directory).files(env)) as Directory;
+export function getEnv() {
+  return structure.files().env as File<string>;
+}
+
+export function getGitignore() {
+  return structure.files().gitignore as File<string>;
 }
 
 export function getReadme() {
@@ -97,14 +132,6 @@ export function getReadme() {
 
 export function getTSConfig() {
   return structure.files().tsconfig as File<TSConfigJSON>;
-}
-
-export function getGitignore() {
-  return structure.files().gitignore as File<string>;
-}
-
-export function getCommitizenConfig() {
-  return structure.files().commitizenConfig as File<JSONObject>;
 }
 
 export const define = defineFrom(structure);
