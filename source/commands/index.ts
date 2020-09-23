@@ -43,6 +43,7 @@ import watchCommand, {
 import startCommand, { start, startAction, StartArgs } from "./start";
 import devCommand, { dev, devAction, DevArgs } from "./dev";
 import commitCommand, { commit, commitAction } from "./commit";
+import testCommand, { test, testAction } from "./test";
 import lintCommand, {
   lint,
   lintAction,
@@ -106,6 +107,9 @@ export {
   commit,
   commitCommand,
   commitAction,
+  test,
+  testCommand,
+  testAction,
   lint,
   lintCommand,
   lintAction,
