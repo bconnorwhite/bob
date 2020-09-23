@@ -2,7 +2,7 @@ import { createCommand } from "commander-version";
 import { getCommitizenConfig } from "../../structure";
 import defaultConfig from "../../../.cz.json";
 
-export type initCommitizenArgs = {
+export type InitCommitizenArgs = {
   config?: {
     types?: {
       [name: string]: {
@@ -12,7 +12,7 @@ export type initCommitizenArgs = {
   }
 }
 
-export async function initCommitizen(args: initCommitizenArgs = {}) {
+export async function initCommitizen(args: InitCommitizenArgs = {}) {
   const commitizenConfig = getCommitizenConfig();
   return commitizenConfig.exists().then((exists) => {
     if(!exists) {

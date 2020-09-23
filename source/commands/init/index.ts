@@ -4,7 +4,7 @@ import initPackageJSONCommand, { initPackageJSONAction, initPackageJSON } from "
 import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";
 import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs } from "./tsconfig";
 import initReadmeCommand, { initReadmeAction } from "./readme";
-import initCommitizenCommand, { initCommitizenAction, initCommitizen } from "./commitizen";
+import initCommitizenCommand, { initCommitizenAction, initCommitizen, InitCommitizenArgs } from "./commitizen";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -15,8 +15,7 @@ export async function init({ index }: InitArgs = {}) {
       initSource({ index }),
       initGit(),
       initTSConfig(),
-      initReadmeAction(),
-      initCommitizen()
+      initReadmeAction()
     ]);
   });
 }
@@ -56,5 +55,6 @@ export {
   initReadmeAction,
   initCommitizenCommand,
   initCommitizenAction,
-  initCommitizen
+  initCommitizen,
+  InitCommitizenArgs
 }
