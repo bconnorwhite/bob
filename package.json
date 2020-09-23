@@ -15,6 +15,7 @@
   },
   "files": [
     "build",
+    ".cz.json",
     "tsconfig.json"
   ],
   "keywords": [
