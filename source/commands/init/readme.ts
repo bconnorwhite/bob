@@ -4,6 +4,7 @@ import { Repository, Dependencies } from "types-pkg-json";
 import { pkg } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";
 import { getLicense } from "spdx-license";
+import join from "join-newlines";
 import { getReadme } from "../../structure";
 
 function title(packageName: string) {
@@ -11,27 +12,35 @@ function title(packageName: string) {
 }
 
 function npmVersion(packageName: string) {
-  return `  <a href="https://npmjs.com/package/${packageName}">\n`
-  + `    <img alt="npm" src="https://img.shields.io/npm/v/${packageName}.svg">\n`
-  + "  </a>\n";
+  return join([
+    `  <a href="https://npmjs.com/package/${packageName}">`,
+    `    <img alt="npm" src="https://img.shields.io/npm/v/${packageName}.svg">`,
+    "  </a>"
+  ]);
 }
 
 function gitHubLanguages(gitHubName: string) {
-  return `  <a href="https://github.com/${gitHubName}">\n`
-  + "    <img alt=\"typescript\" src=\"https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg\">\n"
-  + "  </a>\n";
+  return join([
+    `  <a href="https://github.com/${gitHubName}">`,
+    "    <img alt=\"typescript\" src=\"https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg\">",
+    "  </a>"
+  ]);
 }
 
 function gitHubStars(gitHubName: string) {
-  return `  <a href="https://github.com/${gitHubName}">\n`
-  + `    <img alt="GitHub stars" src="https://img.shields.io/github/stars/${gitHubName}?label=Stars%20Appreciated%21&style=social">\n`
-  + "  </a>\n";
+  return join([
+    `  <a href="https://github.com/${gitHubName}">`,
+    `    <img alt="GitHub stars" src="https://img.shields.io/github/stars/${gitHubName}?label=Stars%20Appreciated%21&style=social">`,
+    "  </a>"
+  ]);
 }
 
 function twitter(twitterHandle: string) {
-  return `  <a href="https://twitter.com/${twitterHandle}">\n`
-  + `    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/${twitterHandle}.svg?label=%40${twitterHandle}&style=social">\n`
-  + "  </a>\n";
+  return join([
+    `  <a href="https://twitter.com/${twitterHandle}">`,
+    `    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/${twitterHandle}.svg?label=%40${twitterHandle}&style=social">`,
+    "  </a>"
+  ]);
 }
 
 function header(packageName?: string, gitHubName?: string, twitterHandle?: string) {
@@ -54,13 +63,13 @@ function description(packageDescription?: string) {
 
 function installation(packageName?: string) {
   if(packageName) {
-    return "## Installation\n\n"
-    + "```bash\n"
-    + `yarn add ${packageName}\n`
-    + "```\n\n"
-    + "```bash\n"
-    + `npm install ${packageName}\n`
-    + "```\n\n";
+    return "## Installation\n\n" +
+    "```bash\n" +
+    `yarn add ${packageName}\n` +
+    "```\n\n" +
+    "```bash\n" +
+    `npm install ${packageName}\n` +
+    "```\n\n";
   } else {
     return undefined;
   }
@@ -108,8 +117,8 @@ function license(packageName?: string, licenseID?: string) {
   if(packageName && licenseID) {
     return getLicense(licenseID).then((result) => {
       if(result !== undefined) {
-        return `<br />\n\n<h2>License <img align="right" alt="license" src="https://img.shields.io/npm/l/${packageName}.svg"></h2>\n\n`
-        + `[${licenseID}](${result.url})`;
+        return `<br />\n\n<h2>License <img align="right" alt="license" src="https://img.shields.io/npm/l/${packageName}.svg"></h2>\n\n` +
+        `[${licenseID}](${result.url})`;
       } else {
         return "";
       }
@@ -135,10 +144,10 @@ async function readmeString(packageName?: string, packageDescription?: string, g
     Promise.resolve(devDependencies(gitHubName, pkg?.devDependencies)),
     Promise.resolve(license(packageName, pkg?.license))
   ]).then((footer) => {
-    return header(packageName, gitHubName, twitterHandle)
-      + description(packageDescription)
-      + installation(packageName)
-      + footer.join("");
+    return header(packageName, gitHubName, twitterHandle) +
+      description(packageDescription) +
+      installation(packageName) +
+      footer.join("");
   });
 }
 
