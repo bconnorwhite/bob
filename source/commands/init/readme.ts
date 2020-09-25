@@ -22,7 +22,7 @@ function npmVersion(packageName: string) {
 function gitHubLanguages(gitHubName: string) {
   return join([
     `  <a href="https://github.com/${gitHubName}">`,
-    "    <img alt=\"typescript\" src=\"https://img.shields.io/badge/TypeScript-%F0%9F%91%8D-blue.svg\">",
+    `    <img alt="typescript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`,
     "  </a>"
   ]);
 }
