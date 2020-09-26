@@ -27,6 +27,14 @@ function gitHubLanguages(gitHubName: string) {
   ]);
 }
 
+function coveralls(gitHubName: string) {
+  return join([
+    `  <a href='https://coveralls.io/github/${gitHubName}?branch=master'>`,
+    `    <img alt="Coveralls github" src="https://img.shields.io/coveralls/github/${gitHubName}.svg">`,
+    "  </a>"
+  ]);
+}
+
 function gitHubStars(gitHubName: string) {
   return join([
     `  <a href="https://github.com/${gitHubName}">`,
@@ -48,6 +56,7 @@ function header(packageName?: string, gitHubName?: string, twitterHandle?: strin
     packageName ? title(packageName) : ""
   }${packageName ? npmVersion(packageName) : ""
   }${gitHubName ? gitHubLanguages(gitHubName) : ""
+  }${gitHubName ? coveralls(gitHubName) : ""
   }${gitHubName ? gitHubStars(gitHubName) : ""
   }${twitterHandle ? twitter(twitterHandle) : ""
   }</div>\n\n<br />\n\n`;

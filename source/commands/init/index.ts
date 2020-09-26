@@ -5,6 +5,7 @@ import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitig
 import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs } from "./tsconfig";
 import initReadmeCommand, { initReadmeAction, initReadme } from "./readme";
 import initCommitizenCommand, { initCommitizenAction, initCommitizen, InitCommitizenArgs } from "./commitizen";
+import initCoverallsCommand, { initCoveralls } from "./coveralls";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -14,8 +15,10 @@ export async function init({ index }: InitArgs = {}) {
     initSource({ index }),
     initTSConfig(),
     initPackageJSON().then(async () => {
-      return initGit().then(() => {
-        return initReadme();
+      return initGit().then(async () => {
+        return initCoveralls().then(() => {
+          return initReadme();
+        });
       })
     })
   ]);
@@ -33,6 +36,7 @@ export default createCommand("init")
   .addCommand(initTSConfigCommand)
   .addCommand(initReadmeCommand)
   .addCommand(initCommitizenCommand)
+  .addCommand(initCoverallsCommand)
   .action(initAction);
 
 export {

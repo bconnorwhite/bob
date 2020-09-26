@@ -3020,6 +3020,14 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+coveralls-api@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/coveralls-api/-/coveralls-api-1.0.0.tgz#f7f44475c517ee5b6c5b81a333cbb82dc503f81b"
+  integrity sha512-mjSvBsCm7a/szteRLLZWW3v07IKs5u3Rls8HECUfHwerpdlLAYmSifql48AbtYmBNfK+8gFi29NRtzcsyUKVrg==
+  dependencies:
+    cross-fetch-json "^1.1.1"
+    stringify-json-object "^1.0.5"
+
 coveralls@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.1.0.tgz#13c754d5e7a2dd8b44fe5269e21ca394fb4d615b"
@@ -7687,6 +7695,13 @@ stringify-json-object@^1.0.1:
   integrity sha512-ZE9/b+/8gnhZfVUAKn2CTyhyCA0VMRSdVFDRIlKalSkShg5GiMUcDNIVBhlbwRwZuRRec7p6NHv++1itwg0lxQ==
   dependencies:
     "@bconnorwhite/json-types" "^1.0.2"
+
+stringify-json-object@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/stringify-json-object/-/stringify-json-object-1.0.5.tgz#daff40d7e9fed8c54ab42fe2c93064dbbda62e86"
+  integrity sha512-brEwqNWuaTGZXNl7UIjUZ0Wg3WA5dndOQFrkB6e2EH7nSLHydAffcjb3CyJ9w4SyL3MgmtED9CREEWprl9f83w==
+  dependencies:
+    "@bconnorwhite/json-types" "^1.0.5"
 
 strip-ansi@^4.0.0:
   version "4.0.0"
