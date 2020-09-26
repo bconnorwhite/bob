@@ -2,23 +2,23 @@ import { createCommand } from "commander-version";
 import run from "package-run";
 
 export type LintCommitArgs = {
-  message?: string;
+  env?: string;
 }
 
 export async function lintCommit(args: LintCommitArgs = {}) {
-  const message = args.message ?? "";
+  const env = args.env ?? "";
   return run({
     command: "commitlint",
     args: {
       extends: "@commitlint/config-conventional",
-      env: message
+      env
     }
   });
 }
 
 export async function lintCommitAction() {
   lintCommit({
-    message: process.env.HUSKY_GIT_PARAMS
+    env: "HUSKY_GIT_PARAMS"
   });
 }
 
