@@ -3,6 +3,7 @@ import { prompt } from "inquirer";
 import ConfigStore from "configstore";
 import { Octokit } from "@octokit/rest";
 import isGitRepo from "is-git-repository";
+import { exec } from "@bconnorwhite/exec";
 import { getPackageJSON } from "../../../structure";
 import { getModuleName } from "../../../utils";
 
@@ -33,7 +34,7 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
           name: "githubToken",
           message: "GitHub token:",
           default: config?.get("githubToken")
-        }]).then((answers) => {
+        }]).then(async (answers) => {
           config?.set("githubUsername", answers.githubUsername);
           config?.set("githubToken", answers.githubToken);
           const octokit = new Octokit({
@@ -44,6 +45,8 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
             description: pkgJSON?.description,
             homepage: pkgJSON?.homepage,
             private: pkgJSON?.private
+          }).then((response) => {
+            return exec("git", ["remote", "add", "origin", response.data.ssh_url]);
           });
         });
       });
