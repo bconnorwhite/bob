@@ -1,10 +1,12 @@
 import { prompt } from "inquirer";
+import ConfigStore from "configstore";
 import { createCommand } from "commander-version";
 import { Repository, Dependencies } from "types-pkg-json";
 import { pkg } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";
 import { getLicense } from "spdx-license";
 import join from "join-newlines";
+import { getModuleName } from "../../utils";
 import { getReadme } from "../../structure";
 
 function title(packageName: string) {
@@ -167,15 +169,20 @@ export async function initReadme() {
       // TODO: update
       return Promise.resolve();
     } else {
-      return prompt([{
-        type: "input",
-        name: "twitterHandle",
-        message: "twitter handle:"
-      }]).then(async ({ twitterHandle }: { twitterHandle: string }) => {
-        return readmeString(pkg?.name, pkg?.description, getGitHubName(pkg?.repository), twitterHandle).then((text) => {
-          return readme.write(text);
-        });
-      })
+      return getModuleName().then(async (moduleName) => {
+        const configstore = moduleName ? new ConfigStore(moduleName) : undefined;
+        return prompt([{
+          type: "input",
+          name: "twitterHandle",
+          message: "twitter handle:",
+          default: configstore?.get("twitterHandle")
+        }]).then(async (answers) => {
+          configstore?.set("twitterHandle", answers.twitterHandle);
+          return readmeString(pkg?.name, pkg?.description, getGitHubName(pkg?.repository), answers.twitterHandle).then((text) => {
+            return readme.write(text);
+          });
+        })
+      });
     }
   });
 }
