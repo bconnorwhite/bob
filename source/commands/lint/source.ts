@@ -1,7 +1,7 @@
 import { createCommand } from "commander-version";
 import run from "package-run";
 
-const warning = `Warning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.`;
+const warning = 'Warning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.';
 
 export async function lintSource() {
   return run({
