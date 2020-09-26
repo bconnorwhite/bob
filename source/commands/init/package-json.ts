@@ -120,6 +120,11 @@ export async function initPackageJSON() {
         eslintConfig: pkgJSON?.eslintConfig ?? {
           extends: "eslint-config-bob"
         },
+          husky: pkgJSON?.husky ?? {
+            hooks: {
+              "commit-msg": "bob commit lint"
+            }
+          },
         npmpackagejsonlint: pkgJSON?.npmpackagejsonlint ?? {
           extends: "npm-package-json-lint-config-bob"
         }

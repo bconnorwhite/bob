@@ -72,6 +72,7 @@
     "eslint": "^7.9.0",
     "eslint-config-bob": "^1.0.3",
     "find": "^0.3.0",
+    "husky": "^4.3.0",
     "inquirer": "^7.3.3",
     "is-git-repository": "^2.0.0",
     "jest": "^26.4.2",
@@ -99,6 +100,11 @@
   },
   "eslintConfig": {
     "extends": "eslint-config-bob"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "yarn run start lint commit"
+    }
   },
   "npmpackagejsonlint": {
     "extends": "npm-package-json-lint-config-bob"
