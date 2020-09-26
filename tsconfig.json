@@ -19,6 +19,10 @@
     "rootDir": "source",
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ]
   }
 }
