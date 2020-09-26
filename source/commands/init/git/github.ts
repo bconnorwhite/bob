@@ -17,7 +17,7 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
         const config = moduleName ? new ConfigStore(moduleName) : undefined;
         const split = pkgJSON?.name?.split("/") ?? [];
         const name = split.reverse()[0];
-        const org = split.reverse()[1].replace("@", "");
+        const org = split.reverse()[1]?.replace("@", "");
         return prompt([{
           type: "input",
           name: "name",
