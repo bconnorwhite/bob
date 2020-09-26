@@ -1,6 +1,6 @@
 import { createCommand } from "commander-version";
-import { getCommitizenConfig } from "../../structure";
-import defaultConfig from "../../../.cz.json";
+import { getCommitizenConfig } from "../../../structure";
+import defaultConfig from "./config.json";
 
 export type InitCommitizenArgs = {
   config?: {

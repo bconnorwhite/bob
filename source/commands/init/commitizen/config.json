@@ -1,0 +1,38 @@
+{
+  "path": "node_modules/cz-conventional-changelog",
+  "types": {
+    "feat": {
+      "description": "A new feature"
+    },
+    "fix": {
+      "description": "A bug fix or output change that does not introduce a new feature"
+    },
+    "refactor": {
+      "description": "A code change that neither fixes a bug nor adds a feature, and does not affect output"
+    },
+    "docs": {
+      "description": "Documentation only changes (README, docs, examples, etc)"
+    },
+    "style": {
+      "description": "Changes that do not affect the meaning of the code (linting, formatting, etc)"
+    },
+    "test": {
+      "description": "Adding missing tests or correcting existing tests"
+    },
+    "build": {
+      "description": "Changes that affect the build system (babel, typescript, etc)"
+    },
+    "ci": {
+      "description": "Changes to CI configuration files and scripts (includes git, eslint, commitizen)"
+    },
+    "perf": {
+      "description": "A code change that improves performance"
+    },
+    "chore": {
+      "description": "Other changes thate don't modify source or test files"
+    },
+    "revert": {
+      "description": "Reverts a previous commit"
+    }
+  }
+}
