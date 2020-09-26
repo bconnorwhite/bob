@@ -52,7 +52,11 @@ import lintCommand, {
   lintSourceAction,
   lintPackageCommand,
   lintPackage,
-  lintPackageAction
+  lintPackageAction,
+  lintCommitCommand,
+  lintCommitAction,
+  lintCommit,
+  LintCommitArgs
 } from "./lint";
 import listCommand, { list, listAction } from "./list";
 import countCommand, { count, countAction } from "./count";
@@ -119,6 +123,10 @@ export {
   lintPackageCommand,
   lintPackage,
   lintPackageAction,
+  lintCommitCommand,
+  lintCommitAction,
+  lintCommit,
+  LintCommitArgs,
   list,
   listCommand,
   listAction,
