@@ -34,6 +34,11 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
           name: "githubToken",
           message: "GitHub token:",
           default: config?.get("githubToken")
+        }, {
+          type: "confirm",
+          name: "star",
+          message: "Star for good luck?",
+          default: true
         }]).then(async (answers) => {
           config?.set("githubUsername", answers.githubUsername);
           config?.set("githubToken", answers.githubToken);
@@ -45,7 +50,13 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
             description: pkgJSON?.description,
             homepage: pkgJSON?.homepage,
             private: pkgJSON?.private
-          }).then((response) => {
+          }).then(async (response) => {
+            if(answers.star) {
+              await octokit.activity.starRepoForAuthenticatedUser({
+                owner: response.data.owner.login,
+                repo: response.data.name
+              });
+            }
             return exec("git", ["remote", "add", "origin", response.data.ssh_url]);
           });
         });
