@@ -11,7 +11,7 @@ function getCommand({ watch, silent = true }: BuildArgs) {
     args: [
       getSourceDir().relative, {
         "out-dir": getBuildDir().relative,
-        "config-file": resolve(__dirname, "config-babel.json"),
+        "config-file": resolve(__dirname, "../../../babel.config.json"),
         "extensions": ".ts,.tsx",
         "delete-dir-on-start": true,
         "copy-files": true,
