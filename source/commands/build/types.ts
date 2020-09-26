@@ -8,9 +8,9 @@ async function getCommand({ watch, silent = true }: BuildArgs) {
   return {
     command: "tsc",
     args: {
-      "declaration": true,
-      "emitDeclarationOnly": true,
-      "outDir": getBuildDir().relative,
+      declaration: true,
+      emitDeclarationOnly: true,
+      outDir: getBuildDir().relative,
       watch
     },
     silent
