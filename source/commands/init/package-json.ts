@@ -1,4 +1,4 @@
-import { prompt } from "inquirer";
+import { prompt, DistinctQuestion } from "inquirer";
 import ConfigStore from "configstore";
 import { createCommand } from "commander-version";
 import { executableToString } from "package-run";
@@ -35,7 +35,7 @@ export async function initPackageJSON(args: InitPackageJSONArgs = {}) {
   return getModuleName(args.configPackageName).then(async (moduleName) => {
     const config = moduleName ? new ConfigStore(moduleName) : undefined;
     return getPackageJSON().read().then(async (pkgJSON) => {
-      const questions = [];
+      const questions: DistinctQuestion<any>[] = [];
       if(pkgJSON?.name === undefined) {
         questions.push({
           type: "input",
@@ -97,9 +97,9 @@ export async function initPackageJSON(args: InitPackageJSONArgs = {}) {
         });
       }
       return prompt(questions).then(async (answers) => {
-        config?.set("authorName", answers.author.name);
-        config?.set("authorEmail", answers.author.email);
-        config?.set("authorURL", answers.author.url);
+        config?.set("authorName", answers.author?.name);
+        config?.set("authorEmail", answers.author?.email);
+        config?.set("authorURL", answers.author?.url);
         config?.set("githubUsername", answers.githubUsername);
         const name = answers.name ?? pkgJSON?.name;
         const repositoryURL = name && answers.githubUsername ?

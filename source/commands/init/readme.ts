@@ -151,13 +151,14 @@ async function readmeString(packageName?: string, packageDescription?: string, g
   });
 }
 
-export async function initReadmeAction() {
+export async function initReadme() {
   const readme = getReadme();
-  readme.exists().then((exists) => {
+  return readme.exists().then(async (exists) => {
     if(exists) {
-      // update
+      // TODO: update
+      return Promise.resolve();
     } else {
-      prompt([{
+      return prompt([{
         type: "input",
         name: "twitterHandle",
         message: "twitter handle:"
@@ -168,6 +169,10 @@ export async function initReadmeAction() {
       })
     }
   });
+}
+
+export async function initReadmeAction() {
+  initReadme();
 }
 
 export default createCommand("package-json")

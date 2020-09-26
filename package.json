@@ -13,12 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/bconnorwhite/bob.git"
   },
-  "files": [
-    "build",
-    ".cz.json",
-    "babel.config.json",
-    "tsconfig.json"
-  ],
   "keywords": [
     "bob",
     "build",
@@ -34,6 +28,12 @@
     "tool",
     "tools",
     "toolkit"
+  ],
+  "files": [
+    "build",
+    ".cz.json",
+    "babel.config.json",
+    "tsconfig.json"
   ],
   "main": "./build/index.js",
   "bin": {

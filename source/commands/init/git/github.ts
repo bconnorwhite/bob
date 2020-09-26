@@ -15,16 +15,19 @@ export async function initGitHub(args: InitGitHubArgs = {}) {
     return getPackageJSON().read().then(async (pkgJSON) => {
       return getModuleName(args.configPackageName).then(async (moduleName) => {
         const config = moduleName ? new ConfigStore(moduleName) : undefined;
+        const split = pkgJSON?.name?.split("/") ?? [];
+        const name = split.reverse()[0];
+        const org = split.reverse()[1].replace("@", "");
         return prompt([{
           type: "input",
           name: "name",
           message: "GitHub repo name:",
-          default: pkgJSON?.name
+          default: name
         }, {
           type: "input",
           name: "githubUsername",
           message: "GitHub username:",
-          default: config?.get("githubUsername")
+          default: config?.get("githubUsername") ?? org
         }, {
           type: "input",
           name: "githubToken",

@@ -3,21 +3,22 @@ import initSourceCommand, { initSource, initSourceAction, InitSourceArgs } from 
 import initPackageJSONCommand, { initPackageJSONAction, initPackageJSON } from "./package-json";
 import initGitCommand, { initGitAction, initGit, initGitignoreCommand, initGitignore, initGitignoreAction } from "./git";
 import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs } from "./tsconfig";
-import initReadmeCommand, { initReadmeAction } from "./readme";
+import initReadmeCommand, { initReadmeAction, initReadme } from "./readme";
 import initCommitizenCommand, { initCommitizenAction, initCommitizen, InitCommitizenArgs } from "./commitizen";
 
 export type InitArgs =
   & InitSourceArgs;
 
 export async function init({ index }: InitArgs = {}) {
-  return initPackageJSON().then(async () => {
-    return Promise.all([
-      initSource({ index }),
-      initGit(),
-      initTSConfig(),
-      initReadmeAction()
-    ]);
-  });
+  return Promise.all([
+    initSource({ index }),
+    initTSConfig(),
+    initPackageJSON().then(async () => {
+      return initGit().then(() => {
+        return initReadme();
+      })
+    })
+  ]);
 }
 
 export function initAction() {
