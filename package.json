@@ -52,9 +52,7 @@
     "build-source": "babel source --out-dir build --config-file ./babel.config.json --extensions .ts --delete-dir-on-start --copy-files",
     "build-types": "yarn tsc --project tsconfig.bob.json",
     "commit": "yarn start commit",
-    "lint": "yarn npmPkgJsonLint . && eslint source --ext .ts,.tsx",
-    "postversion": "git push --follow-tags",
-    "prepublishOnly": "yarn lint && yarn build && yarn test",
+    "lint": "yarn start lint",
     "start": "node ./build/bin/index.js",
     "test": "yarn start test"
   },
