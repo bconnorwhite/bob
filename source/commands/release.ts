@@ -21,15 +21,15 @@ function getReleaseType() {
   })
 }
 
-async function getVersion(packageName = "", oldVersion = "1.0.0", releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
-  return versionExists(packageName, oldVersion).then((exists) => {
+async function getVersion(packageName = "", version = "1.0.0", releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
+  return versionExists(packageName, version).then((exists) => {
     if(exists) {
-      return inc(oldVersion, releaseType) ?? "1.0.0";
+      return inc(version, releaseType) ?? "1.0.0";
     } else {
-      return oldVersion;
+      return version;
     }
-  }).catch(() => {
-    return false;
+  }).catch(() => { // Package does not exist
+    return version;
   });
 }
 
