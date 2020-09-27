@@ -1,4 +1,3 @@
-/* eslint-disable max-nested-callbacks */
 import { createCommand } from "commander-version";
 import { inc } from "semver";
 import { prompt } from "inquirer";
@@ -97,29 +96,25 @@ export async function release() {
                         issueNumber = response.data.number;
                       });
                     }
-                    return push().then(async () => {
-                      return getCommitSHA().then(async (sha) => {
-                        return sendToCoveralls().then(async () => {
-                          return octokit.repos.createCommitStatus({
-                            owner: repoName[0],
-                            repo: repoName[1],
-                            sha,
-                            state: "success"
-                          }).then(() => {
-                            if(issueNumber !== undefined) {
-                              return octokit.issues.update({
-                                owner: repoName[0],
-                                repo: repoName[1],
-                                issue_number: issueNumber,
-                                state: "closed"
-                              });
-                            } else {
-                              return undefined;
-                            }
-                          });
-                        });
-                      });
+                    await push();
+                    const sha = await getCommitSHA();
+                    await sendToCoveralls();
+                    await octokit.repos.createCommitStatus({
+                      owner: repoName[0],
+                      repo: repoName[1],
+                      sha,
+                      state: "success"
                     });
+                    if(issueNumber !== undefined) {
+                      return octokit.issues.update({
+                        owner: repoName[0],
+                        repo: repoName[1],
+                        issue_number: issueNumber,
+                        state: "closed"
+                      });
+                    } else {
+                      return undefined;
+                    }
                   } else {
                     return undefined;
                   }
