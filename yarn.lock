@@ -5469,10 +5469,10 @@ joi@^17.1.1:
     "@hapi/pinpoint" "^2.0.0"
     "@hapi/topo" "^5.0.0"
 
-join-newlines@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/join-newlines/-/join-newlines-1.0.0.tgz#ce639d4839f86c70191c4d647ed1676026a21579"
-  integrity sha512-AjwXkoQsAKZ6Pl9lqvoLhyAuGBHF8AlSywg0kHyBy6F0pwK+VlIE3FznURFW9uV18evYqsdrr72Rf2VXjaZEaA==
+join-newlines@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/join-newlines/-/join-newlines-1.1.0.tgz#bbec487cba94823c4fca033119732a8cc46b7478"
+  integrity sha512-BHfOWtGcZ0NLDiI+Ai248T0ed0rcNe8mZCAjwehMHKNrQgv65bRGM/PS2Vsubf8CpFR26sXOF1INxruYGfPwHw==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"

@@ -18,7 +18,7 @@ function npmVersion(packageName: string) {
     `  <a href="https://npmjs.com/package/${packageName}">`,
     `    <img alt="NPM" src="https://img.shields.io/npm/v/${packageName}.svg">`,
     "  </a>"
-  ]);
+  ], true);
 }
 
 function gitHubLanguages(gitHubName: string) {
@@ -26,7 +26,7 @@ function gitHubLanguages(gitHubName: string) {
     `  <a href="https://github.com/${gitHubName}">`,
     `    <img alt="TypeScript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`,
     "  </a>"
-  ]);
+  ], true);
 }
 
 function coveralls(gitHubName: string) {
@@ -34,7 +34,7 @@ function coveralls(gitHubName: string) {
     `  <a href='https://coveralls.io/github/${gitHubName}?branch=master'>`,
     `    <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg?branch=master">`,
     "  </a>"
-  ]);
+  ], true);
 }
 
 function gitHubStars(gitHubName: string) {
@@ -42,7 +42,7 @@ function gitHubStars(gitHubName: string) {
     `  <a href="https://github.com/${gitHubName}">`,
     `    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/${gitHubName}?label=Stars%20Appreciated%21&style=social">`,
     "  </a>"
-  ]);
+  ], true);
 }
 
 function twitter(twitterHandle: string) {
@@ -50,7 +50,7 @@ function twitter(twitterHandle: string) {
     `  <a href="https://twitter.com/${twitterHandle}">`,
     `    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/${twitterHandle}.svg?label=%40${twitterHandle}&style=social">`,
     "  </a>"
-  ]);
+  ], true);
 }
 
 function header(packageName?: string, gitHubName?: string, twitterHandle?: string) {

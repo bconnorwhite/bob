@@ -81,7 +81,7 @@
     "inquirer": "^7.3.3",
     "is-git-repository": "^2.0.0",
     "jest": "^26.4.2",
-    "join-newlines": "^1.0.0",
+    "join-newlines": "^1.1.0",
     "nodemon": "^2.0.4",
     "npm-description": "^1.0.2",
     "npm-package-json-lint": "^5.1.0",
