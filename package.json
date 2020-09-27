@@ -71,7 +71,7 @@
     "conventional-changelog-cli": "^2.1.0",
     "conventional-recommended-bump": "^6.0.10",
     "coveralls": "^3.1.0",
-    "coveralls-api": "^1.0.0",
+    "coveralls-api": "^1.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",

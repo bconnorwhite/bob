@@ -3092,12 +3092,12 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-coveralls-api@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/coveralls-api/-/coveralls-api-1.0.0.tgz#f7f44475c517ee5b6c5b81a333cbb82dc503f81b"
-  integrity sha512-mjSvBsCm7a/szteRLLZWW3v07IKs5u3Rls8HECUfHwerpdlLAYmSifql48AbtYmBNfK+8gFi29NRtzcsyUKVrg==
+coveralls-api@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/coveralls-api/-/coveralls-api-1.0.1.tgz#4c4e01e7f84c5dddd4ba441a1c963cebd488e3ee"
+  integrity sha512-EF5V3F4lH0/sw7jeCT/h5vxVKY70fRy0JJns30ay2uy8AyyiisJoUy+xsgZ2x2J4jkjJpE6fgHqIOrK9BW9rPw==
   dependencies:
-    cross-fetch-json "^1.1.1"
+    cross-fetch-json "^1.1.2"
     stringify-json-object "^1.0.5"
 
 coveralls@^3.1.0:
@@ -3123,6 +3123,14 @@ cross-fetch-json@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/cross-fetch-json/-/cross-fetch-json-1.1.1.tgz#838143e17f1696e3cacdeaa2a96f3d5267d538ca"
   integrity sha512-PKfFkiJ1ATfJvpMvO7S6/jK7x/o2VdWmeC+ZNGO9w9XJxos60AhzoIAsHmaXJBjNnG8o24jMH6Xa5+wawkIWyA==
+  dependencies:
+    cross-fetch "^3.0.6"
+    parse-json-object "^2.0.0"
+
+cross-fetch-json@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/cross-fetch-json/-/cross-fetch-json-1.1.2.tgz#09ccbbabbf174c1ae180acba737a2bcc7ad5aa56"
+  integrity sha512-vLBOO4/yQxQ3DwCq6s3qVsOaoD6r+Mqy5/LuC1TaWy2+1xbqsahg1OsDiPdnwhTn6Zi0xCgZjPqV48uAMFqXmg==
   dependencies:
     cross-fetch "^3.0.6"
     parse-json-object "^2.0.0"
