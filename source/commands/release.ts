@@ -21,6 +21,25 @@ function getReleaseType() {
   })
 }
 
+async function getCommitSHA() {
+  return exec("git", ["rev-parse", "HEAD"]).then(async (result) => {
+    return result.textOutput;
+  });
+}
+
+export async function sendToCoveralls(): Promise<void> {
+  return getCoverageLCOV().read().then(async (lcov = "") => {
+    return new Promise((resolve) => {
+      handleInput(lcov, (err) => {
+        if(err) {
+          console.error(err);
+        }
+        resolve();
+      });
+    });
+  });
+}
+
 export async function release() {
   return prerelease().then(async () => {
     return getReleaseType().then(async (releaseType) => {
@@ -68,31 +87,24 @@ export async function release() {
                       });
                     }
                     return push().then(async () => {
-                      return exec("git", ["rev-parse", "HEAD"]).then(async (result) => {
-                        const sha = result.textOutput;
-                        return getCoverageLCOV().read().then(async (lcov) => {
-                          return new Promise((resolve) => {
-                            handleInput(lcov ?? "", () => {
-                              resolve();
-                            });
-                          }).then(async () => {
-                            return octokit.repos.createCommitStatus({
-                              owner: repoName[0],
-                              repo: repoName[1],
-                              sha,
-                              state: "success"
-                            }).then(() => {
-                              if(issueNumber !== undefined) {
-                                return octokit.issues.update({
-                                  owner: repoName[0],
-                                  repo: repoName[1],
-                                  issue_number: issueNumber,
-                                  state: "closed"
-                                });
-                              } else {
-                                return undefined;
-                              }
-                            });
+                      return getCommitSHA().then(async (sha) => {
+                        return sendToCoveralls().then(async () => {
+                          return octokit.repos.createCommitStatus({
+                            owner: repoName[0],
+                            repo: repoName[1],
+                            sha,
+                            state: "success"
+                          }).then(() => {
+                            if(issueNumber !== undefined) {
+                              return octokit.issues.update({
+                                owner: repoName[0],
+                                repo: repoName[1],
+                                issue_number: issueNumber,
+                                state: "closed"
+                              });
+                            } else {
+                              return undefined;
+                            }
                           });
                         });
                       });

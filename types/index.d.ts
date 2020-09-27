@@ -1,3 +1,3 @@
 declare module "coveralls" {
-  export function handleInput(input: string, cb: () => void): void;
+  export function handleInput(input: string, cb: (err?: any) => void): void;
 }
