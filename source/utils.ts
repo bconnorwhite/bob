@@ -1,10 +1,19 @@
 import dotenv from "dotenv";
 import { getPackageJSON } from "@bconnorwhite/module";
+import { PackageJSON } from "@bconnorwhite/package";
 
 export function getEnv() {
   return {
     NODE_ENV: process.env.NODE_ENV,
     ...dotenv.config().parsed
+  }
+}
+
+export function getRepoName(pkgJSON?: PackageJSON) {
+  if(typeof pkgJSON?.repository === "object") {
+    return pkgJSON?.repository.url.replace("git+https://github.com/", "").replace(".git", "");
+  } else {
+    return undefined;
   }
 }
 

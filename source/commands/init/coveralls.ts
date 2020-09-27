@@ -2,20 +2,11 @@ import { createCommand } from "commander-version";
 import { prompt } from "inquirer";
 import ConfigStore from "configstore";
 import Coveralls, { CreateRepoResponse } from "coveralls-api";
-import { PackageJSON } from "@bconnorwhite/package";
 import { getPackageJSON } from "../../structure";
-import { getModuleName } from "../../utils";
+import { getModuleName, getRepoName } from "../../utils";
 
 export type InitCoverallsArgs = {
   configPackageName?: string;
-}
-
-function getRepoName(pkgJSON?: PackageJSON) {
-  if(typeof pkgJSON?.repository === "object") {
-    return pkgJSON?.repository.url.replace("git+https://github.com/", "").replace(".git", "");
-  } else {
-    return undefined;
-  }
 }
 
 export async function initCoveralls(args: InitCoverallsArgs = {}) {

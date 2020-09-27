@@ -126,6 +126,10 @@ export function getGitignore() {
   return structure.files().gitignore as File<string>;
 }
 
+export function getChangelog() {
+  return structure.files().changelog as File<MarkdownTokens>;
+}
+
 export function getReadme() {
   return structure.files().readme as File<MarkdownTokens>;
 }
