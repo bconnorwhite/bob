@@ -16,7 +16,7 @@ function title(packageName: string) {
 function npmVersion(packageName: string) {
   return join([
     `  <a href="https://npmjs.com/package/${packageName}">`,
-    `    <img alt="npm" src="https://img.shields.io/npm/v/${packageName}.svg">`,
+    `    <img alt="NPM" src="https://img.shields.io/npm/v/${packageName}.svg">`,
     "  </a>"
   ]);
 }
@@ -24,7 +24,7 @@ function npmVersion(packageName: string) {
 function gitHubLanguages(gitHubName: string) {
   return join([
     `  <a href="https://github.com/${gitHubName}">`,
-    `    <img alt="typescript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`,
+    `    <img alt="TypeScript" src="https://img.shields.io/github/languages/top/${gitHubName}.svg">`,
     "  </a>"
   ]);
 }
@@ -32,7 +32,7 @@ function gitHubLanguages(gitHubName: string) {
 function coveralls(gitHubName: string) {
   return join([
     `  <a href='https://coveralls.io/github/${gitHubName}?branch=master'>`,
-    `    <img alt="Coveralls github" src="https://img.shields.io/coveralls/github/${gitHubName}.svg">`,
+    `    <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg?branch=master">`,
     "  </a>"
   ]);
 }
@@ -40,7 +40,7 @@ function coveralls(gitHubName: string) {
 function gitHubStars(gitHubName: string) {
   return join([
     `  <a href="https://github.com/${gitHubName}">`,
-    `    <img alt="GitHub stars" src="https://img.shields.io/github/stars/${gitHubName}?label=Stars%20Appreciated%21&style=social">`,
+    `    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/${gitHubName}?label=Stars%20Appreciated%21&style=social">`,
     "  </a>"
   ]);
 }
