@@ -27,7 +27,15 @@
     "count",
     "tool",
     "tools",
-    "toolkit"
+    "toolkit",
+    "publish",
+    "release",
+    "commit",
+    "lint",
+    "push",
+    "start",
+    "run",
+    "test"
   ],
   "files": [
     "build",
