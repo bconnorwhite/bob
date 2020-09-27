@@ -53,6 +53,7 @@
     "build-types": "yarn tsc --project tsconfig.bob.json",
     "commit": "yarn start commit",
     "lint": "yarn start lint",
+    "release": "yarn start publish",
     "start": "node ./build/bin/index.js",
     "test": "yarn start test"
   },
