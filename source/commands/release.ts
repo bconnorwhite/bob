@@ -12,13 +12,24 @@ import { updateChangelog } from "./update";
 import { Octokit } from "@octokit/rest";
 import { getModuleName, getRepoName } from "../utils";
 import { handleInput } from "coveralls";
+import versionExists from "version-exists";
 
 function getReleaseType() {
   return new Promise((resolve: (value?: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) => void) => {
-    conventionalRecommendedBump({ preset: "angular" }, (_error, bump) => {
-      resolve(bump.releaseType);
+    conventionalRecommendedBump({ preset: "angular" }, (_error, { releaseType }) => {
+      resolve(releaseType);
     });
   })
+}
+
+async function getVersion(packageName = "", oldVersion = "1.0.0", releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
+  return versionExists(packageName, oldVersion).then((exists) => {
+    if(exists) {
+      return inc(oldVersion, releaseType) ?? "1.0.0";
+    } else {
+      return oldVersion;
+    }
+  });
 }
 
 async function getCommitSHA() {
@@ -46,7 +57,7 @@ export async function release() {
       const pkgJSONFile = getPackageJSON();
       return pkgJSONFile.read().then(async (pkgJSON) => {
         const oldVersion = pkgJSON?.version;
-        const version = (oldVersion && inc(oldVersion, releaseType)) ?? "1.0.0";
+        const version = await getVersion(pkgJSON?.name, oldVersion, releaseType);
         return pkgJSONFile.merge({ version }).then(async () => {
           return updateChangelog().then(async () => {
             const tag = `v${version}`;
