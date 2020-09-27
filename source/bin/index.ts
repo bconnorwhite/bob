@@ -10,6 +10,8 @@ import {
   testCommand,
   lintCommand,
   prereleaseCommand,
+  releaseCommand,
+  publishCommand,
   listCommand,
   countCommand,
   dockerCommand
@@ -25,6 +27,8 @@ program(__dirname)
   .addCommand(lintCommand)
   .addCommand(testCommand)
   .addCommand(prereleaseCommand)
+  .addCommand(releaseCommand)
+  .addCommand(publishCommand)
   .addCommand(commitCommand)
   .addCommand(dockerCommand)
   .addCommand(countCommand)

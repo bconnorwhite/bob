@@ -1,6 +1,6 @@
 import { createCommand } from "commander-version";
 import { TSConfigJSON } from "types-tsconfig";
-import { getTSConfig, getSourceDir, getTestDir } from "../../structure";
+import { getTSConfig, getSourceDir, getTestDir, getTypesDir } from "../../structure";
 
 export type InitTSConfigArgs = {
   config: TSConfigJSON;
@@ -12,11 +12,13 @@ const defaultConfig: InitTSConfigArgs = {
     compilerOptions: {
       rootDirs: [
         getSourceDir().relative,
-        getTestDir().relative
+        getTestDir().relative,
+        getTypesDir().relative
       ]
     },
     include: [
-      getSourceDir().relative
+      getSourceDir().relative,
+      getTypesDir().relative
     ]
   }
 };

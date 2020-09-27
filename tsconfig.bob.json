@@ -3,10 +3,12 @@
   "compilerOptions": {
     "rootDirs": [
       "source",
-      "test"
+      "test",
+      "types"
     ]
   },
   "include": [
-    "source"
+    "source",
+    "types"
   ]
 }

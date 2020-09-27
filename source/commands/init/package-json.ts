@@ -1,7 +1,6 @@
 import { prompt, DistinctQuestion } from "inquirer";
 import ConfigStore from "configstore";
 import { createCommand } from "commander-version";
-import { executableToString } from "package-run";
 import { Scripts } from "types-pkg-json";
 import { getPackageJSON, getBuildDir, getBuildIndex } from "../../structure";
 import { PackageJSON } from "@bconnorwhite/package";
@@ -132,8 +131,7 @@ export async function initPackageJSON(args: InitPackageJSONArgs = {}) {
             build: pkgJSON?.scripts?.build ?? "bob build",
             commit: pkgJSON?.scripts?.commit ?? "bob commit",
             lint: pkgJSON?.scripts?.lint ?? "bob lint",
-            postversion: pkgJSON?.scripts?.postversion ?? "git push --follow-tags",
-            prepublishOnly: pkgJSON?.scripts?.prepublishOnly ?? `${await executableToString({ command: "lint" })} && ${await executableToString({ command: "build" })}`,
+            release: pkgJSON?.scripts?.release ?? "bob release",
             test: pkgJSON?.scripts?.test ?? "bob test"
           }),
           dependencies: pkgJSON?.dependencies,

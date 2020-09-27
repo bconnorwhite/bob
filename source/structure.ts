@@ -58,6 +58,9 @@ const structure = defineAs({
   test: {
     files: {}
   },
+  types: {
+    files: {}
+  },
   commitizenConfig: {
     name: ".cz.json",
     type: "json"
@@ -112,6 +115,10 @@ export function getSourceIndex() {
 
 export function getTestDir() {
   return structure.files().test as Directory;
+}
+
+export function getTypesDir() {
+  return structure.files().types as Directory;
 }
 
 export function getCommitizenConfig() {
