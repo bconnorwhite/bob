@@ -13,7 +13,7 @@ export async function initGitignore() {
           `/${getCoverageDir().relative}`,
           "node_modules",
           `${getEnv().relative}`,
-          `\n${yarn ? "yarn-error.log" : ""}`
+          `${yarn ? "yarn-error.log" : ""}`
         ]));
       });
     } else {
