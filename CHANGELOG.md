@@ -1,3 +1,12 @@
+## [2.6.2](https://github.com/bconnorwhite/bob/compare/v2.6.1...v2.6.2) (2020-09-27)
+
+
+### Bug Fixes
+
+* check if version exists before bumping ([2be985e](https://github.com/bconnorwhite/bob/commit/2be985ed00266a7da3ccf44b8bd03429b1c5f266))
+
+
+
 ## [2.6.1](https://github.com/bconnorwhite/bob/compare/v2.6.0...v2.6.1) (2020-09-27)
 
 
