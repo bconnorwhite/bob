@@ -16,10 +16,6 @@
     "outDir": "build",
     "removeComments": false,
     "resolveJsonModule": true,
-    "rootDirs": [
-      "source",
-      "test"
-    ],
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
