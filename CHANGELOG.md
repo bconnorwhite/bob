@@ -1,3 +1,14 @@
+## [2.6.3](https://github.com/bconnorwhite/bob/compare/v2.6.2...v2.6.3) (2020-09-27)
+
+
+### Bug Fixes
+
+* fix version error on release ([4b3e796](https://github.com/bconnorwhite/bob/commit/4b3e7962a21735c00db84a23eed0198204d79e0e))
+* catch error from version exists ([60026b6](https://github.com/bconnorwhite/bob/commit/60026b69f4d184ecca7b534389305d980b271e72))
+* remove extra newline when initializing gitignore ([a7f674d](https://github.com/bconnorwhite/bob/commit/a7f674de9e365be13d3d7eca8b4aef405817c595))
+
+
+
 ## [2.6.2](https://github.com/bconnorwhite/bob/compare/v2.6.1...v2.6.2) (2020-09-27)
 
 
