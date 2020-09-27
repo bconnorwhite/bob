@@ -1,3 +1,14 @@
+## [2.6.1](https://github.com/bconnorwhite/bob/compare/v2.6.0...v2.6.1) (2020-09-27)
+
+
+### Bug Fixes
+
+* fix missing newlines in readme init ([7a9c42f](https://github.com/bconnorwhite/bob/commit/7a9c42f8794ce404766d3dfaf7f0a1293c66309b))
+* init github after git init ([23750a4](https://github.com/bconnorwhite/bob/commit/23750a4364a8a3ee9c8df7fa0fddc43d94f1271f))
+* log errors from coveralls release ([1691155](https://github.com/bconnorwhite/bob/commit/16911559c043376a9515b476feb6082994c947fa))
+
+
+
 # [2.6.0](https://github.com/bconnorwhite/bob/compare/v2.5.2...v2.6.0) (2020-09-27)
 
 
