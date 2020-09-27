@@ -41,9 +41,7 @@ export function start({ dev, ignore = [] }: StartArgs) {
         });
       });
     }));
-    const { source, types } = watch();
-    promises.push(source);
-    promises.push(types);
+    promises.push(watch());
   } else {
     promises.push(exec({
       command: "node",

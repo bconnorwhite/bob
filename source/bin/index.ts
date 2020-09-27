@@ -9,6 +9,7 @@ import {
   commitCommand,
   testCommand,
   lintCommand,
+  prereleaseCommand,
   listCommand,
   countCommand,
   dockerCommand
@@ -23,6 +24,7 @@ program(__dirname)
   .addCommand(devCommand)
   .addCommand(lintCommand)
   .addCommand(testCommand)
+  .addCommand(prereleaseCommand)
   .addCommand(commitCommand)
   .addCommand(dockerCommand)
   .addCommand(countCommand)

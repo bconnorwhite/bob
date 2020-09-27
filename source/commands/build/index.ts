@@ -51,15 +51,16 @@ export function clean(extension: string) {
   extensions.push(extension);
 }
 
-export function build(args: BuildArgs): BuildResult {
-  return {
-    source: buildSource(args),
-    types: buildTypes(args)
-  }
+export function build(args: BuildArgs) {
+  return Promise.all([
+    buildSource(args),
+    buildTypes(args)
+  ]);
 }
 
 export function buildAction(args: BuildArgs) {
-  const { source, types } = build(args);
+  const source = buildSource(args);
+  const types = buildTypes(args);
   buildSourceOutputHandler(source).then(() => {
     buildTypesOutputHandler(types);
   });

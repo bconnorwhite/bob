@@ -44,6 +44,7 @@ import startCommand, { start, startAction, StartArgs } from "./start";
 import devCommand, { dev, devAction, DevArgs } from "./dev";
 import commitCommand, { commit, commitAction } from "./commit";
 import testCommand, { test, testAction } from "./test";
+import prereleaseCommand from "./prerelease";
 import lintCommand, {
   lint,
   lintAction,
@@ -132,5 +133,6 @@ export {
   listAction,
   count,
   countCommand,
-  countAction
+  countAction,
+  prereleaseCommand
 }
