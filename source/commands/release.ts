@@ -28,6 +28,8 @@ async function getVersion(packageName = "", oldVersion = "1.0.0", releaseType: c
     } else {
       return oldVersion;
     }
+  }).catch(() => {
+    return false;
   });
 }
 
