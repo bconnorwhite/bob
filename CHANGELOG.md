@@ -1,3 +1,90 @@
+# [2.6.0](https://github.com/bconnorwhite/bob/compare/v2.5.2...v2.6.0) (2020-09-27)
+
+
+### Bug Fixes
+
+* add test as a typescript rootDir ([fd3b071](https://github.com/bconnorwhite/bob/commit/fd3b07135ec49a36bf8221bac2d20b1305db03be))
+* fix coveralls init issue ([7047396](https://github.com/bconnorwhite/bob/commit/70473963db27d7154ddf80ffef3ad8a32398f11a))
+* readme init update ([b83cf8f](https://github.com/bconnorwhite/bob/commit/b83cf8fe67f3cd9c56ae7c3b049d617f6674cc3b))
+* tsconfig rootDir issue ([f31aa60](https://github.com/bconnorwhite/bob/commit/f31aa60e210f02f47d6fbc0268450d1f5fde619f))
+
+
+### Features
+
+* add remote origin on GitHub init ([920b74b](https://github.com/bconnorwhite/bob/commit/920b74b0c1dc64e5157dab1bc15fdefd6e6ff125))
+* coveralls init ([8fae0aa](https://github.com/bconnorwhite/bob/commit/8fae0aa8c51128a7d64e66cd2a314cda9adb0cf3))
+* prerelease command ([09338ed](https://github.com/bconnorwhite/bob/commit/09338edc09baa1981b6302d6700532a150a0b870))
+* publish command ([2835f33](https://github.com/bconnorwhite/bob/commit/2835f3337055cda7e2b19b9dafd6ef04936f21b5))
+* release command ([006fb80](https://github.com/bconnorwhite/bob/commit/006fb80cc286f649c7c16db5c4da49be3e704486))
+* save twitterHandle to configstore ([ab8a6bf](https://github.com/bconnorwhite/bob/commit/ab8a6bfe13253a01cad7ec9198d6ef97e4508cb8))
+* star GitHub repo for good luck ([1e27b20](https://github.com/bconnorwhite/bob/commit/1e27b20f7e3803c01f0eff727678f55603ea520b))
+
+
+
+## [2.5.2](https://github.com/bconnorwhite/bob/compare/v2.5.1...v2.5.2) (2020-09-26)
+
+
+### Bug Fixes
+
+* issue with init in repo without org ([04ac552](https://github.com/bconnorwhite/bob/commit/04ac5529c88882e801836b0c67d91fb607de9283))
+
+
+
+## [2.5.1](https://github.com/bconnorwhite/bob/compare/v2.5.0...v2.5.1) (2020-09-26)
+
+
+### Bug Fixes
+
+* fix init prompt issues ([e78c0a6](https://github.com/bconnorwhite/bob/commit/e78c0a6a7a48e9814aff5b1133f721b88866d530))
+
+
+
+# [2.5.0](https://github.com/bconnorwhite/bob/compare/v2.4.2...v2.5.0) (2020-09-26)
+
+
+### Bug Fixes
+
+* add .env to gitignore init ([ab5bcf6](https://github.com/bconnorwhite/bob/commit/ab5bcf6e9237a13b7b9265ce25ddc5b77e72b70b))
+* fix declaration output path ([aded3b5](https://github.com/bconnorwhite/bob/commit/aded3b5b34a7b02561313b5845e45792287fa3a1))
+* lint commit env fix ([15de40c](https://github.com/bconnorwhite/bob/commit/15de40c4ccd77aeb54a83da7b1de705aef0f50f0))
+* set rootDir in tsconfig ([f03d8a0](https://github.com/bconnorwhite/bob/commit/f03d8a05a758d3645fac2cb71527ea98e797cae7))
+* support babel class properties ([8e7e8b3](https://github.com/bconnorwhite/bob/commit/8e7e8b332284f74e4ec5f6cb2a5603defb86afd7))
+* update structure ([5156ea9](https://github.com/bconnorwhite/bob/commit/5156ea9ea6a4646b2080d547a3db0e751e3d012e))
+
+
+### Features
+
+* add lint commit command ([0c27cd4](https://github.com/bconnorwhite/bob/commit/0c27cd448074ac2b78860d421f6f5cef3373d595))
+* allow types as type root directory ([4926983](https://github.com/bconnorwhite/bob/commit/492698359ad6986290c9b800688586ffd8cf5425))
+* commit command ([c122430](https://github.com/bconnorwhite/bob/commit/c1224305263a8c5129a53dcce3e91788234b9332))
+* github init ([80bd57c](https://github.com/bconnorwhite/bob/commit/80bd57c60ef9d54c28ebbc92f46159f4941b4d9b))
+* lint commit messages with husky ([4bc2b05](https://github.com/bconnorwhite/bob/commit/4bc2b054e4fb3daf9249636b0b5c26342188cbb9))
+* save package.json init to configstore ([2dd62ee](https://github.com/bconnorwhite/bob/commit/2dd62ee73219e750c17db0955c3d054acdd64469))
+* test command ([00cf7fc](https://github.com/bconnorwhite/bob/commit/00cf7fc9f6f29c58c2238242809b6e426575eb8b))
+* use github top languages in README init ([7f95b5a](https://github.com/bconnorwhite/bob/commit/7f95b5a105855acf375d3b3d4036e4af069575eb))
+
+
+
+## [2.4.2](https://github.com/bconnorwhite/bob/compare/v2.4.1...v2.4.2) (2020-09-23)
+
+
+### Bug Fixes
+
+* include .cz.json ([94d33e0](https://github.com/bconnorwhite/bob/commit/94d33e0cf11b730fb9cef5ecd6d7b6e43c767ff0))
+
+
+
+## [2.4.1](https://github.com/bconnorwhite/bob/compare/v2.4.0...v2.4.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* remove .cz.json after commit ([829fa82](https://github.com/bconnorwhite/bob/commit/829fa82a13853e1c1fa826cb67aaf6d4869724b4))
+* update lint rules ([e8704b9](https://github.com/bconnorwhite/bob/commit/e8704b91513fff3ee1a5f7ef615c59eaa363bfac))
+* update yarn.lock ([05dd1d2](https://github.com/bconnorwhite/bob/commit/05dd1d2e8207b6e81b457942b6915eab15081895))
+
+
+
 # [2.4.0](https://github.com/bconnorwhite/bob/compare/v2.3.1...v2.4.0) (2020-09-22)
 
 
