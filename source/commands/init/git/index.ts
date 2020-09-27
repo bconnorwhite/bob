@@ -5,23 +5,22 @@ import initGitignoreCommand, { initGitignoreAction, initGitignore } from "./giti
 import initGitHubCommand, { initGitHubAction, initGitHub, InitGitHubArgs } from "./github";
 
 export async function initGit() {
-  return Promise.all([
-    initGitHub(),
-    initGitignore().then(() => {
-      if(!isGitRepo()) {
-        return exec({
-          command: "git",
-          args: [
-            "init", {
-              quiet: true
-            }
-          ]
-        });
-      } else {
-        return undefined;
-      }
-    })
-  ]);
+  return initGitignore().then(() => {
+    if(!isGitRepo()) {
+      return exec({
+        command: "git",
+        args: [
+          "init", {
+            quiet: true
+          }
+        ]
+      }).then(() => {
+        return initGitHub();
+      });
+    } else {
+      return undefined;
+    }
+  });
 }
 
 export async function initGitAction() {
