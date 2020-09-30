@@ -1,10 +1,34 @@
+# [2.7.0](https://github.com/bconnorwhite/bob/compare/v2.6.3...v2.7.0) (2020-09-30)
+
+
+### Bug Fixes
+
+* add quotes to lint source output ([80013c7](https://github.com/bconnorwhite/bob/commit/80013c75eda11000d25ab09753cab6ee6e46002b))
+* add support for publishing from yarn and pnpm ([5c89a80](https://github.com/bconnorwhite/bob/commit/5c89a801331141f834957d182769baf5fa67c3aa))
+* added spinner for test command ([ab89d40](https://github.com/bconnorwhite/bob/commit/ab89d409db27c08465d68dc3a5df1b527a82ed56))
+* adjust build spinner output text ([abebb71](https://github.com/bconnorwhite/bob/commit/abebb71c8a3f26099d2ed8fa42cd73ce9af1e697))
+* allow lint commit without husky env being set ([c553c1e](https://github.com/bconnorwhite/bob/commit/c553c1eaedaacc60cb1264f214d8b3ac2129bfe5))
+* fix husky commit-msg command ([a838a87](https://github.com/bconnorwhite/bob/commit/a838a871d622f0df7e9639089d28636f7d055352))
+* fix issue with sending coverage to Coveralls ([29c6ff6](https://github.com/bconnorwhite/bob/commit/29c6ff6955aa23529eb2fe9b41a1485e605c807a))
+* fix package json lint rules ([1db8c5e](https://github.com/bconnorwhite/bob/commit/1db8c5e61743c05b78dc4ce4311b837cffd7aa05))
+* fix to pushing tags ([626fc8c](https://github.com/bconnorwhite/bob/commit/626fc8ce90e16bf1c9772b8e96e15061d8761500))
+
+
+### Features
+
+* add editorconfig ([4488ac5](https://github.com/bconnorwhite/bob/commit/4488ac527b7414f9b0050213b07a4e6f5183d3d6))
+* added init test command ([a5fb90d](https://github.com/bconnorwhite/bob/commit/a5fb90d289f4b12d42ca7995bd03f2589fc33407))
+* lint test command ([1b67f38](https://github.com/bconnorwhite/bob/commit/1b67f38e34454505e0cc92c5fc6b2a1219cad93e))
+
+
+
 ## [2.6.3](https://github.com/bconnorwhite/bob/compare/v2.6.2...v2.6.3) (2020-09-27)
 
 
 ### Bug Fixes
 
-* fix version error on release ([4b3e796](https://github.com/bconnorwhite/bob/commit/4b3e7962a21735c00db84a23eed0198204d79e0e))
 * catch error from version exists ([60026b6](https://github.com/bconnorwhite/bob/commit/60026b69f4d184ecca7b534389305d980b271e72))
+* fix version error on release ([4b3e796](https://github.com/bconnorwhite/bob/commit/4b3e7962a21735c00db84a23eed0198204d79e0e))
 * remove extra newline when initializing gitignore ([a7f674d](https://github.com/bconnorwhite/bob/commit/a7f674de9e365be13d3d7eca8b4aef405817c595))
 
 
