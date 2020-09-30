@@ -11,7 +11,7 @@ import { updateChangelog } from "./update";
 import { Octokit } from "@octokit/rest";
 import Coveralls from "coveralls-api";
 import { getModuleName, getRepoName } from "../utils";
-import versionExists from "version-exists";
+import hasVersion from "has-version";
 
 function getReleaseType() {
   return new Promise((resolve: (value?: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) => void) => {
@@ -24,14 +24,12 @@ function getReleaseType() {
 const firstVersion = "1.0.0";
 
 async function getVersion(packageName = "", version = firstVersion, releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
-  return versionExists(packageName, version).then((exists) => {
+  return hasVersion(packageName, version).then((exists) => {
     if(exists) {
       return inc(version, releaseType) ?? firstVersion;
     } else {
       return version;
     }
-  }).catch(() => { // Package does not exist
-    return version;
   });
 }
 
