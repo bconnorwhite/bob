@@ -21,10 +21,12 @@ function getReleaseType() {
   })
 }
 
-async function getVersion(packageName = "", version = "1.0.0", releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
+const firstVersion = "1.0.0";
+
+async function getVersion(packageName = "", version = firstVersion, releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
   return versionExists(packageName, version).then((exists) => {
     if(exists) {
-      return inc(version, releaseType) ?? "1.0.0";
+      return inc(version, releaseType) ?? firstVersion;
     } else {
       return version;
     }
