@@ -40,6 +40,7 @@
   "files": [
     "build",
     ".cz.json",
+    ".editorconfig",
     "babel.config.json",
     "tsconfig.json"
   ],

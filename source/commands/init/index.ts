@@ -7,6 +7,7 @@ import initReadmeCommand, { initReadmeAction, initReadme } from "./readme";
 import initCommitizenCommand, { initCommitizenAction, initCommitizen, InitCommitizenArgs } from "./commitizen";
 import initCoverallsCommand, { initCoveralls } from "./coveralls";
 import initTestCommand, { initTest } from "./test";
+import initEditorConfigCommand, { initEditorConfig } from "./editorconfig";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -16,6 +17,7 @@ export async function init({ index }: InitArgs = {}) {
     initSource({ index }),
     initTest(),
     initTSConfig(),
+    initEditorConfig(),
     initPackageJSON().then(async () => {
       return initGit().then(async () => {
         return initCoveralls().then(() => {
@@ -31,7 +33,7 @@ export function initAction() {
 }
 
 export default createCommand("init")
-  .description("initialize source, test, package.json, .gitignore, tsconfig.json, README.md, .cz.json")
+  .description("initialize source, test, package.json, .gitignore, tsconfig.json, README.md, .cz.json, .editorconfig")
   .addCommand(initSourceCommand)
   .addCommand(initTestCommand)
   .addCommand(initPackageJSONCommand)
@@ -40,6 +42,7 @@ export default createCommand("init")
   .addCommand(initReadmeCommand)
   .addCommand(initCommitizenCommand)
   .addCommand(initCoverallsCommand)
+  .addCommand(initEditorConfigCommand)
   .action(initAction);
 
 export {

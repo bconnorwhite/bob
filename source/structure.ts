@@ -69,6 +69,9 @@ const structure = defineAs({
     name: ".cz.json",
     type: "json"
   },
+  editorConfig: {
+    name: ".editorconfig"
+  },
   env: {
     name: ".env"
   },
@@ -131,6 +134,10 @@ export function getTypesDir() {
 
 export function getCommitizenConfig() {
   return structure.files().commitizenConfig as File<JSONObject>;
+}
+
+export function getEditorConfig() {
+  return structure.files().editorConfig as File<string>;
 }
 
 export function getEnv() {
