@@ -191,6 +191,6 @@ export async function initReadmeAction() {
   initReadme();
 }
 
-export default createCommand("package-json")
-  .description("initialize package.json")
+export default createCommand("readme")
+  .description("initialize README.md")
   .action(initReadmeAction);
