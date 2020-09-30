@@ -30,13 +30,13 @@ export function buildSource(args: BuildArgs) {
 }
 
 export async function buildSourceOutputHandler(promise: Promise<ExecResult>) {
-  const sourceSpinner = ora(`Compiling from '${getSourceDir().relative}'...`).start();
+  const sourceSpinner = ora(`Building from '${getSourceDir().relative}'...`).start();
   return promise.then((result) => {
     if(result.textError) {
       sourceSpinner.fail(result.textError);
       console.info(result.output);
     } else {
-      sourceSpinner.succeed(result.textOutput.replace("with Babel ", ""));
+      sourceSpinner.succeed(result.textOutput.replace("compiled", "built").replace("with Babel ", ""));
     }
   });
 }
