@@ -1,16 +1,16 @@
 import { createCommand } from "commander-version";
 import ora from "ora";
 import run from "package-run";
-import { getSourceDir } from "../../structure";
+import { getTestDir } from "../../structure";
 
 const warning = 'Warning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.';
 
-export async function lintSource() {
-  const source = getSourceDir().relative;
+export async function lintTest() {
+  const test = getTestDir().relative;
   return run({
     command: "eslint",
     args: [
-      source, {
+      test, {
         ext: ".ts,tsx"
       }
     ],
@@ -20,12 +20,12 @@ export async function lintSource() {
   });
 }
 
-export async function lintSourceAction() {
-  const source = getSourceDir().relative;
-  const spinner = ora(`Linting ${source}`).start();
-  return lintSource().then(({ output, error }) => {
+export async function lintTestAction() {
+  const test = getTestDir().relative;
+  const spinner = ora(`Linting '${test}'`).start();
+  return lintTest().then(({ output, error }) => {
     const cleanError = error.replace(warning, "");
-    const message = `Linted '${source}'`;
+    const message = `Linted '${test}'`;
     if(output || cleanError) {
       if(cleanError) {
         spinner.fail(message);
@@ -44,6 +44,6 @@ export async function lintSourceAction() {
   });
 }
 
-export default createCommand("source")
-  .description("lint source files with ESLint")
-  .action(lintSourceAction);
+export default createCommand("test")
+  .description("lint test files with ESLint")
+  .action(lintTestAction);
