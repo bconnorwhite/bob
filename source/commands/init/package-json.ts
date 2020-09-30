@@ -131,7 +131,7 @@ export async function initPackageJSON(args: InitPackageJSONArgs = {}) {
             build: pkgJSON?.scripts?.build ?? "bob build",
             commit: pkgJSON?.scripts?.commit ?? "bob commit",
             lint: pkgJSON?.scripts?.lint ?? "bob lint",
-            release: pkgJSON?.scripts?.release ?? "bob release",
+            release: pkgJSON?.scripts?.release ?? "bob publish",
             test: pkgJSON?.scripts?.test ?? "bob test"
           }),
           dependencies: pkgJSON?.dependencies,
