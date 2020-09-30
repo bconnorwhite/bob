@@ -1,8 +1,23 @@
 import { createCommand } from "commander-version";
-import { exec } from "@bconnorwhite/exec";
+import { exec, Args } from "@bconnorwhite/exec";
+
+export async function hasUpstream() {
+  return exec("git", ["rev-parse", {
+    "abbrev-ref": "master@{upstream}"
+  }], { silent: true }).then(({ textOutput }) => {
+    return textOutput === "origin/master";
+  });
+}
 
 export async function push() {
-  return exec("git", ["push"]).then(() => {
+  const args: Args = ["push"];
+  const setUpstream = !hasUpstream();
+  if(setUpstream) {
+    args.concat([{
+      "set-upstream": "origin"
+    }, "master"]);
+  }
+  return exec("git", args).then(() => {
     return exec("git", ["push", {
       tags: true
     }]);
