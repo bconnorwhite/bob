@@ -9,8 +9,8 @@ import { prerelease } from "./prerelease";
 import { getPackageJSON, getChangelog, getCoverageLCOV } from "../structure";
 import { updateChangelog } from "./update";
 import { Octokit } from "@octokit/rest";
+import Coveralls from "coveralls-api";
 import { getModuleName, getRepoName } from "../utils";
-import { handleInput } from "coveralls";
 import versionExists from "version-exists";
 
 function getReleaseType() {
@@ -39,15 +39,16 @@ async function getCommitSHA() {
   });
 }
 
-export async function sendToCoveralls(): Promise<void> {
-  return getCoverageLCOV().read().then(async (lcov = "") => {
-    return new Promise((resolve) => {
-      handleInput(lcov, (err) => {
-        if(err) {
-          console.error(err);
-        }
-        resolve();
-      });
+export async function sendToCoveralls(owner: string, repo: string, config?: ConfigStore) {
+  return prompt([{
+    type: "input",
+    name: "coverallsToken",
+    message: "Coveralls token:",
+    default: config?.get("coverallsToken")
+  }]).then((answers) => {
+    const coveralls = new Coveralls(answers.token);
+    return coveralls.postJob("github", owner, repo, {
+      lcov_path: getCoverageLCOV().path
     });
   });
 }
@@ -88,11 +89,12 @@ export async function release() {
                   });
                   const repoName = getRepoName(pkgJSON)?.split("/");
                   if(repoName && repoName.length > 1) {
+                    const [owner, repo] = repoName;
                     let issueNumber: number | undefined;
                     if(version === "1.0.0") {
                       await octokit.issues.create({
-                        owner: repoName[0],
-                        repo: repoName[1],
+                        owner,
+                        repo,
                         title: `Release ${tag}`
                       }).then((response) => {
                         issueNumber = response.data.number;
@@ -100,17 +102,17 @@ export async function release() {
                     }
                     await push();
                     const sha = await getCommitSHA();
-                    await sendToCoveralls();
+                    await sendToCoveralls(owner, repo, config);
                     await octokit.repos.createCommitStatus({
-                      owner: repoName[0],
-                      repo: repoName[1],
+                      owner,
+                      repo,
                       sha,
                       state: "success"
                     });
                     if(issueNumber !== undefined) {
                       return octokit.issues.update({
-                        owner: repoName[0],
-                        repo: repoName[1],
+                        owner,
+                        repo,
                         issue_number: issueNumber,
                         state: "closed"
                       });
