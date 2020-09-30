@@ -2,9 +2,11 @@ import { createCommand } from "commander-version";
 import { exec } from "@bconnorwhite/exec";
 
 export async function push() {
-  return exec("git", ["push", {
-    "follow-tags": true
-  }]);
+  return exec("git", ["push"]).then(() => {
+    return exec("git", ["push", {
+      tags: true
+    }]);
+  });
 }
 
 export async function pushAction() {
