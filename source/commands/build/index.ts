@@ -58,11 +58,11 @@ export function build(args: BuildArgs) {
   ]);
 }
 
-export function buildAction(args: BuildArgs) {
+export async function buildAction(args: BuildArgs) {
   const source = buildSource(args);
   const types = buildTypes(args);
-  buildSourceOutputHandler(source).then(() => {
-    buildTypesOutputHandler(types);
+  return buildSourceOutputHandler(source).then(() => {
+    return buildTypesOutputHandler(types);
   });
 }
 

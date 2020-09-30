@@ -11,7 +11,7 @@ export async function lint() {
 }
 
 export async function lintAction() {
-  lint();
+  return lint();
 }
 
 export default createCommand("lint")

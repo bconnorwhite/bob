@@ -1,14 +1,14 @@
 import { createCommand } from "commander-version";
-import { lint } from "./lint";
-import { build } from "./build";
-import { test } from "./test";
+import { lintAction } from "./lint";
+import { buildAction } from "./build";
+import { testAction } from "./test";
 
 export async function prerelease() {
-  return lint().then(async () => {
-    return build({
+  return lintAction().then(async () => {
+    return buildAction({
       silent: false
     }).then(() => {
-      return test();
+      return testAction();
     });
   });
 }
