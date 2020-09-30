@@ -56,7 +56,11 @@ const structure = defineAs({
     }
   },
   test: {
-    files: {}
+    files: {
+      index: {
+        name: "index.test.ts"
+      }
+    }
   },
   types: {
     files: {}
@@ -115,6 +119,10 @@ export function getSourceIndex() {
 
 export function getTestDir() {
   return structure.files().test as Directory;
+}
+
+export function getTestIndex() {
+  return getTestDir().files().index as File<string>;
 }
 
 export function getTypesDir() {

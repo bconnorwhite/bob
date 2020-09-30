@@ -6,6 +6,7 @@ import initTSConfigCommand, { initTSConfigAction, initTSConfig, InitTSConfigArgs
 import initReadmeCommand, { initReadmeAction, initReadme } from "./readme";
 import initCommitizenCommand, { initCommitizenAction, initCommitizen, InitCommitizenArgs } from "./commitizen";
 import initCoverallsCommand, { initCoveralls } from "./coveralls";
+import initTestCommand, { initTest } from "./test";
 
 export type InitArgs =
   & InitSourceArgs;
@@ -13,6 +14,7 @@ export type InitArgs =
 export async function init({ index }: InitArgs = {}) {
   return Promise.all([
     initSource({ index }),
+    initTest(),
     initTSConfig(),
     initPackageJSON().then(async () => {
       return initGit().then(async () => {
@@ -29,8 +31,9 @@ export function initAction() {
 }
 
 export default createCommand("init")
-  .description("initialize source, package.json, .gitignore, tsconfig.json, README.md, .cz.json")
+  .description("initialize source, test, package.json, .gitignore, tsconfig.json, README.md, .cz.json")
   .addCommand(initSourceCommand)
+  .addCommand(initTestCommand)
   .addCommand(initPackageJSONCommand)
   .addCommand(initGitCommand)
   .addCommand(initTSConfigCommand)
