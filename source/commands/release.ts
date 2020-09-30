@@ -42,7 +42,7 @@ async function getCommitSHA() {
 export async function sendToCoveralls(owner: string, repo: string, config?: ConfigStore) {
   return prompt([{
     type: "input",
-    name: "coverallsToken",
+    name: "token",
     message: "Coveralls token:",
     default: config?.get("coverallsToken")
   }]).then((answers) => {
