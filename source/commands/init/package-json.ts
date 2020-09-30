@@ -142,7 +142,7 @@ export async function initPackageJSON(args: InitPackageJSONArgs = {}) {
           },
           husky: pkgJSON?.husky ?? {
             hooks: {
-              "commit-msg": "bob commit lint"
+              "commit-msg": "bob lint commit"
             }
           },
           npmpackagejsonlint: pkgJSON?.npmpackagejsonlint ?? {
