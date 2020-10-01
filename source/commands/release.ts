@@ -42,7 +42,7 @@ export async function getVersion(packageName = "", version = firstVersion, relea
 }
 
 async function getCommitSHA() {
-  return exec("git", ["rev-parse", "HEAD"]).then(async (result) => {
+  return exec("git", ["rev-parse", "HEAD"], { silent: true }).then(async (result) => {
     return result.textOutput;
   });
 }
