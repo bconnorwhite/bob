@@ -58,7 +58,7 @@ export function build(args: BuildArgs) {
   ]);
 }
 
-export async function buildAction(args: BuildArgs) {
+export async function buildAction(args: BuildArgs = {}) {
   const source = buildSource(args);
   const types = buildTypes(args);
   return buildSourceOutputHandler(source).then(() => {

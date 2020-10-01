@@ -5,9 +5,7 @@ import { testAction } from "./test";
 
 export async function prerelease() {
   return lintAction().then(async () => {
-    return buildAction({
-      silent: false
-    }).then(() => {
+    return buildAction().then(() => {
       return testAction();
     });
   });
