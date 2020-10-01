@@ -6,12 +6,12 @@ import { getTestDir } from "../../structure";
 const warning = 'Warning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.';
 
 export async function lintTest() {
-  const test = getTestDir().relative;
   return run({
     command: "eslint",
     args: [
-      test, {
-        ext: ".ts,tsx"
+      getTestDir().relative, {
+        "ext": ".ts,tsx",
+        "no-error-on-unmatched-pattern": true
       }
     ],
     silent: true
