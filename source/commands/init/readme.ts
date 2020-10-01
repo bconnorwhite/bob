@@ -1,12 +1,11 @@
 import { prompt } from "inquirer";
-import ConfigStore from "configstore";
 import { createCommand } from "commander-version";
 import { Repository, Dependencies } from "types-pkg-json";
-import { pkg } from "@bconnorwhite/package";
+import { getPackageJSON } from "@bconnorwhite/package";
 import { getDescriptions } from "npm-description";
 import { getLicense } from "spdx-license";
 import join from "join-newlines";
-import { getModuleName } from "../../utils";
+import { getConfigStore } from "../../utils";
 import { getReadme } from "../../structure";
 
 function title(packageName: string) {
@@ -149,6 +148,7 @@ function getGitHubName(repo?: Repository) {
 }
 
 async function readmeString(packageName?: string, packageDescription?: string, gitHubName?: string, twitterHandle?: string) {
+  const pkg = await getPackageJSON().read();
   return Promise.all([
     Promise.resolve(dependencies(gitHubName, pkg?.dependencies)),
     Promise.resolve(peerDependencies(gitHubName, pkg?.peerDependencies)),
@@ -169,8 +169,7 @@ export async function initReadme() {
       // TODO: update
       return Promise.resolve();
     } else {
-      return getModuleName().then(async (moduleName) => {
-        const configstore = moduleName ? new ConfigStore(moduleName) : undefined;
+      return getConfigStore().then(async (configstore) => {
         return prompt([{
           type: "input",
           name: "twitterHandle",
@@ -178,6 +177,7 @@ export async function initReadme() {
           default: configstore?.get("twitterHandle")
         }]).then(async (answers) => {
           configstore?.set("twitterHandle", answers.twitterHandle);
+          const pkg = await getPackageJSON().read();
           return readmeString(pkg?.name, pkg?.description, getGitHubName(pkg?.repository), answers.twitterHandle).then((text) => {
             return readme.write(text);
           });
