@@ -1,3 +1,16 @@
+## [2.8.1](https://github.com/bconnorwhite/bob/compare/v2.8.0...v2.8.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* avoid error when lint has unmatched pattern ([5c785d1](https://github.com/bconnorwhite/bob/commit/5c785d15025cc9850dbb7005844eb512c819841d))
+* fixed issue causing init of empty tsconfig ([ded14c2](https://github.com/bconnorwhite/bob/commit/ded14c232855988cd7b5517cc35b1d2ebd78b15d))
+* read fresh package.json on README init ([69b0e4d](https://github.com/bconnorwhite/bob/commit/69b0e4d5a162ad7a7c3a08da5c3f8fd0a5a64c71))
+* save coveralls token after prompt in release command ([9a4eaee](https://github.com/bconnorwhite/bob/commit/9a4eaee1fdf0d7d65dd4432475ee6f593baaf826))
+* silence commit sha output ([8c5ad53](https://github.com/bconnorwhite/bob/commit/8c5ad5361f0c6db391262f0c6e4e71924adcd313))
+
+
+
 # [2.8.0](https://github.com/bconnorwhite/bob/compare/v2.7.0...v2.8.0) (2020-10-01)
 
 
