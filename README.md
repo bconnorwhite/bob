@@ -6,6 +6,9 @@
   <a href="https://github.com/bconnorwhite/bob">
     <img alt="typescript" src="https://img.shields.io/github/languages/top/bconnorwhite/bob.svg">
   </a>
+  <a href='https://coveralls.io/github/bconnorwhite/bob?branch=master'>
+    <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/bconnorwhite/bob.svg?branch=master">
+  </a>
   <a href="https://github.com/bconnorwhite/bob">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/bconnorwhite/bob?label=Stars%20Appreciated%21&style=social">
   </a>
@@ -56,7 +59,7 @@ For multiple environments, use:
   - `./docker/${NODE_ENV}/docker-compose.yml`
   - `./docker/${NODE_ENV}/Dockerfile`
 
-`bob docker build` will build the appropriate Dockerfile based on `NODE_ENV`.  
+`bob docker build` will build the appropriate Dockerfile based on `NODE_ENV`.
 `bob docker up` will start docker-compose with the appropriate YAML file based on `NODE_ENV`.
 
 `NODE_ENV` may be defined in `.env` or passed to bob on the command line.
@@ -301,7 +304,7 @@ import {
   devCommand,
   dockerCommand,
   countCommand,
-  listCommand 
+  listCommand
 } from "@bconnorwhite/bob";
 
 // These can easily be used as commander commands
