@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import ConfigStore from "configstore";
 import { getPackageJSON } from "@bconnorwhite/module";
 import { PackageJSON } from "@bconnorwhite/package";
 
@@ -15,6 +16,12 @@ export function getRepoName(pkgJSON?: PackageJSON) {
   } else {
     return undefined;
   }
+}
+
+export async function getConfigStore() {
+  return getModuleName().then(async (moduleName) => {
+    return moduleName ? new ConfigStore(moduleName) : undefined;
+  });
 }
 
 export async function getModuleName(defaultName?: string): Promise<string | undefined> {

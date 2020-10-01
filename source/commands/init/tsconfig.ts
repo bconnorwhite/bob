@@ -1,33 +1,16 @@
 import { createCommand } from "commander-version";
-import { TSConfigJSON } from "types-tsconfig";
-import { getTSConfig, getSourceDir, getTestDir, getTypesDir } from "../../structure";
+import { updateTSConfig, UpdateTSConfigArgs } from "../update/tsconfig";
+import { getTSConfig } from "../../structure";
 
-export type InitTSConfigArgs = {
-  config: TSConfigJSON;
-}
+export type InitTSConfigArgs = UpdateTSConfigArgs;
 
-const defaultConfig: InitTSConfigArgs = {
-  config: {
-    extends: "@bconnorwhite/bob",
-    compilerOptions: {
-      rootDirs: [
-        getSourceDir().relative,
-        getTestDir().relative,
-        getTypesDir().relative
-      ]
-    },
-    include: [
-      getSourceDir().relative,
-      getTypesDir().relative
-    ]
-  }
-};
-
-export async function initTSConfig({ config }: InitTSConfigArgs = defaultConfig) {
+export async function initTSConfig(args: InitTSConfigArgs = {}) {
   const tsconfig = getTSConfig();
   return tsconfig.exists().then((exists) => {
     if(!exists) {
-      tsconfig.write(config);
+      return updateTSConfig(args);
+    } else {
+      return undefined;
     }
   });
 }
