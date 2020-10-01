@@ -23,12 +23,20 @@ function getReleaseType() {
 
 const firstVersion = "1.0.0";
 
-async function getVersion(packageName = "", version = firstVersion, releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
-  return hasVersion(packageName, version).then((exists) => {
-    if(exists) {
+export async function getVersion(packageName = "", version = firstVersion, releaseType: conventionalRecommendedBump.Callback.Recommendation.ReleaseType) {
+  return hasVersion(packageName, version).then((npmExists) => {
+    if(npmExists) {
       return inc(version, releaseType) ?? firstVersion;
     } else {
-      return version;
+      return exec("git", ["show-ref", {
+        tags: `refs/tags/v${version}`
+      }], { silent: true }).then(({ textOutput }) => {
+        if(textOutput) {
+          return inc(version, releaseType) ?? firstVersion;
+        } else {
+          return version;
+        }
+      });
     }
   });
 }
