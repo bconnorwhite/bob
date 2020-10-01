@@ -50,11 +50,12 @@ async function getCommitSHA() {
 export async function sendToCoveralls(owner: string, repo: string, config?: ConfigStore) {
   return prompt([{
     type: "input",
-    name: "token",
+    name: "coverallsToken",
     message: "Coveralls token:",
     default: config?.get("coverallsToken")
   }]).then((answers) => {
-    const coveralls = new Coveralls(answers.token);
+    config?.set("coverallsToken", answers.coverallsToken);
+    const coveralls = new Coveralls(answers.coverallsToken);
     return coveralls.postJob("github", owner, repo, {
       lcov_path: getCoverageLCOV().path
     });
