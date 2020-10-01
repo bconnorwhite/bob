@@ -1,3 +1,25 @@
+# [2.8.0](https://github.com/bconnorwhite/bob/compare/v2.7.0...v2.8.0) (2020-10-01)
+
+
+### Bug Fixes
+
+* also check git tags before bumping version ([7d79c62](https://github.com/bconnorwhite/bob/commit/7d79c62700b0a8d509c2bc48c22424524ac6ca6c))
+* clean up prerelease output ([a631c55](https://github.com/bconnorwhite/bob/commit/a631c551f5280669f2fcd7e32fc6afb380a2d3f3))
+* default release script to publish ([139ac65](https://github.com/bconnorwhite/bob/commit/139ac6532391b3e65444ba10073f6673d035ddc4))
+* fix init readme command naming issue ([967b865](https://github.com/bconnorwhite/bob/commit/967b865b5c7897731d771e5b22c8c0fc09345468))
+* fix issue setting coveralls token in release ([60700a4](https://github.com/bconnorwhite/bob/commit/60700a4593ca4305bad5c3fc5aebc779074c4f07))
+* fix warning message in release output ([046eaa7](https://github.com/bconnorwhite/bob/commit/046eaa79165861f9da449d032a3c5bb52b2916e8))
+* reorder imports in test init ([6425152](https://github.com/bconnorwhite/bob/commit/6425152cdd6f06e16c5974d9cab39c27d4e7a2d9))
+* set upstream during push if necessary ([e72612c](https://github.com/bconnorwhite/bob/commit/e72612c0c785618d365da1baeda2cf843ea8daea))
+* use actions in prerelease for better output ([9a9de15](https://github.com/bconnorwhite/bob/commit/9a9de15c66f23b2c7549ad000867cee6ff834beb))
+
+
+### Features
+
+* added update commands ([6215152](https://github.com/bconnorwhite/bob/commit/6215152f16e017ae2e97015c571aaf26a60deff7))
+
+
+
 # [2.7.0](https://github.com/bconnorwhite/bob/compare/v2.6.3...v2.7.0) (2020-09-30)
 
 
