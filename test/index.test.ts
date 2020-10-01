@@ -9,4 +9,3 @@ test("list", () => {
     expect(Array.isArray(result)).toBe(true);
   });
 });
-
