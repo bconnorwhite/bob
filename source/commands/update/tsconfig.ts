@@ -6,24 +6,22 @@ export type UpdateTSConfigArgs = {
   config?: TSConfigJSON;
 }
 
-const defaultConfig: UpdateTSConfigArgs = {
-  config: {
-    extends: "@bconnorwhite/bob",
-    compilerOptions: {
-      rootDirs: [
-        getSourceDir().relative,
-        getTypesDir().relative
-      ]
-    },
-    include: [
+const defaultConfig: TSConfigJSON = {
+  extends: "@bconnorwhite/bob",
+  compilerOptions: {
+    rootDirs: [
       getSourceDir().relative,
       getTypesDir().relative
     ]
-  }
-};
+  },
+  include: [
+    getSourceDir().relative,
+    getTypesDir().relative
+  ]
+}
 
-export async function updateTSConfig({ config }: UpdateTSConfigArgs = defaultConfig) {
-  return getTSConfig().merge(config);
+export async function updateTSConfig({ config }: UpdateTSConfigArgs = {}) {
+  return getTSConfig().merge(config ?? defaultConfig);
 }
 
 export function updateTSConfigAction() {
