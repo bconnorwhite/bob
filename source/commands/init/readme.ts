@@ -74,10 +74,10 @@ function description(packageDescription?: string) {
 function installation(packageName?: string) {
   if(packageName) {
     return "## Installation\n\n" +
-    "```bash\n" +
+    "```sh\n" +
     `yarn add ${packageName}\n` +
     "```\n\n" +
-    "```bash\n" +
+    "```sh\n" +
     `npm install ${packageName}\n` +
     "```\n\n";
   } else {
