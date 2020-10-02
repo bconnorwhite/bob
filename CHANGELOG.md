@@ -1,3 +1,22 @@
+# [2.9.0](https://github.com/bconnorwhite/bob/compare/v2.8.1...v2.9.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* add DS_Store to gitignore ([55c9ae2](https://github.com/bconnorwhite/bob/commit/55c9ae2f913dd240ea9a77e317ffaad962b39cb3))
+* add replace ts export plugin ([cc47c49](https://github.com/bconnorwhite/bob/commit/cc47c497702618d09aa0ede84330a09316ca4203))
+* fix issue pushing with set upstream ([49de628](https://github.com/bconnorwhite/bob/commit/49de628d8d14ce69e27e2b2b7cb278af215c3e47))
+* fix relative typeRoots issue ([d8c6063](https://github.com/bconnorwhite/bob/commit/d8c60637ad4dba53fc9b7d40bfb5cb5eafe778aa))
+* make spinner output more consistent ([bc1f8b8](https://github.com/bconnorwhite/bob/commit/bc1f8b85f253f2607e878d23da0136b659635e55))
+* use sh instead of bash in README ([7564993](https://github.com/bconnorwhite/bob/commit/7564993e44193587b9ad714a40206b7be1f7c2be))
+
+
+### Features
+
+* add shebang to bin files on build ([662c135](https://github.com/bconnorwhite/bob/commit/662c135a461ad1089898d84529c44d5c57415457))
+
+
+
 ## [2.8.1](https://github.com/bconnorwhite/bob/compare/v2.8.0...v2.8.1) (2020-10-01)
 
 
