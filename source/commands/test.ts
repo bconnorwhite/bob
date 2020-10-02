@@ -20,7 +20,7 @@ export async function test() {
 }
 
 export async function testAction() {
-  const spinner = ora("Running tests").start();
+  const spinner = ora("Running tests...").start();
   return test().then(({ output, error }) => {
     spinner.stop();
     if(output) {

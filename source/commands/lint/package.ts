@@ -15,7 +15,7 @@ export async function lintPackage() {
 
 export async function lintPackageAction() {
   const pkgJSON = getPackageJSON().relative;
-  const spinner = ora(`Linting '${pkgJSON}'`).start();
+  const spinner = ora(`Linting '${pkgJSON}'...`).start();
   return lintPackage().then(({ error, output }) => {
     const message = `Linted '${pkgJSON}'`;
     if(output || error) {

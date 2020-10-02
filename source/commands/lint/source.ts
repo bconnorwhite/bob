@@ -22,7 +22,7 @@ export async function lintSource() {
 
 export async function lintSourceAction() {
   const source = getSourceDir().relative;
-  const spinner = ora(`Linting '${source}'`).start();
+  const spinner = ora(`Linting '${source}'...`).start();
   return lintSource().then(({ output, error }) => {
     const cleanError = error.replace(warning, "");
     const message = `Linted '${source}'`;
