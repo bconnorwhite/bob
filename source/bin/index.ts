@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import program from "commander-version";
 import {
   initCommand,

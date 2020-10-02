@@ -14,5 +14,6 @@
   "plugins": [
     "babel-plugin-replace-ts-export-assignment",
     "@babel/plugin-proposal-class-properties",
+    "babel-plugin-bin-shebang"
   ]
 }
