@@ -13,7 +13,7 @@ export async function push() {
   const args: Args = ["push"];
   const setUpstream = !hasUpstream();
   if(setUpstream) {
-    args.concat([{
+    args.push(...[{
       "set-upstream": "origin"
     }, "master"]);
   }
