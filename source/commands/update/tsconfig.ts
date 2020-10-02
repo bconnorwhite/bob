@@ -12,6 +12,10 @@ const defaultConfig: TSConfigJSON = {
     rootDirs: [
       getSourceDir().relative,
       getTypesDir().relative
+    ],
+    typeRoots: [
+      "node_modules/@types",
+      getTypesDir().relative
     ]
   },
   include: [
