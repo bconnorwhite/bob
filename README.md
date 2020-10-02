@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/male-construction-worker_1f477-200d-2642-fe0f.png" srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/male-construction-worker_1f477-200d-2642-fe0f.png 2x" alt="Man Construction Worker on Apple iOS 13.3" width="120" height="120">
   <h1>@bconnorwhite/bob</h1>
   <a href="https://npmjs.com/package/@bconnorwhite/bob">
     <img alt="npm" src="https://img.shields.io/npm/v/@bconnorwhite/bob.svg">
