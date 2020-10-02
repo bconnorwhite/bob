@@ -9,6 +9,7 @@ export async function updateGitignore() {
       `/${getBuildDir().relative}`,
       `/${getCoverageDir().relative}`,
       "node_modules",
+      ".DS_Store",
       `${getEnv().relative}`,
       `${yarn ? "yarn-error.log" : ""}`
     ]));
