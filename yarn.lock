@@ -3619,10 +3619,10 @@ escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-bob@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-bob/-/eslint-config-bob-1.1.1.tgz#4c46f4f13898efcae2c4461f5c8333279e2265b6"
-  integrity sha512-W3SPzvz+ZSX2vPu6ijVxBnBsjp7UYhixzr8iPITlazaXzT3TySSPoIHU4gZhcshqz4fQp804ughGy8wl7npCBQ==
+eslint-config-bob@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-bob/-/eslint-config-bob-1.2.0.tgz#e88acc3c51610597173df0e8baabfa2065f7c2bd"
+  integrity sha512-4fLyBdCbW2Wl3cUHDO/t51DHe77zBfUZzWkWJrcN/LfKHnLoZDv1sq/KYt9Z4oovJkPkSKV/8MUZ6BEzM2Bc2w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
