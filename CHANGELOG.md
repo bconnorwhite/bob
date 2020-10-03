@@ -1,3 +1,12 @@
+## [2.9.1](https://github.com/bconnorwhite/bob/compare/v2.9.0...v2.9.1) (2020-10-03)
+
+
+### Bug Fixes
+
+* update linting rules ([c9f4c8f](https://github.com/bconnorwhite/bob/commit/c9f4c8f3a79e9812907a9779b642846065287794))
+
+
+
 # [2.9.0](https://github.com/bconnorwhite/bob/compare/v2.8.1...v2.9.0) (2020-10-02)
 
 
