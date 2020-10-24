@@ -20,7 +20,7 @@
 
 <br />
 
-> Bob is a toolkit for typescript projects.
+> Bob is a toolkit for TypeScript projects.
 
 Bob provides a set of tools for developing TypeScript projects for both Node and the browser (React) without having to think about `tsc` or `babel`.
 
