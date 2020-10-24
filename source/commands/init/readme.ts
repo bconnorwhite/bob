@@ -30,8 +30,8 @@ function gitHubLanguages(gitHubName: string) {
 
 function coveralls(gitHubName: string) {
   return join([
-    `  <a href='https://coveralls.io/github/${gitHubName}?branch=master'>`,
-    `    <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/${gitHubName}.svg?branch=master">`,
+    `  <a href="https://coveralls.io/github/${gitHubName}?branch=master">`,
+    `    <img alt="Coverage Status" src="https://coveralls.io/repos/github/${gitHubName}.svg?branch=master">`,
     "  </a>"
   ], true);
 }
