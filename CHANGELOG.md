@@ -1,3 +1,12 @@
+## [2.9.4](https://github.com/bconnorwhite/bob/compare/v2.9.3...v2.9.4) (2021-03-30)
+
+
+### Bug Fixes
+
+* browserslist ([3ca9da6](https://github.com/bconnorwhite/bob/commit/3ca9da6faa8eb615fbb5f32a1d9da70363bbab6b))
+
+
+
 ## [2.9.3](https://github.com/bconnorwhite/bob/compare/v2.9.2...v2.9.3) (2021-03-30)
 
 
