@@ -1,3 +1,13 @@
+## [2.9.3](https://github.com/bconnorwhite/bob/compare/v2.9.2...v2.9.3) (2021-03-30)
+
+
+### Bug Fixes
+
+* bumped eslint-config-bob version ([5874cd2](https://github.com/bconnorwhite/bob/commit/5874cd2f24b621f18b683e6f368979c5182f6b0d))
+* dependency bumps ([23aad50](https://github.com/bconnorwhite/bob/commit/23aad500185b65c5ce2227708bbb92a2d532e458))
+
+
+
 ## [2.9.2](https://github.com/bconnorwhite/bob/compare/v2.9.1...v2.9.2) (2020-10-03)
 
 
