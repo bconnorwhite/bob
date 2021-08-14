@@ -1,3 +1,7 @@
+## [2.9.5](https://github.com/bconnorwhite/bob/compare/v2.9.4...v2.9.5) (2021-08-14)
+
+
+
 ## [2.9.4](https://github.com/bconnorwhite/bob/compare/v2.9.3...v2.9.4) (2021-03-30)
 
 
