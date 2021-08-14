@@ -7,7 +7,7 @@ export function getEnv() {
   return {
     NODE_ENV: process.env.NODE_ENV,
     ...dotenv.config().parsed
-  }
+  };
 }
 
 export function getRepoName(pkgJSON?: PackageJSON) {

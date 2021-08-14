@@ -41,4 +41,4 @@ export {
   initGitHubAction,
   initGitHub,
   InitGitHubArgs
-}
+};

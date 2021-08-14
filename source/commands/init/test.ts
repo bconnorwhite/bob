@@ -3,7 +3,7 @@ import { getTestIndex } from "../../structure";
 
 export type InitTestArgs = {
   index?: string;
-}
+};
 
 export async function initTest({ index }: InitTestArgs = { index: 'import { test, expect } from "@jest/globals";' }) {
   const testIndex = getTestIndex();

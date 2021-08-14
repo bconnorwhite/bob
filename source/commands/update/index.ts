@@ -18,4 +18,4 @@ export {
   updateEditorConfig,
   updateEditorConfigAction,
   updateEditorConfigCommand
-}
+};

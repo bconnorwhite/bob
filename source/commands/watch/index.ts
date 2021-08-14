@@ -27,4 +27,4 @@ export {
   watchTypesCommand,
   watchTypesAction,
   watchTypes
-}
+};

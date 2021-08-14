@@ -4,7 +4,7 @@ import { getTSConfig, getSourceDir, getTypesDir } from "../../structure";
 
 export type UpdateTSConfigArgs = {
   config?: TSConfigJSON;
-}
+};
 
 const defaultConfig: TSConfigJSON = {
   extends: "@bconnorwhite/bob",
@@ -22,7 +22,7 @@ const defaultConfig: TSConfigJSON = {
     getSourceDir().relative,
     getTypesDir().relative
   ]
-}
+};
 
 export async function updateTSConfig({ config }: UpdateTSConfigArgs = {}) {
   return getTSConfig().merge(config ?? defaultConfig);

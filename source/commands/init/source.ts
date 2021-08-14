@@ -3,7 +3,7 @@ import { getSourceIndex } from "../../structure";
 
 export type InitSourceArgs = {
   index?: string;
-}
+};
 
 export async function initSource({ index }: InitSourceArgs) {
   const sourceIndex = getSourceIndex();

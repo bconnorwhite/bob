@@ -106,7 +106,7 @@ function dependencies(gitHubName?: string, packages?: Dependencies) {
 function devDependencies(gitHubName?: string, packages?: Dependencies) {
   if(gitHubName && packages && Object.keys(packages).length > 0) {
     return packageList(packages).then((list) => {
-      return `<br />\n\n<h2>Dev Dependencies<img align="right" alt="David" src="https://img.shields.io/david/dev/${gitHubName}.svg"></h2>\n\n${list}\n`
+      return `<br />\n\n<h2>Dev Dependencies<img align="right" alt="David" src="https://img.shields.io/david/dev/${gitHubName}.svg"></h2>\n\n${list}\n`;
     });
   } else {
     return "";
@@ -181,7 +181,7 @@ export async function initReadme() {
           return readmeString(pkg?.name, pkg?.description, getGitHubName(pkg?.repository), answers.twitterHandle).then((text) => {
             return readme.write(text);
           });
-        })
+        });
       });
     }
   });

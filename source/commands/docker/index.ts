@@ -16,4 +16,4 @@ export {
   dockerUpAction,
   dockerUp,
   DockerUpArgs
-}
+};

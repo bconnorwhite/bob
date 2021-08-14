@@ -10,7 +10,7 @@ export type InitCommitizenArgs = {
       };
     };
   }
-}
+};
 
 export async function initCommitizen(args: InitCommitizenArgs = {}) {
   const commitizenConfig = getCommitizenConfig();

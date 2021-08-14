@@ -16,7 +16,7 @@ export type BuildArgs = {
 export type BuildResult = {
   source: Promise<ExecResult>;
   types: Promise<ExecResult>;
-}
+};
 
 let watcher: FSWatcher;
 const extensions: string[] = [];
@@ -81,4 +81,4 @@ export {
   buildTypesCommand,
   buildTypesAction,
   buildTypes
-}
+};

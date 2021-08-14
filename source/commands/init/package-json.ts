@@ -8,7 +8,7 @@ import { getModuleName } from "../../utils";
 
 type InitPackageJSONArgs = {
   configPackageName?: string;
-}
+};
 
 function except(a: PackageJSON = {}, b: PackageJSON = {}) {
   return Object.keys(a).reduce((retval, key) => {
@@ -16,7 +16,7 @@ function except(a: PackageJSON = {}, b: PackageJSON = {}) {
       return {
         ...retval,
         [key]: a[key]
-      }
+      };
     } else {
       return retval;
     }

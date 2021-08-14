@@ -41,7 +41,7 @@ const structure = defineAs({
       if(env) {
         return {
           [env]: dockerDefinition
-        }
+        };
       } else {
         return dockerDefinition.files;
       }
@@ -167,6 +167,6 @@ export {
   Directory,
   File,
   getPackageJSON
-}
+};
 
 export default structure;

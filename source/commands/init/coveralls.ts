@@ -7,7 +7,7 @@ import { getModuleName, getRepoName } from "../../utils";
 
 export type InitCoverallsArgs = {
   configPackageName?: string;
-}
+};
 
 export async function initCoveralls(args: InitCoverallsArgs = {}) {
   return getPackageJSON().read().then((pkgJSON) => {

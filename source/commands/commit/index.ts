@@ -18,7 +18,7 @@ import commitRevertCommand from "./revert";
 export type CommitArgs = {
   message: string;
   scope?: string;
-}
+};
 
 export function getScope(scope?: string) {
   if(scope) {

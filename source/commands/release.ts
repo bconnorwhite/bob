@@ -18,7 +18,7 @@ function getReleaseType() {
     conventionalRecommendedBump({ preset: "angular" }, (_error, { releaseType }) => {
       resolve(releaseType);
     });
-  })
+  });
 }
 
 const firstVersion = "1.0.0";

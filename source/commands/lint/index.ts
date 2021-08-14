@@ -33,4 +33,4 @@ export {
   lintCommit,
   lintCommitAction,
   LintCommitArgs
-}
+};

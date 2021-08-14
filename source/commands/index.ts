@@ -139,4 +139,4 @@ export {
   prereleaseCommand,
   releaseCommand,
   publishCommand
-}
+};

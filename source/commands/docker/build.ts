@@ -11,7 +11,7 @@ export type DockerBuildArgs = {
   ver?: boolean;
   latest?: boolean;
   environment?: string;
-}
+};
 
 function execBuild(context: string, tag: string[], file?: string, env?: NodeJS.ProcessEnv) {
   return exec({

@@ -3,11 +3,11 @@ import run from "package-run";
 
 export type LintCommitArgs = {
   env?: string;
-}
+};
 
 function getEnv() {
   if(process.env.HUSKY_GIT_PARAMS) {
-    return "HUSKY_GIT_PARAMS"
+    return "HUSKY_GIT_PARAMS";
   } else {
     process.env.BOB_GIT_PARAMS = ".git/COMMIT_EDITMSG";
     return "BOB_GIT_PARAMS";

@@ -19,7 +19,7 @@ function getCommand({ watch, silent = true }: BuildArgs) {
       }
     ],
     silent
-  }
+  };
 }
 
 export function buildSource(args: BuildArgs) {
@@ -43,7 +43,7 @@ export async function buildSourceOutputHandler(promise: Promise<ExecResult>) {
 
 export function buildSourceAction(args: BuildArgs) {
   if(args.debug) {
-    executableToString(getCommand(args)).then((value) => console.info(value))
+    executableToString(getCommand(args)).then((value) => console.info(value));
   } else {
     buildSourceOutputHandler(buildSource(args));
   }

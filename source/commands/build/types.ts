@@ -1,6 +1,6 @@
 import ora from "ora";
 import { createCommand } from "commander-version";
-import run, { executableToString, ExecResult } from "package-run"
+import run, { executableToString, ExecResult } from "package-run";
 import { getBuildDir } from "../../structure";
 import { clean, BuildArgs } from "./";
 

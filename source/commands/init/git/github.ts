@@ -9,7 +9,7 @@ import { getModuleName } from "../../../utils";
 
 export type InitGitHubArgs = {
   configPackageName?: string;
-}
+};
 
 export async function initGitHub(args: InitGitHubArgs = {}) {
   if(isGitRepo()) {

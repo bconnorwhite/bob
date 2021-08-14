@@ -7,7 +7,7 @@ import { getEnv } from "../../utils";
 export type DockerUpArgs = {
   detach?: boolean;
   environment?: string;
-}
+};
 
 export function dockerUp({ detach = true, environment }: DockerUpArgs) {
   const env = getEnv();

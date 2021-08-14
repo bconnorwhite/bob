@@ -23,7 +23,7 @@ export async function init({ index }: InitArgs = {}) {
         return initCoveralls().then(() => {
           return initReadme();
         });
-      })
+      });
     })
   ]);
 }
@@ -68,4 +68,4 @@ export {
   initCommitizenAction,
   initCommitizen,
   InitCommitizenArgs
-}
+};
